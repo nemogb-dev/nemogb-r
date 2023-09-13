@@ -13,13 +13,7 @@
     <loc>https://gradebook-dev.github.io/gradebook/index.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/add.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/assignments_gs.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/convert_to_min.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/delete_category.html</loc>
@@ -34,7 +28,7 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/process_student_id.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/process_id.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/update_category.html</loc>
