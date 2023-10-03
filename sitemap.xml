@@ -13,6 +13,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/articles/nested-group_bys.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/articles/work_flow.html</loc>
   </url>
   <url>
@@ -23,6 +26,15 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/assignments_gs.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/check_cat_names.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/check_names.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/check_values.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/delete_category.html</loc>

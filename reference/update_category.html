@@ -25,6 +25,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">Example with GS Demo Data</a>
+    <a class="dropdown-item" href="../articles/nested-group_bys.html">How to implement nested grouped operations?</a>
     <a class="dropdown-item" href="../articles/work_flow.html">General Work Flow</a>
   </div>
 </li>
@@ -57,6 +58,7 @@
 <span>  late_time2 <span class="op">=</span> <span class="st">"00:00:00"</span>,</span>
 <span>  late_scale1 <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  late_scale2 <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  after <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  weight <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  drops <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  weight_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"equally"</span>, <span class="st">"by_points"</span><span class="op">)</span>,</span>
@@ -93,6 +95,10 @@
 
 <dt>late_scale2</dt>
 <dd><p>scale for second lateness policy.</p></dd>
+
+
+<dt>after</dt>
+<dd><p>whether late_scale1/late_scale2 is applied after or until late_time1/late_time2</p></dd>
 
 
 <dt>weight</dt>
@@ -144,6 +150,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$late_scale2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$weight</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -179,6 +188,9 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$late_scale2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]$weight</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
