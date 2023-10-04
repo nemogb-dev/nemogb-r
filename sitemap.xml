@@ -31,6 +31,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_cat_names.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/check_colnames.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_data_names.html</loc>
   </url>
   <url>
@@ -46,6 +49,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_cat_index.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/get_duplicate_ids.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/gs_demo.html</loc>
   </url>
   <url>
@@ -56,6 +62,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/policy_demo.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/process_assignments.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/process_id.html</loc>
