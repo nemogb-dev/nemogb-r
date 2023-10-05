@@ -40,6 +40,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_names.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/convert_to_min.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/create_assigns_table.html</loc>
   </url>
   <url>
@@ -47,6 +50,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/delete_category.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/drop_na_assignments.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_cat_index.html</loc>
@@ -59,6 +65,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/intermediary_computations.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_gs.html</loc>
