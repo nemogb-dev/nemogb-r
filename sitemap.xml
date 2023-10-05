@@ -7,6 +7,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/LICENSE-text.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/articles/format-policy-file.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/articles/gs-demo-walkthrough.html</loc>
   </url>
   <url>
@@ -14,9 +17,6 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/articles/nested-group_bys.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/policy_demo.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/articles/work_flow.html</loc>
