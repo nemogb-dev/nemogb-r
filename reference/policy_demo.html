@@ -106,8 +106,188 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">yaml</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/yaml/man/as.yaml.html" class="external-link">as.yaml</a></span><span class="op">(</span><span class="va">policy_demo</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "coursewide:\n  course_name: Demo Course\n  description: This is a demo class dataset to demonstrate the app.\ncategories:\n- name: Labs\n  slipdays: 0.0\n  late_time1: '00:00:00'\n  late_time2: '00:00:01'\n  late_scale1: 1.0\n  late_scale2: 0.0\n  after: yes\n  weight: 55.0\n  drops: 2.0\n  weighted_method:\n  - equally\n  - by_points\n  clobber: None\n  assigns:\n  - lab_1\n  - lab_2\n  - lab_3\n  - lab_4\n  - lab_5\n  - lab_6\n- name: Discussions\n  slipdays: 0.0\n  late_time1: '00:00:01'\n  late_time2: '00:00:00'\n  late_scale1: 1.0\n  late_scale2: 0.0\n  after: yes\n  weight: 10.0\n  drops: 0.0\n  weighted_method:\n  - equally\n  - by_points\n  clobber: None\n  assigns:\n  - discussion_1\n  - discussion_2\n- name: Midterm\n  slipdays: 0.0\n  late_time1: '00:00:01'\n  late_time2: '00:00:00'\n  late_scale1: 1.0\n  late_scale2: 0.0\n  after: yes\n  weight: 15.0\n  drops: 0.0\n  weighted_method:\n  - equally\n  - by_points\n  clobber: None\n  assigns: midterm\n- name: Final\n  slipdays: 0.0\n  late_time1: '00:00:01'\n  late_time2: '00:00:00'\n  late_scale1: 1.0\n  late_scale2: 0.0\n  after: yes\n  weight: 20.0\n  drops: 0.0\n  weighted_method:\n  - equally\n  - by_points\n  clobber: None\n  assigns: final\ncutoff:\n  A: 90.0\n  B: 80.0\n  C: 70.0\n  D: 60.0\n  F: 0.0\n"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">policy_demo</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $coursewide</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $coursewide$course_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Demo Course"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $coursewide$description</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "This is a demo class dataset to demonstrate the app."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Labs"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$slipdays</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$late_time1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$late_time2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$late_scale1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$late_scale2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$weight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$drops</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$weighted_method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "equally"   "by_points"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$clobber</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "None"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[1]]$assigns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Discussions"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$slipdays</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$late_time1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$late_time2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$late_scale1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$late_scale2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$weight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$drops</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$weighted_method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "equally"   "by_points"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$clobber</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "None"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[2]]$assigns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "discussion_1" "discussion_2"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Midterm"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$slipdays</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$late_time1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$late_time2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$late_scale1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$late_scale2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$weight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$drops</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$weighted_method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "equally"   "by_points"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$clobber</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "None"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[3]]$assigns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "midterm"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Final"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$slipdays</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$late_time1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$late_time2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "00:00:00"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$late_scale1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$late_scale2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$after</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$weight</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$drops</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$weighted_method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "equally"   "by_points"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$clobber</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "None"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $categories[[4]]$assigns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "final"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff$A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff$B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 80</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff$C</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff$D</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cutoff$F</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># yaml:as_yaml(policy_demo)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
