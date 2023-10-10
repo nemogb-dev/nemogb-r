@@ -47,7 +47,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Get the ID Columns for Gradescope Data</h1>
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/HEAD/R/validate-gs.R" class="external-link"><code>R/validate-gs.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/HEAD/R/process-gs.R" class="external-link"><code>R/process-gs.R</code></a></small>
       <div class="d-none name"><code>get_id_cols.Rd</code></div>
     </div>
 
@@ -75,30 +75,15 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#gradebook gradescope demo data:</span></span></span>
-<span class="r-in"><span><span class="va">gs_demo</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 44</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Names               Email           SID Sections `Lab 1` `Lab 1 - Max Points`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 38 more variables: `Lab 1 - Submission Time` &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 1 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 2` &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 2 - Max Points` &lt;dbl&gt;, `Lab 2 - Submission Time` &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 2 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 3` &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 3 - Max Points` &lt;dbl&gt;, `Lab 3 - Submission Time` &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 3 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 4` &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Lab 4 - Max Points` &lt;dbl&gt;, `Lab 4 - Submission Time` &lt;chr&gt;, …</span></span>
-<span class="r-in"><span><span class="va">id_columns</span> <span class="op">&lt;-</span> <span class="fu">get_id_cols</span><span class="op">(</span><span class="va">gs_demo</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are Names, Email, SID, and Sections</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>name <span class="op">=</span> <span class="st">'name'</span>,</span></span>
+<span class="r-in"><span>email <span class="op">=</span> <span class="st">'email'</span>,</span></span>
+<span class="r-in"><span>sid <span class="op">=</span> <span class="st">'343432'</span>,</span></span>
+<span class="r-in"><span>`PS 1_-_Raw_Score` <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>`PS 1_-_Max_points` <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>`PS 1_-_Submission_time` <span class="op">=</span> <span class="st">'1/21/2023 10:00:00 AM'</span>,</span></span>
+<span class="r-in"><span>`PS 1-_-Lateness_(h_m_s)` <span class="op">=</span> <span class="st">'0:00:00'</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
