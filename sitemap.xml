@@ -64,6 +64,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/drop_na_assignments.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/drops.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_cat_index.html</loc>
   </url>
   <url>
@@ -79,7 +82,7 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/intermediary_computations.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/lateness.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_gs.html</loc>
