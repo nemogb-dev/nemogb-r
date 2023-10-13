@@ -373,32 +373,46 @@ column.</p></li>
 <p>Set up a map that will iterate over a list of every category and
 subcategory starting with the leaves of the tree. Essentially like
 this:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ps-1</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ps_1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by_points</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_1_written</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_1_code</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ps-2</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> ps_2</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by_points</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_2_written</span></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_2_code</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> problem sets</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> problem_sets</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps-1</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps-2</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_1</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_2</span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> exam</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> final exam</span></span></code></pre></div>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> final_exam</span></span></code></pre></div>
+</li>
+<li>
+<p>The operation that we want to enable is something like this:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ps_1 <span class="op">=</span> <span class="fu">by_points</span><span class="op">(</span><span class="va">ps_1_written</span>, <span class="va">ps_1_code</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>ps_2 <span class="op">=</span> <span class="fu">by_points</span><span class="op">(</span><span class="va">ps_2_written</span>, <span class="va">ps_2_code</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>problem_sets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">ps_1</span>, <span class="va">ps2</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>exam <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">final_exam</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>course_grade <span class="op">=</span> <span class="fu">weighted_sum</span><span class="op">(</span><span class="va">problem_sets</span>, <span class="va">weights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Note that this won’t quite work as written. <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code>
+wants to do column-wise operations, so <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code>, for example,
+won’t work as intended. It’s possible <code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code> is
+the solution (we’d start our pipe with it).</p>
 </li>
 <li>
 <p>The map would be something like (I forget map syntax):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(policy_list, <span class="fu">mutate</span>(x<span class="sc">$</span><span class="at">category =</span> x<span class="sc">$</span><span class="fu">aggregation</span>(gs_wide, <span class="at">cols =</span> x<span class="sc">$</span>assignments)))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(policy_list, <span class="fu">mutate</span>(x<span class="sc">$</span><span class="at">category =</span> x<span class="sc">$</span><span class="fu">aggregation</span>(gs_wide, <span class="at">cols =</span> x<span class="sc">$</span>assignments)))</span></code></pre></div>
 </li>
 <li><p>I’m not quite sure how to get the output of a given iteration
-accessible to the next iteration (so that <code>ps-1</code> can get
+accessible to the next iteration (so that <code>ps_1</code> can get
 passed to <code>ps</code>), but the general idea is just to tack columns
 onto the right side of <code>gs_wide</code>.</p></li>
 </ol>
