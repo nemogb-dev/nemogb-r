@@ -102,9 +102,9 @@ figure out:</p>
 <p><em>How should we implement functions that will allow for an
 arbitrary number of nested groupings and arbitrary aggregation
 functions?</em></p>
-<div class="section level4">
-<h4 id="definitions">Definitions<a class="anchor" aria-label="anchor" href="#definitions"></a>
-</h4>
+<div class="section level5">
+<h5 id="definitions">Definitions<a class="anchor" aria-label="anchor" href="#definitions"></a>
+</h5>
 <p><strong>Category</strong></p>
 <p>A set of assignments and/or other categories along with an
 aggregation function. Aggregation can include number of drops and a
@@ -117,9 +117,9 @@ lateness penalty.</p>
 <li>Max</li>
 </ol>
 </div>
-<div class="section level3">
-<h3 id="the-demo-data-set">The demo data set<a class="anchor" aria-label="anchor" href="#the-demo-data-set"></a>
-</h3>
+<div class="section level4">
+<h4 id="the-demo-data-set">The demo data set<a class="anchor" aria-label="anchor" href="#the-demo-data-set"></a>
+</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -270,12 +270,12 @@ lateness penalty.</p>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> group version c</span></span>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="at">            </span><span class="kw">-</span><span class="at"> group version d</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="policy-a">Policy A<a class="anchor" aria-label="anchor" href="#policy-a"></a>
-</h3>
 <div class="section level4">
-<h4 id="i--hardcode-scores">I. Hardcode scores<a class="anchor" aria-label="anchor" href="#i--hardcode-scores"></a>
+<h4 id="policy-a">Policy A<a class="anchor" aria-label="anchor" href="#policy-a"></a>
 </h4>
+<div class="section level5">
+<h5 id="i--hardcode-scores">I. Hardcode scores<a class="anchor" aria-label="anchor" href="#i--hardcode-scores"></a>
+</h5>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grades_a</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>score <span class="op">=</span> <span class="va">pts_earned</span> <span class="op">/</span> <span class="va">pts_max</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -292,12 +292,12 @@ lateness penalty.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 5211              0.746</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="policy-b">Policy B<a class="anchor" aria-label="anchor" href="#policy-b"></a>
-</h3>
 <div class="section level4">
-<h4 id="i--hardcode-scores-1">I. Hardcode scores<a class="anchor" aria-label="anchor" href="#i--hardcode-scores-1"></a>
+<h4 id="policy-b">Policy B<a class="anchor" aria-label="anchor" href="#policy-b"></a>
 </h4>
+<div class="section level5">
+<h5 id="i--hardcode-scores-1">I. Hardcode scores<a class="anchor" aria-label="anchor" href="#i--hardcode-scores-1"></a>
+</h5>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grades_b</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">student_id</span>, <span class="va">category</span>, <span class="va">subcategory</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -320,9 +320,9 @@ lateness penalty.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 5211              0.746</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="questions">Questions<a class="anchor" aria-label="anchor" href="#questions"></a>
-</h3>
+<div class="section level4">
+<h4 id="questions">Questions<a class="anchor" aria-label="anchor" href="#questions"></a>
+</h4>
 <ol style="list-style-type: decimal">
 <li><p>Can this be made more general by replacing the
 <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> step with the inclusion of a <code>weights</code>
@@ -340,6 +340,72 @@ and append them to the list? Said another way, should we be using
 <code><a href="https://dplyr.tidyverse.org/reference/group_map.html" class="external-link">group_map()</a></code>, or <code>nest()</code> from
 <code>tidyr</code>?</p></li>
 </ol>
+</div>
+<div class="section level2">
+<h2 id="second-try">Second Try<a class="anchor" aria-label="anchor" href="#second-try"></a>
+</h2>
+<p>Here is an attempt at solving the nested categories by doing a few
+things. As an example, consider this simple nested policy:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> exam</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> final exam</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> problem sets</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ps-1</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> ps_1_written</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> ps_1_code</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ps-2</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> ps_2_written</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="kw">-</span><span class="at"> ps_2_code</span></span></code></pre></div>
+<p>The idea would be:</p>
+<ol style="list-style-type: decimal">
+<li><p>Keeping the grade data in wide instead of tall form, where the
+post-lateness grade for every assignment can be found in a
+column.</p></li>
+<li>
+<p>Set up a map that will iterate over a list of every category and
+subcategory starting with the leaves of the tree. Essentially like
+this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ps-1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_1_written</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_1_code</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> ps-2</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> by points</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_2_written</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps_2_code</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> problem sets</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps-1</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> ps-2</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> exam</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> mean</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> final exam</span></span></code></pre></div>
+</li>
+<li>
+<p>The map would be something like (I forget map syntax):</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(policy_list, <span class="fu">mutate</span>(x<span class="sc">$</span><span class="at">name =</span> x<span class="sc">$</span><span class="fu">aggregation</span>(gs_wide, <span class="at">cols =</span> x<span class="sc">$</span>assignments)))</span></code></pre></div>
+</li>
+<li><p>I’m not quite sure how to get the output of a given iteration
+accessible to the next iteration (so that <code>ps-1</code> can get
+passed to <code>ps</code>), but the general idea is just to tack columns
+onto the right side of <code>gs_wide</code>.</p></li>
+</ol>
+<p>There will be some conversions that need to happen to be sure each of
+those bits of data in the policy file are passed as their appropriate
+things (a name, a function, a data frame, column names). The package
+<code>rlang</code> will be helpful here.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
