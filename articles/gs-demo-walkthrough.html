@@ -294,7 +294,8 @@ this information includes lateness penalties, how the assignments are
 weighted within the category and how categories are weighted in the
 overall grade. Finally, the cutoffs describe the lower cutoff for each
 letter grade. For example, if the cutoff for a “A” is 90, a student
-earns an “A” if their overall grade is at least 90%.</p>
+earns an “A” if their overall grade is at least 90%. Below is the demo
+policy file found within the package.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span></span>
 <span><span class="co">#&gt; $coursewide</span></span>
@@ -476,6 +477,118 @@ earns an “A” if their overall grade is at least 90%.</p>
 <span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
 </div>
 <div class="section level3">
+<h3 id="creating-a-policy-file">Creating a Policy File<a class="anchor" aria-label="anchor" href="#creating-a-policy-file"></a>
+</h3>
+<p>Any empty policy file can be created with the
+<code><a href="../reference/create_empty_policy_file.html">create_empty_policy_file()</a></code> function, which takes a single
+numeric input to specify how many categories this policy file has. The
+function defaults to just one category. This returns a list with the
+correct policy-file formatting and default values for all inputs.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_empty_policy_file.html">create_empty_policy_file</a></span><span class="op">(</span>num_cat <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $coursewide</span></span>
+<span><span class="co">#&gt; $coursewide$course_name</span></span>
+<span><span class="co">#&gt; [1] "Course Name"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $coursewide$description</span></span>
+<span><span class="co">#&gt; [1] "cours description"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories</span></span>
+<span><span class="co">#&gt; $categories[[1]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$name</span></span>
+<span><span class="co">#&gt; [1] "Category 1"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
+<span><span class="co">#&gt; NULL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]</span></span>
+<span><span class="co">#&gt; $categories[[2]]$name</span></span>
+<span><span class="co">#&gt; [1] "Category 2"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
+<span><span class="co">#&gt; NULL</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff</span></span>
+<span><span class="co">#&gt; $cutoff$A</span></span>
+<span><span class="co">#&gt; [1] 90</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$B</span></span>
+<span><span class="co">#&gt; [1] 80</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$C</span></span>
+<span><span class="co">#&gt; [1] 70</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$D</span></span>
+<span><span class="co">#&gt; [1] 60</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$F</span></span>
+<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+</div>
+<div class="section level3">
 <h3 id="check_names">check_names()<a class="anchor" aria-label="anchor" href="#check_names"></a>
 </h3>
 <p>This function validates that the policy file has the right format in
@@ -483,7 +596,7 @@ terms of names and nesting. If there is incorrect formatting, it returns
 an error with information about what formatting is missing. If the
 policy file is correctly formatted, it returns the policy file as is in
 order to make these functions pipeable.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $coursewide</span></span>
@@ -677,7 +790,7 @@ Gradescope data and converting it into its pivotted format with
 <code><a href="../reference/pivot_gs.html">pivot_gs()</a></code> pipline as explained and demonstrated above. In
 this example, <code>pivot_df</code> is the pivotted result of
 <code>gs_demo</code> going thorugh this pipeline.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span></span>
@@ -866,7 +979,7 @@ this example, <code>pivot_df</code> is the pivotted result of
 assignment with its relevant category information. This is an
 intermediary table that makes it easier to combine the information from
 the policy file with the pivoted data from the Gradescope data.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -906,7 +1019,7 @@ the assignment’s grading criteria based on its respective category. The
 purpose of combining these two original inputs – the Gradescope data and
 the policy file – is to allow all following grading computations to
 utilize only one merged file.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
