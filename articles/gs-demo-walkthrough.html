@@ -80,11 +80,20 @@
 
     
     
+<p>This article walks through how this package is used to process
+student assignment scores according to the given syllabus. This workflow
+requires two inputs: student data (ideally from Gradescope) and a policy
+file.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gradebook-dev/gradebook" class="external-link">gradebook</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
-<h3 id="load-in-data">Load in data<a class="anchor" aria-label="anchor" href="#load-in-data"></a>
+<h3 id="load-in-student-data">Load in student data<a class="anchor" aria-label="anchor" href="#load-in-student-data"></a>
 </h3>
+<p>Student data is formatted according to Gradescope .csv format, where
+each unit of observation is a student and each individual assignment
+includes the student’s score, the maximum allowed points, the student’s
+submission timestamp and how late the student submitted (in HH:MM:SS
+format). Below is the Gradescope demo data found within the package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
@@ -108,7 +117,752 @@
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 4` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 4 - Max Points` &lt;dbl&gt;, `Lab 4 - Submission Time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
-  </main>
+<div class="section level3">
+<h3 id="check_colnames">check_colnames()<a class="anchor" aria-label="anchor" href="#check_colnames"></a>
+</h3>
+<p>This function changes all column names to lowercase for consistent
+data processing.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
+<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;hms&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;hms&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;hms&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="check_data_names">check_data_names()<a class="anchor" aria-label="anchor" href="#check_data_names"></a>
+</h3>
+<p>This function checks that the general formatting for the column names
+of the Gradescope data. This checks that all assignments are uniformly
+formatted by their raw points, the maximum points, the submission time
+and lateness. This also checks that the first few columns of the
+Gradescope data include ID columns used to identify students, such as
+student ID. If there is incorrect formatting, the function will return a
+relevant error. If not, this function returns the same dataframe in
+order for these functions to be pipeable.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
+<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;hms&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;hms&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;hms&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span>
+<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="process_id">process_id()<a class="anchor" aria-label="anchor" href="#process_id"></a>
+</h3>
+<p>This function drops any students with missing student IDs and merges
+any replicated students based on the following criteria. If the
+assignment cell is a datetime, it removes NAs and takes the last
+datetime. If the assignment cell is numeric, it takes the max. If the
+assignment cell is NA, leave as NA. If there are no issues on a student
+level, there is no change. The processed data is returned with no
+missing student IDs nor any duplicated students.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
+<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;drtn&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;drtn&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;drtn&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="process_assignments">process_assignments()<a class="anchor" aria-label="anchor" href="#process_assignments"></a>
+</h3>
+<p>This function removes any white spaces and special characters from
+column names. This cleans up column names for future processing.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
+<span><span class="co">#&gt;    names          email    sid sections `lab_1_-_raw_score` `lab_1_-_max_points`</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin      Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy    Bart… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae     Dr.D… 3.03<span style="color: #949494;">e</span>9 fake-cl…                  10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Con… Narc… 3.03<span style="color: #949494;">e</span>9 fake-cl…                  10                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderm… Vern… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting  Toiv… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   9                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks   Tega… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-… Tyru… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   2                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen   Sydn… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie   Mrs.… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab_1_-_submission_time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_max_points` &lt;dbl&gt;, `lab_2_-_submission_time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_max_points` &lt;dbl&gt;, `lab_3_-_submission_time` &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_4_-_max_points` &lt;dbl&gt;, `lab_4_-_submission_time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="pivot_gs">pivot_gs()<a class="anchor" aria-label="anchor" href="#pivot_gs"></a>
+</h3>
+<p>This function applies the pivot-longer function to allow for unit of
+observation be a student + individual assignment.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pivot_df</span> <span class="op">&lt;-</span> <span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/pivot_gs.html">pivot_gs</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span></span>
+<span><span class="va">pivot_df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 9</span></span></span>
+<span><span class="co">#&gt;    names  email    sid sections assignments raw_score max_points submission_time</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_1               9         10 1/19/23 22:20  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_2               5         20 9/21/22 23:54  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_3               7         15 1/24/23 20:38  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_4               9         10 1/26/23 19:51  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_5               0          5 1/31/23 18:59  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_6               4         10 2/2/23 12:16   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/7/23 20:53   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/10/23 0:49   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… midterm            44         50 2/14/23 21:06  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… final              10        100 1/20/23 15:13  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: `lateness_(h_m_s)` &lt;drtn&gt;</span></span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="load-in-policy-file">Load in policy file<a class="anchor" aria-label="anchor" href="#load-in-policy-file"></a>
+</h3>
+<p>The policy file is broken down into three separate parts: coursewide
+information, categories and cutoffs. Coursewide information includes the
+course name and a course description; this is purely for the user. Each
+category is a subset of the overall grade and includes information about
+how the scores of the assignments within the category are aggregated:
+this information includes lateness penalties, how the assignments are
+weighted within the category and how categories are weighted in the
+overall grade. Finally, the cutoffs describe the lower cutoff for each
+letter grade. For example, if the cutoff for a “A” is 90, a student
+earns an “A” if their overall grade is at least 90%.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_demo</span></span>
+<span><span class="co">#&gt; $coursewide</span></span>
+<span><span class="co">#&gt; $coursewide$course_name</span></span>
+<span><span class="co">#&gt; [1] "Demo Course"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $coursewide$description</span></span>
+<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories</span></span>
+<span><span class="co">#&gt; $categories[[1]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$name</span></span>
+<span><span class="co">#&gt; [1] "Labs"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
+<span><span class="co">#&gt; [1] 55</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]</span></span>
+<span><span class="co">#&gt; $categories[[2]]$name</span></span>
+<span><span class="co">#&gt; [1] "Discussions"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
+<span><span class="co">#&gt; [1] 10</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]</span></span>
+<span><span class="co">#&gt; $categories[[3]]$name</span></span>
+<span><span class="co">#&gt; [1] "Midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
+<span><span class="co">#&gt; [1] 15</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]</span></span>
+<span><span class="co">#&gt; $categories[[4]]$name</span></span>
+<span><span class="co">#&gt; [1] "Final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
+<span><span class="co">#&gt; [1] 20</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff</span></span>
+<span><span class="co">#&gt; $cutoff$A</span></span>
+<span><span class="co">#&gt; [1] 90</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$B</span></span>
+<span><span class="co">#&gt; [1] 80</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$C</span></span>
+<span><span class="co">#&gt; [1] 70</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$D</span></span>
+<span><span class="co">#&gt; [1] 60</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$F</span></span>
+<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="check_names">check_names()<a class="anchor" aria-label="anchor" href="#check_names"></a>
+</h3>
+<p>Description</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $coursewide</span></span>
+<span><span class="co">#&gt; $coursewide$course_name</span></span>
+<span><span class="co">#&gt; [1] "Demo Course"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $coursewide$description</span></span>
+<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories</span></span>
+<span><span class="co">#&gt; $categories[[1]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$name</span></span>
+<span><span class="co">#&gt; [1] "Labs"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
+<span><span class="co">#&gt; [1] 55</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]</span></span>
+<span><span class="co">#&gt; $categories[[2]]$name</span></span>
+<span><span class="co">#&gt; [1] "Discussions"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
+<span><span class="co">#&gt; [1] 10</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]</span></span>
+<span><span class="co">#&gt; $categories[[3]]$name</span></span>
+<span><span class="co">#&gt; [1] "Midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
+<span><span class="co">#&gt; [1] 15</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]</span></span>
+<span><span class="co">#&gt; $categories[[4]]$name</span></span>
+<span><span class="co">#&gt; [1] "Final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
+<span><span class="co">#&gt; [1] 20</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff</span></span>
+<span><span class="co">#&gt; $cutoff$A</span></span>
+<span><span class="co">#&gt; [1] 90</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$B</span></span>
+<span><span class="co">#&gt; [1] 80</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$C</span></span>
+<span><span class="co">#&gt; [1] 70</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$D</span></span>
+<span><span class="co">#&gt; [1] 60</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$F</span></span>
+<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="check_assignment_names">check_assignment_names()<a class="anchor" aria-label="anchor" href="#check_assignment_names"></a>
+</h3>
+<p>Description</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt; $coursewide</span></span>
+<span><span class="co">#&gt; $coursewide$course_name</span></span>
+<span><span class="co">#&gt; [1] "Demo Course"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $coursewide$description</span></span>
+<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories</span></span>
+<span><span class="co">#&gt; $categories[[1]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$name</span></span>
+<span><span class="co">#&gt; [1] "Labs"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
+<span><span class="co">#&gt; [1] 55</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]</span></span>
+<span><span class="co">#&gt; $categories[[2]]$name</span></span>
+<span><span class="co">#&gt; [1] "Discussions"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
+<span><span class="co">#&gt; [1] 10</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]</span></span>
+<span><span class="co">#&gt; $categories[[3]]$name</span></span>
+<span><span class="co">#&gt; [1] "Midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
+<span><span class="co">#&gt; [1] 15</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "midterm"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]</span></span>
+<span><span class="co">#&gt; $categories[[4]]$name</span></span>
+<span><span class="co">#&gt; [1] "Final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
+<span><span class="co">#&gt; [1] "00:00:01"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
+<span><span class="co">#&gt; [1] "00:00:00"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$after</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
+<span><span class="co">#&gt; [1] 20</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
+<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
+<span><span class="co">#&gt; [1] "None"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
+<span><span class="co">#&gt; [1] "final"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff</span></span>
+<span><span class="co">#&gt; $cutoff$A</span></span>
+<span><span class="co">#&gt; [1] 90</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$B</span></span>
+<span><span class="co">#&gt; [1] 80</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$C</span></span>
+<span><span class="co">#&gt; [1] 70</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$D</span></span>
+<span><span class="co">#&gt; [1] 60</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $cutoff$F</span></span>
+<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="create_assigns_table">create_assigns_table()<a class="anchor" aria-label="anchor" href="#create_assigns_table"></a>
+</h3>
+<p>Description</p>
+</div>
+<div class="section level3">
+<h3 id="data_merge_assigns">data_merge_assigns()<a class="anchor" aria-label="anchor" href="#data_merge_assigns"></a>
+</h3>
+<p>Description</p>
+</div>
+<div class="section level3">
+<h3 id="grading">Grading<a class="anchor" aria-label="anchor" href="#grading"></a>
+</h3>
+<p>TBD</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
