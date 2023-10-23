@@ -159,7 +159,12 @@ relevant error. If not, this function returns the same dataframe in
 order for these functions to be pipeable.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
 <span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -179,8 +184,25 @@ order for these functions to be pipeable.</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;hms&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;hms&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span>
-<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="drop_ungraded_assignments">drop_ungraded_assignments()<a class="anchor" aria-label="anchor" href="#drop_ungraded_assignments"></a>
+</h3>
+<p>This function drops any ungraded assignments. This is just to cut
+down on the size of the Gradescope data. It removes any assignments
+where the raw scores are all NAs for every student.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="process_id">process_id()<a class="anchor" aria-label="anchor" href="#process_id"></a>
@@ -192,11 +214,18 @@ datetime. If the assignment cell is numeric, it takes the max. If the
 assignment cell is NA, leave as NA. If there are no issues on a student
 level, there is no change. The processed data is returned with no
 missing student IDs nor any duplicated students.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
 <span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -223,12 +252,19 @@ missing student IDs nor any duplicated students.</p>
 </h3>
 <p>This function removes any white spaces and special characters from
 column names. This cleans up column names for future processing.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
 <span><span class="co">#&gt;    names          email    sid sections `lab_1_-_raw_score` `lab_1_-_max_points`</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -255,13 +291,20 @@ column names. This cleans up column names for future processing.</p>
 </h3>
 <p>This function applies the pivot-longer function to allow for unit of
 observation be a student + individual assignment.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pivot_df</span> <span class="op">&lt;-</span> <span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
+<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/pivot_gs.html">pivot_gs</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
+<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
 <span></span>
@@ -280,7 +323,7 @@ observation be a student + individual assignment.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… midterm            44         50 2/14/23 21:06  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… final              10        100 1/20/23 15:13  </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: `lateness_(h_m_s)` &lt;drtn&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: `lateness_(h_m_s)` &lt;chr&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="load-in-policy-file">Load in policy file<a class="anchor" aria-label="anchor" href="#load-in-policy-file"></a>
@@ -296,7 +339,7 @@ overall grade. Finally, the cutoffs describe the lower cutoff for each
 letter grade. For example, if the cutoff for a “A” is 90, a student
 earns an “A” if their overall grade is at least 90%. Below is the demo
 policy file found within the package.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span></span>
 <span><span class="co">#&gt; $coursewide</span></span>
 <span><span class="co">#&gt; $coursewide$course_name</span></span>
@@ -484,7 +527,7 @@ policy file found within the package.</p>
 numeric input to specify how many categories this policy file has. The
 function defaults to just one category. This returns a list with the
 correct policy-file formatting and default values for all inputs.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/create_empty_policy_file.html">create_empty_policy_file</a></span><span class="op">(</span>num_cat <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $coursewide</span></span>
 <span><span class="co">#&gt; $coursewide$course_name</span></span>
@@ -596,7 +639,7 @@ terms of names and nesting. If there is incorrect formatting, it returns
 an error with information about what formatting is missing. If the
 policy file is correctly formatted, it returns the policy file as is in
 order to make these functions pipeable.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $coursewide</span></span>
@@ -790,7 +833,7 @@ Gradescope data and converting it into its pivotted format with
 <code><a href="../reference/pivot_gs.html">pivot_gs()</a></code> pipline as explained and demonstrated above. In
 this example, <code>pivot_df</code> is the pivotted result of
 <code>gs_demo</code> going thorugh this pipeline.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span></span>
@@ -979,7 +1022,7 @@ this example, <code>pivot_df</code> is the pivotted result of
 assignment with its relevant category information. This is an
 intermediary table that makes it easier to combine the information from
 the policy file with the pivoted data from the Gradescope data.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -1019,7 +1062,7 @@ the assignment’s grading criteria based on its respective category. The
 purpose of combining these two original inputs – the Gradescope data and
 the policy file – is to allow all following grading computations to
 utilize only one merged file.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -1039,7 +1082,7 @@ utilize only one merged file.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… midterm            44         50 2/14/23 21:06  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… final              10        100 1/20/23 15:13  </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more variables: `lateness_(h_m_s)` &lt;drtn&gt;, category &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more variables: `lateness_(h_m_s)` &lt;chr&gt;, category &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   slipdays &lt;dbl&gt;, late_time1 &lt;chr&gt;, late_time2 &lt;chr&gt;, late_scale1 &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   late_scale2 &lt;dbl&gt;, after &lt;lgl&gt;, weights &lt;dbl&gt;, drops &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   weighted_method &lt;chr&gt;, clobber &lt;chr&gt;</span></span></span></code></pre></div>
