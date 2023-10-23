@@ -118,13 +118,13 @@ format). Below is the Gradescope demo data found within the package.</p>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 4 - Max Points` &lt;dbl&gt;, `Lab 4 - Submission Time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="check_colnames">check_colnames()<a class="anchor" aria-label="anchor" href="#check_colnames"></a>
+<h3 id="lower_colnames">lower_colnames()<a class="anchor" aria-label="anchor" href="#lower_colnames"></a>
 </h3>
 <p>This function changes all column names to lowercase for consistent
 data processing.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
 <span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -159,7 +159,7 @@ relevant error. If not, this function returns the same dataframe in
 order for these functions to be pipeable.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
 <span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -194,7 +194,7 @@ level, there is no change. The processed data is returned with no
 missing student IDs nor any duplicated students.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
@@ -225,7 +225,7 @@ missing student IDs nor any duplicated students.</p>
 column names. This cleans up column names for future processing.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -257,7 +257,7 @@ column names. This cleans up column names for future processing.</p>
 observation be a student + individual assignment.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pivot_df</span> <span class="op">&lt;-</span> <span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_colnames.html">check_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="co">#check_data_names() |&gt; need to add REGEX</span></span>
 <span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
