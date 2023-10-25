@@ -13,6 +13,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/articles/format-policy-file.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/articles/grade-calculations.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/articles/gs-demo-walkthrough.html</loc>
   </url>
   <url>
@@ -67,10 +70,22 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/drops.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/equally_weighted.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/extract_nested.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/flatten_policy.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_assignments_unprocessed_data.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_cat_index.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/get_category_grades.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_duplicate_ids.html</loc>
@@ -80,6 +95,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_id_cols_unprocessed_data.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/get_one_grade.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/gs_demo.html</loc>
