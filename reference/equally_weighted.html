@@ -90,7 +90,7 @@ Serves as a passthrough aggregation for categories with only 1 assignment.</p></
 <span></span>
 <span><span class="fu">min_score</span><span class="op">(</span><span class="va">scores</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">none</span><span class="op">(</span><span class="va">gs_data</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">none</span><span class="op">(</span><span class="va">scores</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -128,8 +128,9 @@ that do not sum to one are ok - they get normalized.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9</span>
 <span class="r-in"><span><span class="fu">min_score</span><span class="op">(</span><span class="va">my_scores</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1</span>
-<span class="r-in"><span><span class="fu">none</span><span class="op">(</span><span class="va">my_scores</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7 0.9 0.1</span>
+<span class="r-in"><span><span class="va">my_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.7</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">none</span><span class="op">(</span><span class="va">my_score</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
