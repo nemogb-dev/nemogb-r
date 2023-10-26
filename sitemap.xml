@@ -46,6 +46,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_names.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/compute_percent.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/convert_to_min.html</loc>
   </url>
   <url>
@@ -116,6 +119,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/policy_demo.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/prep_for_grading.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/process_assignments.html</loc>
