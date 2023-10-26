@@ -34,6 +34,15 @@
     <loc>https://gradebook-dev.github.io/gradebook/index.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/by_none.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/by_percent.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/by_points.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_assignment_names.html</loc>
   </url>
   <url>
@@ -44,6 +53,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_names.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/choose_aggregation.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/compute_percent.html</loc>
