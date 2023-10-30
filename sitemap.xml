@@ -34,6 +34,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/index.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/by_max.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/by_none.html</loc>
   </url>
   <url>
@@ -41,6 +44,12 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/by_points.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/by_weight.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/calculate_grades_with_for_loop.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/check_assignment_names.html</loc>
