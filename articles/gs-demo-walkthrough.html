@@ -219,34 +219,14 @@ missing student IDs nor any duplicated students.</p>
 <code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
-<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;drtn&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;drtn&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;drtn&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+<span>   <span class="co"># process_id()</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="process_assignments">process_assignments()<a class="anchor" aria-label="anchor" href="#process_assignments"></a>
@@ -258,7 +238,7 @@ column names. This cleans up column names for future processing.</p>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="co">#  process_id() |&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
@@ -280,11 +260,11 @@ column names. This cleans up column names for future processing.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen   Sydn… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie   Mrs.… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab_1_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_max_points` &lt;dbl&gt;, `lab_2_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_max_points` &lt;dbl&gt;, `lab_3_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;drtn&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_4_-_max_points` &lt;dbl&gt;, `lab_4_-_submission_time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -297,7 +277,7 @@ observation be a student + individual assignment.</p>
 <span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/process_id.html">process_id</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>   <span class="co"># process_id() |&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="../reference/pivot_gs.html">pivot_gs</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
