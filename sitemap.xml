@@ -73,16 +73,13 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/convert_to_min.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/create_assigns_table.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/create_empty_policy_file.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/create_overall_category.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/create_lateness_table.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/data_merge_assigns.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/create_overall_category.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/delete_category.html</loc>
@@ -137,6 +134,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/lower_colnames.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_for_lateness.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_gs.html</loc>

@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="gradebook">
-<title>Example with GS Demo Data • gradebook</title>
+<title> • gradebook</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Example with GS Demo Data">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
 <meta property="og:description" content="gradebook">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -43,7 +43,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/format-policy-file.html">Format of a Policy File</a>
     <a class="dropdown-item" href="../articles/grade-calculations.html">Grade Calculations</a>
-    <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">Example with GS Demo Data</a>
+    <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">UNKNOWN TITLE</a>
     <a class="dropdown-item" href="../articles/nested-group_bys.html">How to implement nested grouped operations?</a>
     <a class="dropdown-item" href="../articles/work_flow.html">General Work Flow</a>
   </div>
@@ -72,7 +72,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Example with GS Demo Data</h1>
+      <img src="" class="logo" alt=""><h1></h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/HEAD/vignettes/gs-demo-walkthrough.Rmd" class="external-link"><code>vignettes/gs-demo-walkthrough.Rmd</code></a></small>
@@ -81,235 +81,235 @@
 
     
     
-<p>This article walks through how this package is used to process
+<div class="section level2">
+<h2 id="section">—<a class="anchor" aria-label="anchor" href="#section"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="title-example-with-gs-demo-data">title: “Example with GS Demo Data”<a class="anchor" aria-label="anchor" href="#title-example-with-gs-demo-data"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="output-rmarkdownhtml_vignette">output: rmarkdown::html_vignette<a class="anchor" aria-label="anchor" href="#output-rmarkdownhtml_vignette"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="vignette">vignette: &gt;<a class="anchor" aria-label="anchor" href="#vignette"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-1">%<a class="anchor" aria-label="anchor" href="#section-1"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-2">%<a class="anchor" aria-label="anchor" href="#section-2"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-3">%<a class="anchor" aria-label="anchor" href="#section-3"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-4">—<a class="anchor" aria-label="anchor" href="#section-4"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-5"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-include-false-knitropts_chunkset-collapse-true-comment">
+<code>{r, include = FALSE} # knitr::opts_chunk$set( #   collapse = TRUE, #   comment = "#&gt;" # ) #</code><a class="anchor" aria-label="anchor" href="#r-include-false-knitropts_chunkset-collapse-true-comment"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-6"></h2>
+</div>
+<div class="section level2">
+<h2 id="this-article-walks-through-how-this-package-is-used-to-process-student-assignment-scores-according-to-the-given-syllabus--this-workflow-requires-two-inputs-student-data-ideally-from-gradescope-and-a-policy-file-">This article walks through how this package is used to process
 student assignment scores according to the given syllabus. This workflow
 requires two inputs: student data (ideally from Gradescope) and a policy
-file.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gradebook-dev/gradebook" class="external-link">gradebook</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="load-in-student-data">Load in student data<a class="anchor" aria-label="anchor" href="#load-in-student-data"></a>
-</h3>
-<p>Student data is formatted according to Gradescope .csv format, where
+file.<a class="anchor" aria-label="anchor" href="#this-article-walks-through-how-this-package-is-used-to-process-student-assignment-scores-according-to-the-given-syllabus--this-workflow-requires-two-inputs-student-data-ideally-from-gradescope-and-a-policy-file-"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-7"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-setup-librarygradebook">
+<code>{r setup} # library(gradebook) #</code><a class="anchor" aria-label="anchor" href="#r-setup-librarygradebook"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-8"></h2>
+</div>
+<div class="section level2">
+<h2 id="load-in-student-data">### Load in student data<a class="anchor" aria-label="anchor" href="#load-in-student-data"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-9"></h2>
+</div>
+<div class="section level2">
+<h2 id="student-data-is-formatted-according-to-gradescope--csv-format-where-each-unit-of-observation-is-a-student-and-each-individual-assignment-includes-the-students-score-the-maximum-allowed-points-the-students-submission-timestamp-and-how-late-the-student-submitted-in-hhmmss-format--below-is-the-gradescope-demo-data-found-within-the-package-">Student data is formatted according to Gradescope .csv format, where
 each unit of observation is a student and each individual assignment
 includes the student’s score, the maximum allowed points, the student’s
 submission timestamp and how late the student submitted (in HH:MM:SS
-format). Below is the Gradescope demo data found within the package.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
-<span><span class="co">#&gt;    Names               Email           SID Sections `Lab 1` `Lab 1 - Max Points`</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `Lab 1 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 1 - Lateness (H:M:S)` &lt;time&gt;, `Lab 2` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 2 - Max Points` &lt;dbl&gt;, `Lab 2 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 2 - Lateness (H:M:S)` &lt;time&gt;, `Lab 3` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Max Points` &lt;dbl&gt;, `Lab 3 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Lateness (H:M:S)` &lt;time&gt;, `Lab 4` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 4 - Max Points` &lt;dbl&gt;, `Lab 4 - Submission Time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+format). Below is the Gradescope demo data found within the
+package.<a class="anchor" aria-label="anchor" href="#student-data-is-formatted-according-to-gradescope--csv-format-where-each-unit-of-observation-is-a-student-and-each-individual-assignment-includes-the-students-score-the-maximum-allowed-points-the-students-submission-timestamp-and-how-late-the-student-submitted-in-hhmmss-format--below-is-the-gradescope-demo-data-found-within-the-package-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="lower_colnames">lower_colnames()<a class="anchor" aria-label="anchor" href="#lower_colnames"></a>
-</h3>
-<p>This function changes all column names to lowercase for consistent
-data processing.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
-<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;time&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;time&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;time&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+<div class="section level2">
+<h2 id="section-10"></h2>
 </div>
-<div class="section level3">
-<h3 id="check_data_names">check_data_names()<a class="anchor" aria-label="anchor" href="#check_data_names"></a>
-</h3>
-<p>This function checks that the general formatting for the column names
-of the Gradescope data. This checks that all assignments are uniformly
-formatted by their raw points, the maximum points, the submission time
-and lateness. This also checks that the first few columns of the
-Gradescope data include ID columns used to identify students, such as
-student ID. If there is incorrect formatting, the function will return a
-relevant error. If not, this function returns the same dataframe in
-order for these functions to be pipeable.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
-<span><span class="co">#&gt;    names               email           sid sections `lab 1` `lab 1 - max points`</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin           Dr.Kadin@be… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy         BartleyToy@… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae          Dr.Dontae@b… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Considine NarcissusCo… 3.03<span style="color: #949494;">e</span>9 fake-cl…      10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderman     VerneWilder… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting       ToivoWittin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks        TeganCrooks… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-Wisozk TyrusCremin… 3.03<span style="color: #949494;">e</span>9 fake-cl…       2                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;time&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;time&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;time&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+<div class="section level2">
+<h2 id="r-gs_demo">
+<code>{r} # gs_demo #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="drop_ungraded_assignments">drop_ungraded_assignments()<a class="anchor" aria-label="anchor" href="#drop_ungraded_assignments"></a>
-</h3>
-<p>This function drops any ungraded assignments. This is just to cut
+<div class="section level2">
+<h2 id="section-11"></h2>
+</div>
+<div class="section level2">
+<h2 id="lower_colnames">### lower_colnames()<a class="anchor" aria-label="anchor" href="#lower_colnames"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-changes-all-column-names-to-lowercase-for-consistent-data-processing-">This function changes all column names to lowercase for consistent
+data processing.<a class="anchor" aria-label="anchor" href="#this-function-changes-all-column-names-to-lowercase-for-consistent-data-processing-"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-12"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-gs_demo-lower_colnames">
+<code>{r} # gs_demo |&gt; #     lower_colnames() #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo-lower_colnames"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-13"></h2>
+</div>
+<div class="section level2">
+<h2 id="check_data_names">### check_data_names()<a class="anchor" aria-label="anchor" href="#check_data_names"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-checks-that-the-general-formatting-for-the-column-names-of-the-gradescope-data--this-checks-that-all-assignments-are-uniformly-formatted-by-their-raw-points-the-maximum-points-the-submission-time-and-lateness--this-also-checks-that-the-first-few-columns-of-the-gradescope-data-include-id-columns-used-to-identify-students-such-as-student-id--if-there-is-incorrect-formatting-the-function-will-return-a-relevant-error--if-not-this-function-returns-the-same-dataframe-in-order-for-these-functions-to-be-pipeable-">This function checks that the general formatting for the column
+names of the Gradescope data. This checks that all assignments are
+uniformly formatted by their raw points, the maximum points, the
+submission time and lateness. This also checks that the first few
+columns of the Gradescope data include ID columns used to identify
+students, such as student ID. If there is incorrect formatting, the
+function will return a relevant error. If not, this function returns the
+same dataframe in order for these functions to be pipeable.<a class="anchor" aria-label="anchor" href="#this-function-checks-that-the-general-formatting-for-the-column-names-of-the-gradescope-data--this-checks-that-all-assignments-are-uniformly-formatted-by-their-raw-points-the-maximum-points-the-submission-time-and-lateness--this-also-checks-that-the-first-few-columns-of-the-gradescope-data-include-id-columns-used-to-identify-students-such-as-student-id--if-there-is-incorrect-formatting-the-function-will-return-a-relevant-error--if-not-this-function-returns-the-same-dataframe-in-order-for-these-functions-to-be-pipeable-"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-14"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-gs_demo-lower_colnames-check_data_colnames_format">
+<code>{r} # gs_demo |&gt; #     lower_colnames() |&gt; #     check_data_colnames_format() #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo-lower_colnames-check_data_colnames_format"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-15"></h2>
+</div>
+<div class="section level2">
+<h2 id="drop_ungraded_assignments">### drop_ungraded_assignments()<a class="anchor" aria-label="anchor" href="#drop_ungraded_assignments"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-drops-any-ungraded-assignments--this-is-just-to-cut-down-on-the-size-of-the-gradescope-data--it-removes-any-assignments-where-the-raw-scores-are-all-nas-for-every-student-">This function drops any ungraded assignments. This is just to cut
 down on the size of the Gradescope data. It removes any assignments
-where the raw scores are all NAs for every student.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span></code></pre></div>
+where the raw scores are all NAs for every student.<a class="anchor" aria-label="anchor" href="#this-function-drops-any-ungraded-assignments--this-is-just-to-cut-down-on-the-size-of-the-gradescope-data--it-removes-any-assignments-where-the-raw-scores-are-all-nas-for-every-student-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="process_id">process_id()<a class="anchor" aria-label="anchor" href="#process_id"></a>
-</h3>
-<p>This function drops any students with missing student IDs and merges
+<div class="section level2">
+<h2 id="section-16"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments">
+<code>{r} # gs_demo |&gt; #     lower_colnames() |&gt; #     check_data_colnames_format() |&gt; #     drop_ungraded_assignments() #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-17"></h2>
+</div>
+<div class="section level2">
+<h2 id="section-18"></h2>
+</div>
+<div class="section level2">
+<h2 id="process_id">### process_id()<a class="anchor" aria-label="anchor" href="#process_id"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-drops-any-students-with-missing-student-ids-and-merges-any-replicated-students-based-on-the-following-criteria--if-the-assignment-cell-is-a-datetime-it-removes-nas-and-takes-the-last-datetime--if-the-assignment-cell-is-numeric-it-takes-the-max--if-the-assignment-cell-is-na-leave-as-na--if-there-are-no-issues-on-a-student-level-there-is-no-change--the-processed-data-is-returned-with-no-missing-student-ids-nor-any-duplicated-students-">This function drops any students with missing student IDs and merges
 any replicated students based on the following criteria. If the
 assignment cell is a datetime, it removes NAs and takes the last
 datetime. If the assignment cell is numeric, it takes the max. If the
 assignment cell is NA, leave as NA. If there are no issues on a student
 level, there is no change. The processed data is returned with no
-missing student IDs nor any duplicated students.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
-<span>   <span class="co"># process_id()</span></span></code></pre></div>
+missing student IDs nor any duplicated students.<a class="anchor" aria-label="anchor" href="#this-function-drops-any-students-with-missing-student-ids-and-merges-any-replicated-students-based-on-the-following-criteria--if-the-assignment-cell-is-a-datetime-it-removes-nas-and-takes-the-last-datetime--if-the-assignment-cell-is-numeric-it-takes-the-max--if-the-assignment-cell-is-na-leave-as-na--if-there-are-no-issues-on-a-student-level-there-is-no-change--the-processed-data-is-returned-with-no-missing-student-ids-nor-any-duplicated-students-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="process_assignments">process_assignments()<a class="anchor" aria-label="anchor" href="#process_assignments"></a>
-</h3>
-<p>This function removes any white spaces and special characters from
-column names. This cleans up column names for future processing.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="co">#  process_id() |&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 10 × 44</span></span></span>
-<span><span class="co">#&gt;    names          email    sid sections `lab_1_-_raw_score` `lab_1_-_max_points`</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. Kadin      Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Bartley Toy    Bart… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. Dontae     Dr.D… 3.03<span style="color: #949494;">e</span>9 fake-cl…                  10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Narcissus Con… Narc… 3.03<span style="color: #949494;">e</span>9 fake-cl…                  10                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Verne Wilderm… Vern… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Toivo Witting  Toiv… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   9                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Tegan Crooks   Tega… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Tyrus Cremin-… Tyru… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   2                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen   Sydn… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie   Mrs.… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab_1_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;time&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_max_points` &lt;dbl&gt;, `lab_2_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;time&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_max_points` &lt;dbl&gt;, `lab_3_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;time&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_4_-_max_points` &lt;dbl&gt;, `lab_4_-_submission_time` &lt;chr&gt;, …</span></span></span></code></pre></div>
+<div class="section level2">
+<h2 id="section-19"></h2>
 </div>
-<div class="section level3">
-<h3 id="pivot_gs">pivot_gs()<a class="anchor" aria-label="anchor" href="#pivot_gs"></a>
-</h3>
-<p>This function applies the pivot-longer function to allow for unit of
-observation be a student + individual assignment.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pivot_df</span> <span class="op">&lt;-</span> <span class="va">gs_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/lower_colnames.html">lower_colnames</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_data_colnames_format.html">check_data_colnames_format</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/drop_ungraded_assignments.html">drop_ungraded_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>   <span class="co"># process_id() |&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/process_assignments.html">process_assignments</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/pivot_gs.html">pivot_gs</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The assignments from Gradescope are discussion 1, discussion 2, final, lab 1, lab 2, lab 3, lab 4, lab 5, lab 6, and midterm</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> These are your ungraded assignments:</span></span>
-<span><span class="co">#&gt; <span style="color: #FFAF00; font-style: italic;">Important Message</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> The ID columns from Gradescope are names, email, sid, and sections</span></span>
-<span></span>
-<span><span class="va">pivot_df</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 9</span></span></span>
-<span><span class="co">#&gt;    names  email    sid sections assignments raw_score max_points submission_time</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_1               9         10 1/19/23 22:20  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_2               5         20 9/21/22 23:54  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_3               7         15 1/24/23 20:38  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_4               9         10 1/26/23 19:51  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_5               0          5 1/31/23 18:59  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_6               4         10 2/2/23 12:16   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/7/23 20:53   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/10/23 0:49   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… midterm            44         50 2/14/23 21:06  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… final              10        100 1/20/23 15:13  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 1 more variable: `lateness_(h_m_s)` &lt;chr&gt;</span></span></span></code></pre></div>
+<div class="section level2">
+<h2 id="r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id">
+<code>{r} # gs_demo |&gt; #     lower_colnames() |&gt; #     check_data_colnames_format() |&gt; #     drop_ungraded_assignments() #    # process_id() #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="load-in-policy-file">Load in policy file<a class="anchor" aria-label="anchor" href="#load-in-policy-file"></a>
-</h3>
-<p>The policy file is broken down into three separate parts: coursewide
+<div class="section level2">
+<h2 id="section-20"></h2>
+</div>
+<div class="section level2">
+<h2 id="process_assignments">### process_assignments()<a class="anchor" aria-label="anchor" href="#process_assignments"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-removes-any-white-spaces-and-special-characters-from-column-names--this-cleans-up-column-names-for-future-processing-">This function removes any white spaces and special characters from
+column names. This cleans up column names for future processing.<a class="anchor" aria-label="anchor" href="#this-function-removes-any-white-spaces-and-special-characters-from-column-names--this-cleans-up-column-names-for-future-processing-"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-21"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id-process_assignments">
+<code>{r} # gs_demo |&gt; #     lower_colnames() |&gt; #     check_data_colnames_format() |&gt; #     drop_ungraded_assignments() |&gt; #   #  process_id() |&gt; #     process_assignments() #</code><a class="anchor" aria-label="anchor" href="#r-gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id-process_assignments"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-22"></h2>
+</div>
+<div class="section level2">
+<h2 id="pivot_gs">### pivot_gs()<a class="anchor" aria-label="anchor" href="#pivot_gs"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-applies-the-pivot-longer-function-to-allow-for-unit-of-observation-be-a-student-individual-assignment-">This function applies the pivot-longer function to allow for unit of
+observation be a student + individual assignment.<a class="anchor" aria-label="anchor" href="#this-function-applies-the-pivot-longer-function-to-allow-for-unit-of-observation-be-a-student-individual-assignment-"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-23"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-pivot_df---gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id-process_assignments-pivot_gs-pivot_df">
+<code>{r} # pivot_df &lt;- gs_demo |&gt; #     lower_colnames() |&gt; #     check_data_colnames_format() |&gt; #     drop_ungraded_assignments() |&gt; #    # process_id() |&gt; #     process_assignments() |&gt; #     pivot_gs() # # pivot_df #</code><a class="anchor" aria-label="anchor" href="#r-pivot_df---gs_demo-lower_colnames-check_data_colnames_format-drop_ungraded_assignments-process_id-process_assignments-pivot_gs-pivot_df"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-24"></h2>
+</div>
+<div class="section level2">
+<h2 id="load-in-policy-file">### Load in policy file<a class="anchor" aria-label="anchor" href="#load-in-policy-file"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="the-policy-file-is-broken-down-into-three-separate-parts-coursewide-information-categories-and-cutoffs--coursewide-information-includes-the-course-name-and-a-course-description-this-is-purely-for-the-user--each-category-is-a-subset-of-the-overall-grade-and-includes-information-about-how-the-scores-of-the-assignments-within-the-category-are-aggregated-this-information-includes-lateness-penalties-how-the-assignments-are-weighted-within-the-category-and-how-categories-are-weighted-in-the-overall-grade--finally-the-cutoffs-describe-the-lower-cutoff-for-each-letter-grade--for-example-if-the-cutoff-for-a-a-is-90-a-student-earns-an-a-if-their-overall-grade-is-at-least-90--below-is-the-demo-policy-file-found-within-the-package-">The policy file is broken down into three separate parts: coursewide
 information, categories and cutoffs. Coursewide information includes the
 course name and a course description; this is purely for the user. Each
 category is a subset of the overall grade and includes information about
@@ -319,759 +319,147 @@ weighted within the category and how categories are weighted in the
 overall grade. Finally, the cutoffs describe the lower cutoff for each
 letter grade. For example, if the cutoff for a “A” is 90, a student
 earns an “A” if their overall grade is at least 90%. Below is the demo
-policy file found within the package.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy_demo</span></span>
-<span><span class="co">#&gt; $coursewide</span></span>
-<span><span class="co">#&gt; $coursewide$course_name</span></span>
-<span><span class="co">#&gt; [1] "Demo Course"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories</span></span>
-<span><span class="co">#&gt; $categories[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$name</span></span>
-<span><span class="co">#&gt; [1] "Labs"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
-<span><span class="co">#&gt; [1] 55</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
-<span><span class="co">#&gt; [1] 2</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[2]]$name</span></span>
-<span><span class="co">#&gt; [1] "Discussions"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
-<span><span class="co">#&gt; [1] 10</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]</span></span>
-<span><span class="co">#&gt; $categories[[3]]$name</span></span>
-<span><span class="co">#&gt; [1] "Midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
-<span><span class="co">#&gt; [1] 15</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]</span></span>
-<span><span class="co">#&gt; $categories[[4]]$name</span></span>
-<span><span class="co">#&gt; [1] "Final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
-<span><span class="co">#&gt; [1] 20</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff</span></span>
-<span><span class="co">#&gt; $cutoff$A</span></span>
-<span><span class="co">#&gt; [1] 90</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$B</span></span>
-<span><span class="co">#&gt; [1] 80</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$C</span></span>
-<span><span class="co">#&gt; [1] 70</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$D</span></span>
-<span><span class="co">#&gt; [1] 60</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$F</span></span>
-<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+policy file found within the package.<a class="anchor" aria-label="anchor" href="#the-policy-file-is-broken-down-into-three-separate-parts-coursewide-information-categories-and-cutoffs--coursewide-information-includes-the-course-name-and-a-course-description-this-is-purely-for-the-user--each-category-is-a-subset-of-the-overall-grade-and-includes-information-about-how-the-scores-of-the-assignments-within-the-category-are-aggregated-this-information-includes-lateness-penalties-how-the-assignments-are-weighted-within-the-category-and-how-categories-are-weighted-in-the-overall-grade--finally-the-cutoffs-describe-the-lower-cutoff-for-each-letter-grade--for-example-if-the-cutoff-for-a-a-is-90-a-student-earns-an-a-if-their-overall-grade-is-at-least-90--below-is-the-demo-policy-file-found-within-the-package-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="creating-a-policy-file">Creating a Policy File<a class="anchor" aria-label="anchor" href="#creating-a-policy-file"></a>
-</h3>
-<p>Any empty policy file can be created with the
-<code><a href="../reference/create_empty_policy_file.html">create_empty_policy_file()</a></code> function, which takes a single
+<div class="section level2">
+<h2 id="section-25"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-policy_demo">
+<code>{r} # policy_demo #</code><a class="anchor" aria-label="anchor" href="#r-policy_demo"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-26"></h2>
+</div>
+<div class="section level2">
+<h2 id="creating-a-policy-file">### Creating a Policy File<a class="anchor" aria-label="anchor" href="#creating-a-policy-file"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="any-empty-policy-file-can-be-created-with-the-create_empty_policy_file-function-which-takes-a-single-numeric-input-to-specify-how-many-categories-this-policy-file-has--the-function-defaults-to-just-one-category--this-returns-a-list-with-the-correct-policy-file-formatting-and-default-values-for-all-inputs-">Any empty policy file can be created with the
+<code>create_empty_policy_file()</code> function, which takes a single
 numeric input to specify how many categories this policy file has. The
 function defaults to just one category. This returns a list with the
-correct policy-file formatting and default values for all inputs.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_empty_policy_file.html">create_empty_policy_file</a></span><span class="op">(</span>num_cat <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coursewide</span></span>
-<span><span class="co">#&gt; $coursewide$course_name</span></span>
-<span><span class="co">#&gt; [1] "Course Name"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "cours description"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories</span></span>
-<span><span class="co">#&gt; $categories[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$name</span></span>
-<span><span class="co">#&gt; [1] "Category 1"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[2]]$name</span></span>
-<span><span class="co">#&gt; [1] "Category 2"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff</span></span>
-<span><span class="co">#&gt; $cutoff$A</span></span>
-<span><span class="co">#&gt; [1] 90</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$B</span></span>
-<span><span class="co">#&gt; [1] 80</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$C</span></span>
-<span><span class="co">#&gt; [1] 70</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$D</span></span>
-<span><span class="co">#&gt; [1] 60</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$F</span></span>
-<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+correct policy-file formatting and default values for all inputs.<a class="anchor" aria-label="anchor" href="#any-empty-policy-file-can-be-created-with-the-create_empty_policy_file-function-which-takes-a-single-numeric-input-to-specify-how-many-categories-this-policy-file-has--the-function-defaults-to-just-one-category--this-returns-a-list-with-the-correct-policy-file-formatting-and-default-values-for-all-inputs-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="check_names">check_names()<a class="anchor" aria-label="anchor" href="#check_names"></a>
-</h3>
-<p>This function validates that the policy file has the right format in
+<div class="section level2">
+<h2 id="section-27"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-create_empty_policy_filenum_cat-2">
+<code>{r} # create_empty_policy_file(num_cat = 2) #</code><a class="anchor" aria-label="anchor" href="#r-create_empty_policy_filenum_cat-2"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-28"></h2>
+</div>
+<div class="section level2">
+<h2 id="section-29"></h2>
+</div>
+<div class="section level2">
+<h2 id="check_names">### check_names()<a class="anchor" aria-label="anchor" href="#check_names"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-validates-that-the-policy-file-has-the-right-format-in-terms-of-names-and-nesting--if-there-is-incorrect-formatting-it-returns-an-error-with-information-about-what-formatting-is-missing--if-the-policy-file-is-correctly-formatted-it-returns-the-policy-file-as-is-in-order-to-make-these-functions-pipeable-">This function validates that the policy file has the right format in
 terms of names and nesting. If there is incorrect formatting, it returns
 an error with information about what formatting is missing. If the
 policy file is correctly formatted, it returns the policy file as is in
-order to make these functions pipeable.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coursewide</span></span>
-<span><span class="co">#&gt; $coursewide$course_name</span></span>
-<span><span class="co">#&gt; [1] "Demo Course"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories</span></span>
-<span><span class="co">#&gt; $categories[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$name</span></span>
-<span><span class="co">#&gt; [1] "Labs"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
-<span><span class="co">#&gt; [1] 55</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
-<span><span class="co">#&gt; [1] 2</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[2]]$name</span></span>
-<span><span class="co">#&gt; [1] "Discussions"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
-<span><span class="co">#&gt; [1] 10</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]</span></span>
-<span><span class="co">#&gt; $categories[[3]]$name</span></span>
-<span><span class="co">#&gt; [1] "Midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
-<span><span class="co">#&gt; [1] 15</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]</span></span>
-<span><span class="co">#&gt; $categories[[4]]$name</span></span>
-<span><span class="co">#&gt; [1] "Final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
-<span><span class="co">#&gt; [1] 20</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff</span></span>
-<span><span class="co">#&gt; $cutoff$A</span></span>
-<span><span class="co">#&gt; [1] 90</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$B</span></span>
-<span><span class="co">#&gt; [1] 80</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$C</span></span>
-<span><span class="co">#&gt; [1] 70</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$D</span></span>
-<span><span class="co">#&gt; [1] 60</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$F</span></span>
-<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+order to make these functions pipeable.<a class="anchor" aria-label="anchor" href="#this-function-validates-that-the-policy-file-has-the-right-format-in-terms-of-names-and-nesting--if-there-is-incorrect-formatting-it-returns-an-error-with-information-about-what-formatting-is-missing--if-the-policy-file-is-correctly-formatted-it-returns-the-policy-file-as-is-in-order-to-make-these-functions-pipeable-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="check_assignment_names">check_assignment_names()<a class="anchor" aria-label="anchor" href="#check_assignment_names"></a>
-</h3>
-<p>This function checks that the assignments within the policy file can
+<div class="section level2">
+<h2 id="section-30"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-policy_demo-check_names">
+<code>{r} # policy_demo|&gt; #     check_names() #</code><a class="anchor" aria-label="anchor" href="#r-policy_demo-check_names"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-31"></h2>
+</div>
+<div class="section level2">
+<h2 id="check_assignment_names">### check_assignment_names()<a class="anchor" aria-label="anchor" href="#check_assignment_names"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-checks-that-the-assignments-within-the-policy-file-can-be-found-within-the-gradescope-data--if-there-is-an-assignment-in-the-policy-file-that-does-not-occur-in-the-gradescope-data-an-error-is-returned-including-which-assignments-have-no-student-data--if-there-is-no-error-the-same-policy-file-is-return-to-keep-these-functions-pipeable--this-part-of-the-process-should-be-done-after-validating-the-gradescope-data-and-converting-it-into-its-pivotted-format-with-pivot_gs-pipline-as-explained-and-demonstrated-above--in-this-example-pivot_df-is-the-pivotted-result-of-gs_demo-going-thorugh-this-pipeline-">This function checks that the assignments within the policy file can
 be found within the Gradescope data. If there is an assignment in the
 policy file that does not occur in the Gradescope data, an error is
 returned, including which assignments have no student data. If there is
 no error, the same policy file is return to keep these functions
 pipeable. This part of the process should be done after validating the
 Gradescope data and converting it into its pivotted format with
-<code><a href="../reference/pivot_gs.html">pivot_gs()</a></code> pipline as explained and demonstrated above. In
+<code>pivot_gs()</code> pipline as explained and demonstrated above. In
 this example, <code>pivot_df</code> is the pivotted result of
-<code>gs_demo</code> going thorugh this pipeline.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy_demo</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coursewide</span></span>
-<span><span class="co">#&gt; $coursewide$course_name</span></span>
-<span><span class="co">#&gt; [1] "Demo Course"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "This is a demo class dataset to demonstrate the app."</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories</span></span>
-<span><span class="co">#&gt; $categories[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$name</span></span>
-<span><span class="co">#&gt; [1] "Labs"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weight</span></span>
-<span><span class="co">#&gt; [1] 55</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$drops</span></span>
-<span><span class="co">#&gt; [1] 2</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "lab_1" "lab_2" "lab_3" "lab_4" "lab_5" "lab_6"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[2]]$name</span></span>
-<span><span class="co">#&gt; [1] "Discussions"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weight</span></span>
-<span><span class="co">#&gt; [1] 10</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "discussion_1" "discussion_2"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]</span></span>
-<span><span class="co">#&gt; $categories[[3]]$name</span></span>
-<span><span class="co">#&gt; [1] "Midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weight</span></span>
-<span><span class="co">#&gt; [1] 15</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]</span></span>
-<span><span class="co">#&gt; $categories[[4]]$name</span></span>
-<span><span class="co">#&gt; [1] "Final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$slipdays</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time1</span></span>
-<span><span class="co">#&gt; [1] "00:00:01"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_time2</span></span>
-<span><span class="co">#&gt; [1] "00:00:00"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale1</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$late_scale2</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$after</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weight</span></span>
-<span><span class="co">#&gt; [1] 20</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$drops</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$weighted_method</span></span>
-<span><span class="co">#&gt; [1] "equally"   "by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$clobber</span></span>
-<span><span class="co">#&gt; [1] "None"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$assigns</span></span>
-<span><span class="co">#&gt; [1] "final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff</span></span>
-<span><span class="co">#&gt; $cutoff$A</span></span>
-<span><span class="co">#&gt; [1] 90</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$B</span></span>
-<span><span class="co">#&gt; [1] 80</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$C</span></span>
-<span><span class="co">#&gt; [1] 70</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$D</span></span>
-<span><span class="co">#&gt; [1] 60</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $cutoff$F</span></span>
-<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
+<code>gs_demo</code> going thorugh this pipeline.<a class="anchor" aria-label="anchor" href="#this-function-checks-that-the-assignments-within-the-policy-file-can-be-found-within-the-gradescope-data--if-there-is-an-assignment-in-the-policy-file-that-does-not-occur-in-the-gradescope-data-an-error-is-returned-including-which-assignments-have-no-student-data--if-there-is-no-error-the-same-policy-file-is-return-to-keep-these-functions-pipeable--this-part-of-the-process-should-be-done-after-validating-the-gradescope-data-and-converting-it-into-its-pivotted-format-with-pivot_gs-pipline-as-explained-and-demonstrated-above--in-this-example-pivot_df-is-the-pivotted-result-of-gs_demo-going-thorugh-this-pipeline-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="create_assigns_table">create_assigns_table()<a class="anchor" aria-label="anchor" href="#create_assigns_table"></a>
-</h3>
-<p>This function creates an assignment table where each row is an
+<div class="section level2">
+<h2 id="section-32"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df">
+<code>{r} # policy_demo |&gt; #     check_names()|&gt; #     check_assignment_names(pivot_df = pivot_df) #</code><a class="anchor" aria-label="anchor" href="#r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-33"></h2>
+</div>
+<div class="section level2">
+<h2 id="create_assigns_table">### create_assigns_table()<a class="anchor" aria-label="anchor" href="#create_assigns_table"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-creates-an-assignment-table-where-each-row-is-an-assignment-with-its-relevant-category-information--this-is-an-intermediary-table-that-makes-it-easier-to-combine-the-information-from-the-policy-file-with-the-pivoted-data-from-the-gradescope-data-">This function creates an assignment table where each row is an
 assignment with its relevant category information. This is an
 intermediary table that makes it easier to combine the information from
-the policy file with the pivoted data from the Gradescope data.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/create_assigns_table.html">create_assigns_table</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;     assignments    category slipdays late_time1 late_time2 late_scale1</span></span>
-<span><span class="co">#&gt; 1         lab_1        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 2         lab_2        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 3         lab_3        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 4         lab_4        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 5         lab_5        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 6         lab_6        Labs        0   00:00:00   00:00:01           1</span></span>
-<span><span class="co">#&gt; 7  discussion_1 Discussions        0   00:00:01   00:00:00           1</span></span>
-<span><span class="co">#&gt; 8  discussion_2 Discussions        0   00:00:01   00:00:00           1</span></span>
-<span><span class="co">#&gt; 9       midterm     Midterm        0   00:00:01   00:00:00           1</span></span>
-<span><span class="co">#&gt; 10        final       Final        0   00:00:01   00:00:00           1</span></span>
-<span><span class="co">#&gt;    late_scale2 after weights drops weighted_method clobber</span></span>
-<span><span class="co">#&gt; 1            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 2            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 3            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 4            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 5            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 6            0  TRUE      55     2         equally    None</span></span>
-<span><span class="co">#&gt; 7            0  TRUE      10     0       by_points    None</span></span>
-<span><span class="co">#&gt; 8            0  TRUE      10     0       by_points    None</span></span>
-<span><span class="co">#&gt; 9            0  TRUE      15     0         equally    None</span></span>
-<span><span class="co">#&gt; 10           0  TRUE      20     0       by_points    None</span></span></code></pre></div>
+the policy file with the pivoted data from the Gradescope data.<a class="anchor" aria-label="anchor" href="#this-function-creates-an-assignment-table-where-each-row-is-an-assignment-with-its-relevant-category-information--this-is-an-intermediary-table-that-makes-it-easier-to-combine-the-information-from-the-policy-file-with-the-pivoted-data-from-the-gradescope-data-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="data_merge_assigns">data_merge_assigns()<a class="anchor" aria-label="anchor" href="#data_merge_assigns"></a>
-</h3>
-<p>This function combines the grading criteria from the policy file with
-the student-assignment data from the Gradescope data, which is now in
-its pivotted form. At this point, the resulting dataframe’s unit of
+<div class="section level2">
+<h2 id="section-34"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df-create_assigns_table">
+<code>{r} # policy_demo|&gt; #     check_names()|&gt; #     check_assignment_names(pivot_df = pivot_df) #     create_assigns_table() #</code><a class="anchor" aria-label="anchor" href="#r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df-create_assigns_table"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="section-35"></h2>
+</div>
+<div class="section level2">
+<h2 id="data_merge_assigns">### data_merge_assigns()<a class="anchor" aria-label="anchor" href="#data_merge_assigns"></a>
+</h2>
+</div>
+<div class="section level2">
+<h2 id="this-function-combines-the-grading-criteria-from-the-policy-file-with-the-student-assignment-data-from-the-gradescope-data-which-is-now-in-its-pivotted-form--at-this-point-the-resulting-dataframes-unit-of-observation-is-a-students-individual-assignment--each-row-includes-the-students-scores-and-lateness-information-as-well-as-information-about-the-assignments-grading-criteria-based-on-its-respective-category--the-purpose-of-combining-these-two-original-inputs-the-gradescope-data-and-the-policy-file-is-to-allow-all-following-grading-computations-to-utilize-only-one-merged-file-">This function combines the grading criteria from the policy file
+with the student-assignment data from the Gradescope data, which is now
+in its pivotted form. At this point, the resulting dataframe’s unit of
 observation is a student’s individual assignment. Each row includes the
 student’s scores and lateness information as well as information about
 the assignment’s grading criteria based on its respective category. The
 purpose of combining these two original inputs – the Gradescope data and
 the policy file – is to allow all following grading computations to
-utilize only one merged file.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy_demo</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_names.html">check_names</a></span><span class="op">(</span><span class="op">)</span><span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/check_assignment_names.html">check_assignment_names</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/create_assigns_table.html">create_assigns_table</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="../reference/data_merge_assigns.html">data_merge_assigns</a></span><span class="op">(</span>pivot_df <span class="op">=</span> <span class="va">pivot_df</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 100 × 20</span></span></span>
-<span><span class="co">#&gt;    names  email    sid sections assignments raw_score max_points submission_time</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_1               9         10 1/19/23 22:20  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_2               5         20 9/21/22 23:54  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_3               7         15 1/24/23 20:38  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_4               9         10 1/26/23 19:51  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_5               0          5 1/31/23 18:59  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… lab_6               4         10 2/2/23 12:16   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/7/23 20:53   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… discussion…         4          4 2/10/23 0:49   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… midterm            44         50 2/14/23 21:06  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Dr. K… Dr.K… 3.03<span style="color: #949494;">e</span>9 fake-cl… final              10        100 1/20/23 15:13  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 90 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more variables: `lateness_(h_m_s)` &lt;chr&gt;, category &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   slipdays &lt;dbl&gt;, late_time1 &lt;chr&gt;, late_time2 &lt;chr&gt;, late_scale1 &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   late_scale2 &lt;dbl&gt;, after &lt;lgl&gt;, weights &lt;dbl&gt;, drops &lt;dbl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   weighted_method &lt;chr&gt;, clobber &lt;chr&gt;</span></span></span></code></pre></div>
+utilize only one merged file.<a class="anchor" aria-label="anchor" href="#this-function-combines-the-grading-criteria-from-the-policy-file-with-the-student-assignment-data-from-the-gradescope-data-which-is-now-in-its-pivotted-form--at-this-point-the-resulting-dataframes-unit-of-observation-is-a-students-individual-assignment--each-row-includes-the-students-scores-and-lateness-information-as-well-as-information-about-the-assignments-grading-criteria-based-on-its-respective-category--the-purpose-of-combining-these-two-original-inputs-the-gradescope-data-and-the-policy-file-is-to-allow-all-following-grading-computations-to-utilize-only-one-merged-file-"></a>
+</h2>
 </div>
-<div class="section level3">
-<h3 id="grading">Grading<a class="anchor" aria-label="anchor" href="#grading"></a>
-</h3>
+<div class="section level2">
+<h2 id="section-36"></h2>
+</div>
+<div class="section level2">
+<h2 id="r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df-create_assigns_table-data_merge_assignspivot_df-pivot_df">
+<code>{r} # policy_demo|&gt; #     check_names()|&gt; #     check_assignment_names(pivot_df = pivot_df) #     # create_assigns_table() |&gt; #     # data_merge_assigns(pivot_df = pivot_df) #</code><a class="anchor" aria-label="anchor" href="#r-policy_demo-check_names-check_assignment_namespivot_df-pivot_df-create_assigns_table-data_merge_assignspivot_df-pivot_df"></a>
+</h2>
+<div class="section level4">
+<h4 id="grading">Grading<a class="anchor" aria-label="anchor" href="#grading"></a>
+</h4>
 <p>TBD</p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
