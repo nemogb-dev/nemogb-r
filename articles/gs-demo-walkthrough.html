@@ -111,11 +111,11 @@ format). Below is the Gradescope demo data found within the package.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `Lab 1 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 1 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 1 - Lateness (H:M:S)` &lt;time&gt;, `Lab 2` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 2 - Max Points` &lt;dbl&gt;, `Lab 2 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 2 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 2 - Lateness (H:M:S)` &lt;time&gt;, `Lab 3` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Max Points` &lt;dbl&gt;, `Lab 3 - Submission Time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Lateness (H:M:S)` &lt;hms&gt;, `Lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 3 - Lateness (H:M:S)` &lt;time&gt;, `Lab 4` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `Lab 4 - Max Points` &lt;dbl&gt;, `Lab 4 - Submission Time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -140,11 +140,11 @@ data processing.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;hms&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;time&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;hms&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;time&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;hms&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;time&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -180,11 +180,11 @@ order for these functions to be pipeable.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen        SydniHansen… 3.03<span style="color: #949494;">e</span>9 fake-cl…       8                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie        Mrs.Chelsie… 3.03<span style="color: #949494;">e</span>9 fake-cl…       5                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab 1 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;hms&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 1 - lateness (h:m:s)` &lt;time&gt;, `lab 2` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - max points` &lt;dbl&gt;, `lab 2 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;hms&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 2 - lateness (h:m:s)` &lt;time&gt;, `lab 3` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - max points` &lt;dbl&gt;, `lab 3 - submission time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;hms&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab 3 - lateness (h:m:s)` &lt;time&gt;, `lab 4` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab 4 - max points` &lt;dbl&gt;, `lab 4 - submission time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -260,11 +260,11 @@ column names. This cleans up column names for future processing.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sydni Hansen   Sydn… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   8                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Mrs. Chelsie   Mrs.… 3.03<span style="color: #949494;">e</span>9 fake-cl…                   5                   10</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 38 more variables: `lab_1_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_1_-_lateness_(h_m_s)` &lt;time&gt;, `lab_2_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_max_points` &lt;dbl&gt;, `lab_2_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_2_-_lateness_(h_m_s)` &lt;time&gt;, `lab_3_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_max_points` &lt;dbl&gt;, `lab_3_-_submission_time` &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;hms&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   `lab_3_-_lateness_(h_m_s)` &lt;time&gt;, `lab_4_-_raw_score` &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   `lab_4_-_max_points` &lt;dbl&gt;, `lab_4_-_submission_time` &lt;chr&gt;, …</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
