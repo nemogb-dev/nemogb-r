@@ -70,6 +70,9 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/choose_aggregation.html</loc>
   </url>
   <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/compute_lateness.html</loc>
+  </url>
+  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/compute_percent.html</loc>
   </url>
   <url>
@@ -167,6 +170,9 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/read_gs.html</loc>
+  </url>
+  <url>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/replace_raw_with_lateness_scores.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/update_category.html</loc>
