@@ -139,13 +139,7 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/lateness.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/lateness_scores_in_wide.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/lower_colnames.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_for_lateness.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_gs.html</loc>
@@ -170,9 +164,6 @@
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/read_gs.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/replace_raw_with_lateness_scores.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/update_category.html</loc>
