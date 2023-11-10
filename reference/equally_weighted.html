@@ -121,16 +121,16 @@ that do not sum to one are ok - they get normalized.</p></dd>
 <span class="r-in"><span><span class="va">my_weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">equally_weighted</span><span class="op">(</span>scores <span class="op">=</span> <span class="va">my_scores</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.8</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in equally_weighted(scores = my_scores, n_drops = 1):</span> argument "weights" is missing, with no default</span>
 <span class="r-in"><span><span class="fu">weighted_by_points</span><span class="op">(</span>scores <span class="op">=</span> <span class="va">my_scores</span>, weights <span class="op">=</span> <span class="va">my_weights</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.78</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.78 25.00</span>
 <span class="r-in"><span><span class="fu">max_score</span><span class="op">(</span><span class="va">my_scores</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in max_score(my_scores):</span> argument "weights" is missing, with no default</span>
 <span class="r-in"><span><span class="fu">min_score</span><span class="op">(</span><span class="va">my_scores</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in min_score(my_scores, n_drops = 1):</span> argument "weights" is missing, with no default</span>
 <span class="r-in"><span><span class="va">my_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.7</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">none</span><span class="op">(</span><span class="va">my_score</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in none(my_score):</span> argument "weights" is missing, with no default</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
