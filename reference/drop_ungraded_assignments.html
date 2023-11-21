@@ -21,16 +21,6 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/format-policy-file.html">Format of a Policy File</a>
-    <a class="dropdown-item" href="../articles/grade-calculations.html">Grade Calculations</a>
-    <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">UNKNOWN TITLE</a>
-    <a class="dropdown-item" href="../articles/nested-group_bys.html">How to implement nested grouped operations?</a>
-    <a class="dropdown-item" href="../articles/work_flow.html">General Work Flow</a>
-  </div>
-</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -48,7 +38,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Drop Ungraded Assignments</h1>
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/HEAD/R/validate-gs.R" class="external-link"><code>R/validate-gs.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/HEAD/R/read-gs.R" class="external-link"><code>R/read-gs.R</code></a></small>
       <div class="d-none name"><code>drop_ungraded_assignments.Rd</code></div>
     </div>
 
@@ -65,6 +55,10 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>gs_data</dt>
 <dd><p>A Gradescope data</p></dd>
+
+
+<dt>give_alert</dt>
+<dd><p>whether or not to return an alert of assignments</p></dd>
 
 </dl></div>
     <div class="section level2">

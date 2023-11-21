@@ -39,16 +39,6 @@ Serves as a passthrough aggregation for categories with only 1 assignment.
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/format-policy-file.html">Format of a Policy File</a>
-    <a class="dropdown-item" href="../articles/grade-calculations.html">Grade Calculations</a>
-    <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">UNKNOWN TITLE</a>
-    <a class="dropdown-item" href="../articles/nested-group_bys.html">How to implement nested grouped operations?</a>
-    <a class="dropdown-item" href="../articles/work_flow.html">General Work Flow</a>
-  </div>
-</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -82,15 +72,15 @@ Serves as a passthrough aggregation for categories with only 1 assignment.</p></
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">equally_weighted</span><span class="op">(</span><span class="va">scores</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">equally_weighted</span><span class="op">(</span><span class="va">scores</span>, <span class="va">weights</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">weighted_by_points</span><span class="op">(</span><span class="va">scores</span>, <span class="va">weights</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">max_score</span><span class="op">(</span><span class="va">scores</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">max_score</span><span class="op">(</span><span class="va">scores</span>, <span class="va">weights</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">min_score</span><span class="op">(</span><span class="va">scores</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">min_score</span><span class="op">(</span><span class="va">scores</span>, <span class="va">weights</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">none</span><span class="op">(</span><span class="va">scores</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">none</span><span class="op">(</span><span class="va">scores</span>, <span class="va">weights</span>, n_drops <span class="op">=</span> <span class="fl">0</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -99,13 +89,13 @@ Serves as a passthrough aggregation for categories with only 1 assignment.</p></
 <dd><p>A vector of assignment scores.</p></dd>
 
 
-<dt>n_drops</dt>
-<dd><p>The number of lowest scores to drop before aggregating.</p></dd>
-
-
 <dt>weights</dt>
 <dd><p>A vector of weights of the same length as <code>scores</code>. Weights
 that do not sum to one are ok - they get normalized.</p></dd>
+
+
+<dt>n_drops</dt>
+<dd><p>The number of lowest scores to drop before aggregating.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -120,17 +110,18 @@ that do not sum to one are ok - they get normalized.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">my_scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.7</span>, <span class="fl">.9</span>, <span class="fl">.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">my_weights</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">equally_weighted</span><span class="op">(</span>scores <span class="op">=</span> <span class="va">my_scores</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in equally_weighted(scores = my_scores, n_drops = 1):</span> argument "weights" is missing, with no default</span>
+<span class="r-in"><span><span class="fu">equally_weighted</span><span class="op">(</span>scores <span class="op">=</span> <span class="va">my_scores</span>, weights <span class="op">=</span> <span class="va">my_weights</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.8 35.0</span>
 <span class="r-in"><span><span class="fu">weighted_by_points</span><span class="op">(</span>scores <span class="op">=</span> <span class="va">my_scores</span>, weights <span class="op">=</span> <span class="va">my_weights</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.78 25.00</span>
-<span class="r-in"><span><span class="fu">max_score</span><span class="op">(</span><span class="va">my_scores</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in max_score(my_scores):</span> argument "weights" is missing, with no default</span>
-<span class="r-in"><span><span class="fu">min_score</span><span class="op">(</span><span class="va">my_scores</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in min_score(my_scores, n_drops = 1):</span> argument "weights" is missing, with no default</span>
+<span class="r-in"><span><span class="fu">max_score</span><span class="op">(</span><span class="va">my_scores</span>, weights <span class="op">=</span> <span class="va">my_weights</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.9 35.0</span>
+<span class="r-in"><span><span class="fu">min_score</span><span class="op">(</span><span class="va">my_scores</span>,weights <span class="op">=</span> <span class="va">my_weights</span>, n_drops <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  0.1 35.0</span>
 <span class="r-in"><span><span class="va">my_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.7</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">none</span><span class="op">(</span><span class="va">my_score</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in none(my_score):</span> argument "weights" is missing, with no default</span>
+<span class="r-in"><span><span class="va">my_weight</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">none</span><span class="op">(</span><span class="va">my_score</span>, weights <span class="op">=</span> <span class="va">my_weight</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.7</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -4,28 +4,7 @@
     <loc>https://gradebook-dev.github.io/gradebook/404.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/LICENSE-text.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/format-policy-file.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/grade-calculations.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/gs-demo-walkthrough.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/nested-group_bys.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/articles/work_flow.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/authors.html</loc>
@@ -34,85 +13,31 @@
     <loc>https://gradebook-dev.github.io/gradebook/index.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/by_max.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/by_none.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/by_percent.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/by_points.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/by_weight.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/calculate_grades_with_for_loop.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/calculate_lateness.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/check_assignment_names.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/calculate_scores_after_lateness.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/check_cat_names.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/check_data_format.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/check_data_colnames_format.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/check_names.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/choose_aggregation.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/compute_lateness.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/compute_percent.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/convert_to_min.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/create_empty_policy_file.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/copy_element_to_children.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/create_lateness_table.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/create_overall_category.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/delete_category.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/drop_na_assignments.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/drop_ungraded_assignments.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/drops.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/equally_weighted.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/extract_nested.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/flatten_policy.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/get_assignments_unprocessed_data.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/get_cat_index.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/get_assignments.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_category_grades.html</loc>
@@ -124,9 +49,6 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_id_cols.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/get_id_cols_unprocessed_data.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/get_one_grade.html</loc>
   </url>
   <url>
@@ -136,36 +58,18 @@
     <loc>https://gradebook-dev.github.io/gradebook/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/lateness.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/lower_colnames.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/pivot_gs.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/policy_demo.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/prep_for_grading.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/process_assignments.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/process_gs_data.html</loc>
+    <loc>https://gradebook-dev.github.io/gradebook/reference/process_gs.html</loc>
   </url>
   <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/process_id.html</loc>
   </url>
   <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/process_policy_names.html</loc>
-  </url>
-  <url>
     <loc>https://gradebook-dev.github.io/gradebook/reference/read_gs.html</loc>
-  </url>
-  <url>
-    <loc>https://gradebook-dev.github.io/gradebook/reference/update_category.html</loc>
   </url>
 </urlset>

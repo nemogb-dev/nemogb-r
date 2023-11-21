@@ -21,16 +21,6 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/format-policy-file.html">Format of a Policy File</a>
-    <a class="dropdown-item" href="../articles/grade-calculations.html">Grade Calculations</a>
-    <a class="dropdown-item" href="../articles/gs-demo-walkthrough.html">UNKNOWN TITLE</a>
-    <a class="dropdown-item" href="../articles/nested-group_bys.html">How to implement nested grouped operations?</a>
-    <a class="dropdown-item" href="../articles/work_flow.html">General Work Flow</a>
-  </div>
-</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -51,7 +41,49 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="gradescope-data-functions">Gradescope Data Functions<a class="anchor" aria-label="anchor" href="#gradescope-data-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functions are to validate and process the Gradescope data.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="validate-gradescope-data">Validate Gradescope Data<a class="anchor" aria-label="anchor" href="#validate-gradescope-data"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="read_gs.html">read_gs()</a></code> 
+        </dt>
+        <dd>Read Gradescope .csv</dd>
+      </dl><dl><dt>
+          
+          <code><a href="check_data_format.html">check_data_format()</a></code> 
+        </dt>
+        <dd>Check Formatting of Gradescope Data</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_id_cols.html">get_id_cols()</a></code> 
+        </dt>
+        <dd>Get the ID Columns for Gradescope Data</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_assignments.html">get_assignments()</a></code> 
+        </dt>
+        <dd>Get the Assignment Names for Gradescope Data</dd>
+      </dl><dl><dt>
+          
+          <code><a href="drop_ungraded_assignments.html">drop_ungraded_assignments()</a></code> 
+        </dt>
+        <dd>Drop Ungraded Assignments</dd>
+      </dl></div><div class="section level2">
+      <h2 id="process-gradescope-data">Process Gradescope Data<a class="anchor" aria-label="anchor" href="#process-gradescope-data"></a></h2>
       
       
 
@@ -63,206 +95,7 @@
 
       <dl><dt>
           
-          <code><a href="by_max.html">by_max()</a></code> 
-        </dt>
-        <dd>Calculate Grade by Maximum Score in Category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="by_none.html">by_none()</a></code> 
-        </dt>
-        <dd>No Grading Policy Function</dd>
-      </dl><dl><dt>
-          
-          <code><a href="by_percent.html">by_percent()</a></code> 
-        </dt>
-        <dd>Calculate Grade Weighted by Percent</dd>
-      </dl><dl><dt>
-          
-          <code><a href="by_points.html">by_points()</a></code> 
-        </dt>
-        <dd>Calculate Grade Weighted by Points</dd>
-      </dl><dl><dt>
-          
-          <code><a href="by_weight.html">by_weight()</a></code> 
-        </dt>
-        <dd>Calculate Grade by Maximum Score in Category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="calculate_grades_with_for_loop.html">calculate_grades_with_for_loop()</a></code> 
-        </dt>
-        <dd>Calculate Grades with For Loop</dd>
-      </dl><dl><dt>
-          
-          <code><a href="calculate_lateness.html">calculate_lateness()</a></code> 
-        </dt>
-        <dd>Calculate Scores after Lateness
-This function uses the merged pivotted data + lateness table to compute
-raw scores after lateness.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="check_assignment_names.html">check_assignment_names()</a></code> 
-        </dt>
-        <dd>Check Category Names</dd>
-      </dl><dl><dt>
-          
-          <code><a href="check_cat_names.html">check_cat_names()</a></code> 
-        </dt>
-        <dd>Check Category Names</dd>
-      </dl><dl><dt>
-          
-          <code><a href="check_data_colnames_format.html">check_data_colnames_format()</a></code> 
-        </dt>
-        <dd>Check Formatting of Column Names for Gradescope Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="check_names.html">check_names()</a></code> 
-        </dt>
-        <dd>Check Names for Policy File</dd>
-      </dl><dl><dt>
-          
-          <code><a href="choose_aggregation.html">choose_aggregation()</a></code> 
-        </dt>
-        <dd>Choose Aggregation Function</dd>
-      </dl><dl><dt>
-          
-          <code><a href="compute_lateness.html">compute_lateness()</a></code> 
-        </dt>
-        <dd>Compute Lateness
-This function computes scores after lateness policy has been applied.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="compute_percent.html">compute_percent()</a></code> 
-        </dt>
-        <dd>Compute Percentages</dd>
-      </dl><dl><dt>
-          
-          <code><a href="convert_to_min.html">convert_to_min()</a></code> 
-        </dt>
-        <dd>Convert to Min</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_empty_policy_file.html">create_empty_policy_file()</a></code> 
-        </dt>
-        <dd>Create an Empty Policy File</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_lateness_table.html">create_lateness_table()</a></code> 
-        </dt>
-        <dd>Create an Lateness Table
-This function creates an assignment table where each row is an assignment with its category and relevant lateness information.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="create_overall_category.html">create_overall_category()</a></code> 
-        </dt>
-        <dd>Create Overall Grade Category in Policy File</dd>
-      </dl><dl><dt>
-          
-          <code><a href="delete_category.html">delete_category()</a></code> 
-        </dt>
-        <dd>Deletes category with name "name"</dd>
-      </dl><dl><dt>
-          
-          <code><a href="drop_na_assignments.html">drop_na_assignments()</a></code> 
-        </dt>
-        <dd>Drop NA Assignments</dd>
-      </dl><dl><dt>
-          
-          <code><a href="drop_ungraded_assignments.html">drop_ungraded_assignments()</a></code> 
-        </dt>
-        <dd>Drop Ungraded Assignments</dd>
-      </dl><dl><dt>
-          
-          <code><a href="drops.html">drops()</a></code> 
-        </dt>
-        <dd>Accounting for Drops</dd>
-      </dl><dl><dt>
-          
-          <code><a href="equally_weighted.html">equally_weighted()</a></code> <code><a href="equally_weighted.html">weighted_by_points()</a></code> <code><a href="equally_weighted.html">max_score()</a></code> <code><a href="equally_weighted.html">min_score()</a></code> <code><a href="equally_weighted.html">none()</a></code> 
-        </dt>
-        <dd>Aggregate assignment scores</dd>
-      </dl><dl><dt>
-          
-          <code><a href="extract_nested.html">extract_nested()</a></code> 
-        </dt>
-        <dd>Unnest subcategories from a category</dd>
-      </dl><dl><dt>
-          
-          <code><a href="flatten_policy.html">flatten_policy()</a></code> 
-        </dt>
-        <dd>Reshape policy file from nested to flat</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_assignments_unprocessed_data.html">get_assignments_unprocessed_data()</a></code> 
-        </dt>
-        <dd>Get the Assignment Names for Unprocessed Gradescope Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_cat_index.html">get_cat_index()</a></code> 
-        </dt>
-        <dd>Finds index of category within a policy list</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_category_grades.html">get_category_grades()</a></code> 
-        </dt>
-        <dd>Get category grades for all students</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_duplicate_ids.html">get_duplicate_ids()</a></code> 
-        </dt>
-        <dd>Return a Dataframe with Duplicate Student IDs</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_id_cols.html">get_id_cols()</a></code> 
-        </dt>
-        <dd>Get the ID Columns for Gradescope Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_id_cols_unprocessed_data.html">get_id_cols_unprocessed_data()</a></code> 
-        </dt>
-        <dd>Get the ID Columns for Unprocessed Gradescope Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_one_grade.html">get_one_grade()</a></code> 
-        </dt>
-        <dd>Get one category grade</dd>
-      </dl><dl><dt>
-          
-          <code><a href="gs_demo.html">gs_demo</a></code> 
-        </dt>
-        <dd>Gradescope Demo Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lateness.html">lateness()</a></code> 
-        </dt>
-        <dd>Calculating Lateness</dd>
-      </dl><dl><dt>
-          
-          <code><a href="lower_colnames.html">lower_colnames()</a></code> 
-        </dt>
-        <dd>Check Column Names for Gradescope Data</dd>
-      </dl><dl><dt>
-          
-          <code><a href="pivot_gs.html">pivot_gs()</a></code> 
-        </dt>
-        <dd>Convert GS data to longer table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="policy_demo.html">policy_demo</a></code> 
-        </dt>
-        <dd>Policy Demo File</dd>
-      </dl><dl><dt>
-          
-          <code><a href="prep_for_grading.html">prep_for_grading()</a></code> 
-        </dt>
-        <dd>Prep Processed Gradescope</dd>
-      </dl><dl><dt>
-          
-          <code><a href="process_assignments.html">process_assignments()</a></code> 
-        </dt>
-        <dd>Remove white spaces and special characters from column names</dd>
-      </dl><dl><dt>
-          
-          <code><a href="process_gs_data.html">process_gs_data()</a></code> 
+          <code><a href="process_gs.html">process_gs()</a></code> 
         </dt>
         <dd>Process Gradescope Data</dd>
       </dl><dl><dt>
@@ -272,21 +105,115 @@ This function creates an assignment table where each row is an assignment with i
         <dd>Process Student IDs</dd>
       </dl><dl><dt>
           
-          <code><a href="process_policy_names.html">process_policy_names()</a></code> 
+          <code><a href="get_duplicate_ids.html">get_duplicate_ids()</a></code> 
         </dt>
-        <dd>Process Assignment and Category Names in Policy File</dd>
+        <dd>Get Duplicate Student IDs</dd>
       </dl><dl><dt>
           
-          <code><a href="read_gs.html">read_gs()</a></code> 
+          <code><a href="pivot_gs.html">pivot_gs()</a></code> 
         </dt>
-        <dd>Read Gradescope .csv</dd>
+        <dd>Convert GS data to longer table</dd>
+      </dl></div><div class="section level2">
+      <h2 id="policy-file-functions">Policy File Functions<a class="anchor" aria-label="anchor" href="#policy-file-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functions are to validate and process the policy file.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="flatten_policy.html">flatten_policy()</a></code> 
+        </dt>
+        <dd>Reshape policy file from nested to flat</dd>
+      </dl></div><div class="section level2">
+      <h2 id="lateness-functions">Lateness Functions<a class="anchor" aria-label="anchor" href="#lateness-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functions are to apply any lateness policies from the policy file to the processed Gradescope data.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="calculate_lateness.html">calculate_lateness()</a></code> 
+        </dt>
+        <dd>Compute Lateness
+This function computes scores after lateness policy has been applied.</dd>
       </dl><dl><dt>
           
-          <code><a href="update_category.html">update_category()</a></code> 
+          <code><a href="calculate_scores_after_lateness.html">calculate_scores_after_lateness()</a></code> 
         </dt>
-        <dd>Add or update category to policy list</dd>
+        <dd>Calculate Scores after Lateness
+This function uses the merged pivotted data + lateness table to compute
+raw scores after lateness.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="create_lateness_table.html">create_lateness_table()</a></code> 
+        </dt>
+        <dd>Create an Lateness Table
+This function creates an assignment table where each row is an assignment with its category and relevant lateness information.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="copy_element_to_children.html">copy_element_to_children()</a></code> 
+        </dt>
+        <dd>Copy list element to child assignment categories</dd>
+      </dl></div><div class="section level2">
+      <h2 id="grading-functions">Grading Functions<a class="anchor" aria-label="anchor" href="#grading-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>These functions are to grade the processed Gradescope data based on the criteria in the processed policy file</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="get_category_grades.html">get_category_grades()</a></code> 
+        </dt>
+        <dd>Get category grades for all students</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_one_grade.html">get_one_grade()</a></code> 
+        </dt>
+        <dd>Get one category grade</dd>
+      </dl><dl><dt>
+          
+          <code><a href="equally_weighted.html">equally_weighted()</a></code> <code><a href="equally_weighted.html">weighted_by_points()</a></code> <code><a href="equally_weighted.html">max_score()</a></code> <code><a href="equally_weighted.html">min_score()</a></code> <code><a href="equally_weighted.html">none()</a></code> 
+        </dt>
+        <dd>Aggregate assignment scores</dd>
+      </dl></div><div class="section level2">
+      <h2 id="demo-items">Demo Items<a class="anchor" aria-label="anchor" href="#demo-items"></a></h2>
+      
+      <p class="section-desc"></p><p>These items are used to demonstrate the functionality of this package.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="gs_demo.html">gs_demo</a></code> 
+        </dt>
+        <dd>Gradescope Demo Data</dd>
+      </dl><dl><dt>
+          
+          <code><a href="policy_demo.html">policy_demo</a></code> 
+        </dt>
+        <dd>Policy Demo File</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
