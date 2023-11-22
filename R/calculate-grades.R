@@ -115,6 +115,7 @@ get_one_grade <- function(gs_row, policy_item) {
 #' @return An extended version of the gs data frame, with columns added for each 
 #' category described in the policy file containing the grades for each student.
 #' @export
+
 get_category_grades <- function(gs, policy) {
   
   # pull off assignment scores and weights into matrix
