@@ -54,20 +54,24 @@ It also gives an alert for what id cols and assignments are in the data.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">check_data_format</span><span class="op">(</span><span class="va">gs_data</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">check_data_format</span><span class="op">(</span><span class="va">gs</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>gs_data</dt>
-<dd><p>Gradescope data</p></dd>
+    <dl><dt>gs</dt>
+<dd><p>Gradescope data frame</p></dd>
+
+
+<dt>verbose</dt>
+<dd><p>whether or not to print messages</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Same dataframe if no error</p>
+<p>Same gs dataframe if no errors.</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
