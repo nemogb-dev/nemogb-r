@@ -123,3 +123,40 @@ calculate_scores_after_lateness <- function(lateness_table){
     mutate(score_after_lateness = Score*final_scalar) |>
     select(SID, Assignments, score_after_lateness)
 }
+
+
+
+calc_assignment_scores <- function(gs, policy) {
+    
+    get_assignments_latepols <- function(policy_item) {
+        map(policy_item$assignments, \(x) policy_item$lateness) |>
+            set_names(policy_item$assignments)
+    }
+    
+    temp <- policy$categories|>
+        discard(function(p){!("lateness" %in% names(p))}) |>
+        map(\(x) get_assignments_latepols(x)) |>
+        unlist(recursive = FALSE)
+    
+    assignments <- get_assignments(gs)
+    assignment_latepols <- temp[names(temp) %in% assignments]
+    
+    gsout <- gs
+    for(i in assignments) {
+        
+        if (!(i %in% names(assignment_latepols))) {
+            
+            # Calculate scores for assignments with no late policy
+            gsout[paste0(i, " - Score")] = gs[i] / gs[paste0(i, " - Max Points")]
+            
+        } else {
+            
+            # calculate scores for assignments with late policy
+            x <- assignment_latepols[[i]][[3]]
+            
+            between(gs[[paste0(i, " - Lateness (H:M:S)")]], convert_to_min(x$from), convert_to_min(x$to))
+            gsout[paste0(i, " - Score")] = gs[i] / gs[paste0(i, " - Max Points")] * scale
+        }
+    }
+}
+
