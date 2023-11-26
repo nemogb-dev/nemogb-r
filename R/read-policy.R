@@ -1,4 +1,20 @@
+file = "stat20_s23_policy.yml"
 
+read_policy <- function(file) {
+    pol <- yaml::read_yaml(file)
+    pol2 <- replace_inf(pol)
+}
+
+replace_inf <- function(lst) {
+    lapply(lst, function(x) {
+        if (is.list(x)) {
+            replace_inf(x)
+        } else if (is.character(x)) {
+            ifelse(x == "Inf", Inf, x)
+            ifelse(x == "-Inf", -Inf, x)
+        } else {
+            x}})
+}
 
 #' @importFrom purrr map list_flatten
 flatten_policy <- function(policy) {
