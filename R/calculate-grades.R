@@ -60,23 +60,25 @@ weighted_by_points <- function(scores, weights, n_drops = 0, ...) {
 #' @rdname equally_weighted
 #' @export
 max_score <- function(scores, weights, n_drops = 0, ...) {
-  c(max(scores, na.rm = TRUE), sum(weights, na.rm = TRUE))
+  c(max(scores, na.rm = TRUE), mean(weights, na.rm = TRUE))
 }
 
 #' @rdname equally_weighted
 #' @export
 min_score <- function(scores, weights, n_drops = 0, ...) {
-  c(min(scores, na.rm = TRUE), sum(weights, na.rm = TRUE))
+  c(min(scores, na.rm = TRUE), mean(weights, na.rm = TRUE))
 }
 
 #' @rdname equally_weighted
 #' @export
 none <- function(scores, weights, n_drops = 0, ...) {
-  ifelse(length(scores) == 1, 
-         c(scores, weights),
-         stop("Can only use `aggregation: none`
-                 if there is only 1 assignment in 
-                 the category."))
+  if (length(scores) == 1) {
+      c(scores, weights)
+  } else {
+      stop("Can only use `aggregation: none`
+           if there is only 1 assignment in 
+           the category.")
+  }
 }
 
 #' Get one category grade
@@ -114,6 +116,8 @@ get_one_grade <- function(gs_row, policy_item) {
 #' 
 #' @return An extended version of the gs data frame, with columns added for each 
 #' category described in the policy file containing the grades for each student.
+#' @importFrom dplyr bind_cols
+#' @importFrom purrr map modify_at compact
 #' @export
 
 get_category_grades <- function(gs, policy) {
@@ -136,7 +140,7 @@ get_category_grades <- function(gs, policy) {
 
   # for every category in the policy file...
   for (policy_item in policy$categories) {
-      
+
     # and for every row in the matrix, get a grade and a total weight (max points)
     grades_weights_mat <- t(apply(cbind(assignments_mat, category_grades_mat), 1,
                               get_one_grade, 
@@ -146,7 +150,8 @@ get_category_grades <- function(gs, policy) {
     category_grades_mat <- cbind(category_grades_mat, grades_weights_mat)
   }
   
-  gs_w_cats <- bind_cols(gs, category_grades_mat)
+  gs_w_cats <- bind_cols(gs, category_grades_mat) |>
+    apply_clobber(policy)
   
   # extract main categories and weights
   main_cat_weights <- policy$categories |>
@@ -179,10 +184,79 @@ get_main_cat_weights <- function(x) {
         }
 }
 
+#' Get letter grades for all students
+#'
+#'
+#' @param gs A vector of assignment scores and weights coming from a row of the
+#' gs data frame with all category and overall grades
+#' @param policy A policy file with course description, grading policy and 
+#' bounds for letter grades
+#' 
+#' @return An extended version of the gs data frame, with a column added for  
+#' letter grades, allotted as described in the policy file 
+#' 
+#' @importFrom dplyr mutate
+#' 
+#' @export
+get_letter_grades <- function(gs, policy){
+  
+  gs <- gs |> mutate(`Letter Grade` = NA)
+  
+  for (letter in policy$letter_grades){
+    within_bounds <- gs$`Overall Score` >= letter$lower_bound/100 & 
+                      gs$`Overall Score`  < letter$upper_bound/100
+    
+    if (is.null(letter$lower_bound)){
+      within_bounds <- gs$`Overall Score`  < letter$upper_bound/100
+      
+    } else if (is.null(letter$upper_bound)){
+      within_bounds <- gs$`Overall Score` >= letter$lower_bound/100
+    }
+    
+    gs$`Letter Grade`[within_bounds] <- letter$letter
+  }
+  
+  return (gs)
+}
+
 #' @importFrom lubridate hms period_to_seconds 
 convert_to_min <- function(hms){
   save <- lubridate::hms(hms) |>
     lubridate::period_to_seconds()
   save <- save/60
   return (save)
+  
+  # placeholder for apply_clobbers()
+}
+
+#' Apply Clobber Policy
+#'
+#' @description
+#' This computes any clobber policy, where the category grade is determined by the
+#' maximum score between two categories.
+#'
+#' @param gs A vector of assignment scores and weights coming from a row of the
+#' gs data frame.
+#' @param policy A single-layer list containing, at least `assignments`,
+#' a vector and optionally `n_drops`, an integer.
+#' 
+#' @return A gs dataframe with clobber policies applied to relevant categories
+#' @export
+apply_clobber <- function(gs, policy){
+  clobber_policy <- purrr::map(policy$categories, function(x){
+    return (c(x$category, x$clobber))
+  }) |>
+    purrr::discard(function(p){
+      (length(p) != 2)
+    }) 
+  
+  if (length(clobber_policy) == 0){
+    return (gs)
+  }
+  #apply clobber
+  for (clobber in clobber_policy){
+    gs[[clobber[1]]] <- pmax(gs[[clobber[1]]], gs[[clobber[2]]])
+  }
+  
+  return (gs)
 }
