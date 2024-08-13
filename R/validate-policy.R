@@ -99,7 +99,7 @@ validate_policy <- function(policy, gs, quiet = FALSE){
 #'
 #' @examples
 #' # Example
-#' flatten_policy(simple_policy)
+#' flatten_policy(policy_demo)
 #' @importFrom purrr map list_flatten
 #' @export
 flatten_policy <- function(policy) {
