@@ -13,7 +13,8 @@
 get_grades <- function(gs, policy){
   
   # flatten policy file
-  policy <- flatten_policy(policy)
+  policy <- flatten_policy(policy) |>
+    set_defaults(gs) #set defaults
   
   # convert gs into a matrix with only assignment info
   grades_mat <- gs |>

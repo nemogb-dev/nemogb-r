@@ -45,7 +45,11 @@ validate_policy <- function(policy, gs, quiet = FALSE){
     } 
     stop("None of the assignments in policy file are found in gs.")
   }
-  
+
+  return (policy)
+}
+
+set_defaults <- function(policy, gs){
   default_cat <- list(
     aggregation = "equally_weighted",
     aggregation_max_pts = "sum_max_pts",
@@ -82,7 +86,7 @@ validate_policy <- function(policy, gs, quiet = FALSE){
     
     return (cat)
   })
-
+  
   return (policy)
 }
 

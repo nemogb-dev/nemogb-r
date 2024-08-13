@@ -521,11 +521,11 @@ test_that("validate policy - add defaults with equally_weighted/weighted_by_poin
       category = "Quizzes",
       score = "raw_over_max",
       aggregation = "weighted_by_points",
-      assignments = c("Quiz 1", "Quiz 2", "Quiz 3")
+      assignments = c("Quiz 1")
     )
   )
   
-  policy <- list(categories = categories)
+  policy <- list(categories = categories) |> flatten_policy()
   
   gs <- tibble::tibble(
     `SID` = c(3032412514, 3032122516, 3032412516,3032412517),
@@ -566,7 +566,7 @@ test_that("validate policy - add defaults with equally_weighted/weighted_by_poin
     `Quiz 1 - Lateness (H:M:S)` = c("0:00:00","0:00:00","0:00:00","0:00:00")
   )
   
-  actual <- validate_policy(policy, gs)
+  actual <- set_defaults(policy, gs)
   expected_cat <- list(
     list(
       category = "Lab 1",
@@ -629,11 +629,11 @@ test_that("validate policy - add defaults with min_score and max_score",{
       category = "Quizzes",
       score = "raw_over_max",
       aggregation = "weighted_by_points",
-      assignments = c("Quiz 1", "Quiz 2", "Quiz 3")
+      assignments = c("Quiz 1")
     )
   )
   
-  policy <- list(categories = categories)
+  policy <- list(categories = categories) |> flatten_policy()
   
   gs <- tibble::tibble(
     `SID` = c(3032412514, 3032122516, 3032412516,3032412517),
@@ -674,7 +674,7 @@ test_that("validate policy - add defaults with min_score and max_score",{
     `Quiz 1 - Lateness (H:M:S)` = c("0:00:00","0:00:00","0:00:00","0:00:00")
   )
   
-  actual <- validate_policy(policy, gs)
+  actual <- set_defaults(policy, gs)
   expected_cat <- list(
     list(
       category = "Lab 1",
@@ -733,11 +733,11 @@ test_that("validate policy - add score key to categories with gs assignments",{
     list(
       category = "Quizzes",
       aggregation = "weighted_by_points",
-      assignments = c("Quiz 1", "Quiz 2", "Quiz 3")
+      assignments = c("Quiz 1")
     )
   )
   
-  policy <- list(categories = categories)
+  policy <- list(categories = categories) |> flatten_policy()
   
   gs <- tibble::tibble(
     `SID` = c(3032412514, 3032122516, 3032412516,3032412517),
@@ -778,7 +778,7 @@ test_that("validate policy - add score key to categories with gs assignments",{
     `Quiz 1 - Lateness (H:M:S)` = c("0:00:00","0:00:00","0:00:00","0:00:00")
   )
   
-  actual <- validate_policy(policy, gs)
+  actual <- set_defaults(policy, gs)
   expected_cat <- list(
     list(
       category = "Lab 1",
