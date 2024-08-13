@@ -23,18 +23,6 @@ read_gs <- function(path, drop_ungraded = TRUE, verbose = FALSE){
       drop_ungraded_assignments()
   }
   
-  raw_cols <- get_assignments(gs)
-  
-  gs |>
-    # convert all NA raw-point values into zeros
-    mutate_at(vars(all_of(raw_cols )), ~replace(., is.na(.), 0)) |>
-    # replace raw pts with score
-    mutate(across(raw_cols,
-                  ~ . / get(paste0(cur_column(), " - Max Points")))) |>
-    mutate(across( c(raw_cols, ends_with("Max Points")) , as.numeric ),
-           across( ends_with("Lateness (H:M:S)") , convert_to_min ),
-           across( ends_with("Submission Time") , as.character )
-           )
 }
 
 #' Check Formatting of Gradescope Data
