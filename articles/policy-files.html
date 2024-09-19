@@ -82,42 +82,37 @@ fairly simple grading scheme.</p>
 names.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">coursewide</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">  </span><span class="fu">course_name</span><span class="kw">:</span><span class="at"> Stat 101</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> syllabus for gs_demo</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> Syllabus for gs_demo</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Labs</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1"</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2"</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3"</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 4"</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 5"</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 6"</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Discussion</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Discussion 1"</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Discussion 2"</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm Exam</span></span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm"</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final Exam</span></span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final"</span></span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
-<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span></span>
-<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.30</span></span>
-<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.10</span></span>
-<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.30</span></span>
-<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.30</span></span>
-<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Labs</span></span>
-<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Discussion</span></span>
-<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Midterm</span></span>
-<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> Final</span></span></code></pre></div>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Labs</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.3</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1"</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2"</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3"</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 4"</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 5"</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 6"</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Discussion</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.1</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Discussion 1"</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Discussion 2"</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm Exam</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.3</span></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm"</span></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final Exam</span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.3</span></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final"</span></span></code></pre></div>
 <p>Once you have written your policy file, you can read it into R as a
 list.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -127,66 +122,72 @@ list.</p>
 <span><span class="co">#&gt; [1] "Stat 101"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "syllabus for gs_demo"</span></span>
+<span><span class="co">#&gt; [1] "Syllabus for gs_demo"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $categories</span></span>
 <span><span class="co">#&gt; $categories[[1]]</span></span>
 <span><span class="co">#&gt; $categories[[1]]$category</span></span>
-<span><span class="co">#&gt; [1] "Labs"</span></span>
+<span><span class="co">#&gt; [1] "Overall Grade"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $categories[[1]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "weighted_by_points"</span></span>
+<span><span class="co">#&gt; [1] "weighted_mean"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $categories[[1]]$assignments</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$category</span></span>
+<span><span class="co">#&gt; [1] "Labs"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$aggregation</span></span>
+<span><span class="co">#&gt; [1] "weighted_by_points"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$assignments</span></span>
 <span><span class="co">#&gt; [1] "Lab 1" "Lab 2" "Lab 3" "Lab 4" "Lab 5" "Lab 6"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[2]]$category</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$category</span></span>
 <span><span class="co">#&gt; [1] "Discussion"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$aggregation</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$aggregation</span></span>
 <span><span class="co">#&gt; [1] "equally_weighted"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[2]]$assignments</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0.1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$assignments</span></span>
 <span><span class="co">#&gt; [1] "Discussion 1" "Discussion 2"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]</span></span>
-<span><span class="co">#&gt; $categories[[3]]$category</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$category</span></span>
 <span><span class="co">#&gt; [1] "Midterm Exam"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$aggregation</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$aggregation</span></span>
 <span><span class="co">#&gt; [1] "none"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[3]]$assignments</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$assignments</span></span>
 <span><span class="co">#&gt; [1] "Midterm"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]</span></span>
-<span><span class="co">#&gt; $categories[[4]]$category</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$category</span></span>
 <span><span class="co">#&gt; [1] "Final Exam"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$aggregation</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$aggregation</span></span>
 <span><span class="co">#&gt; [1] "none"</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[4]]$assignments</span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$weight</span></span>
+<span><span class="co">#&gt; [1] 0.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$assignments</span></span>
 <span><span class="co">#&gt; [1] "Final"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[5]]</span></span>
-<span><span class="co">#&gt; $categories[[5]]$category</span></span>
-<span><span class="co">#&gt; [1] "Overall Grade"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[5]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "weighted_mean"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[5]]$weights</span></span>
-<span><span class="co">#&gt; [1] 0.3 0.1 0.3 0.3</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[5]]$assignments</span></span>
-<span><span class="co">#&gt; [1] "Labs"       "Discussion" "Midterm"    "Final"</span></span>
 <span><span class="co"># to be replaced with gradebook::read_policy()</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="recognized-keys">Recognized Keys<a class="anchor" aria-label="anchor" href="#recognized-keys"></a>
@@ -340,11 +341,11 @@ that is less than the total number of assignments in the category.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray.</p>
+  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray, Zachary Turner.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
   </div></footer>

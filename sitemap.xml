@@ -8,6 +8,7 @@
 <url><loc>https://gradebook-dev.github.io/gradebook/articles/simple-syllabus.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/authors.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/index.html</loc></url>
+<url><loc>https://gradebook-dev.github.io/gradebook/reference/check_data_format.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/equally_weighted.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/flatten_policy.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/get_assignments.html</loc></url>
@@ -19,6 +20,7 @@
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/mean_lateness.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/policy_demo.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/raw_over_max.html</loc></url>
+<url><loc>https://gradebook-dev.github.io/gradebook/reference/read_gs.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/score.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/sum_max_pts.html</loc></url>
 <url><loc>https://gradebook-dev.github.io/gradebook/reference/until.html</loc></url>
