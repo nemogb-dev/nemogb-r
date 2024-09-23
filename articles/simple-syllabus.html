@@ -64,7 +64,7 @@
       <h1>Case Study: Simple Syllabus</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/v040/vignettes/simple-syllabus.Rmd" class="external-link"><code>vignettes/simple-syllabus.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/simple-syllabus.Rmd" class="external-link"><code>vignettes/simple-syllabus.Rmd</code></a></small>
       <div class="d-none name"><code>simple-syllabus.Rmd</code></div>
     </div>
 
@@ -97,29 +97,25 @@ computed as follows:</p>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="at">  </span><span class="fu">course</span><span class="kw">:</span><span class="at"> Stat 101 Simple Syllabus</span></span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Homework</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Homework 1"</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Homework 2"</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm Exam"</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final Exam"</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.20</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Homework"</span></span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm"</span></span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final"</span></span></code></pre></div>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at"> </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">   </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">   </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">   </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Homework</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">     </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.20</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">     </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">     </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">     </span><span class="kw">-</span><span class="at"> </span><span class="st">"Homework 1"</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">     </span><span class="kw">-</span><span class="at"> </span><span class="st">"Homework 2"</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">   </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">     </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">     </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">     </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">     </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm Exam"</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">   </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">     </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">     </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">     </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">     </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final Exam"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="gradescope-assigments-file">Gradescope Assigments File<a class="anchor" aria-label="anchor" href="#gradescope-assigments-file"></a>

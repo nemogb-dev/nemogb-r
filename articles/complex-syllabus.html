@@ -64,7 +64,7 @@
       <h1>Case Study: Complex Syllabus</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/v040/vignettes/complex-syllabus.Rmd" class="external-link"><code>vignettes/complex-syllabus.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/complex-syllabus.Rmd" class="external-link"><code>vignettes/complex-syllabus.Rmd</code></a></small>
       <div class="d-none name"><code>complex-syllabus.Rmd</code></div>
     </div>
 
@@ -116,67 +116,60 @@ hours of the deadline deadline</li>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="at">  </span><span class="fu">description</span><span class="kw">:</span><span class="at"> This is the description for a course with a complex syllabus</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">categories</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Labs</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">    </span><span class="fu">drop_n_lowest</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 1</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">      </span><span class="fu">lateness</span><span class="kw">:</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">          </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">          </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1.1"</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1.2"</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 2</span></span>
-<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">      </span><span class="fu">lateness</span><span class="kw">:</span></span>
-<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
-<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="at">          </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
-<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="at">          </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
-<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
-<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
-<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
-<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
-<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2.1"</span></span>
-<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2.2"</span></span>
-<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 3</span></span>
-<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="at">      </span><span class="fu">lateness</span><span class="kw">:</span></span>
-<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
-<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="at">          </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
-<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="at">          </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
-<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
-<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
-<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
-<span id="cb1-43"><a href="#cb1-43" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
-<span id="cb1-44"><a href="#cb1-44" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-45"><a href="#cb1-45" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3.1"</span></span>
-<span id="cb1-46"><a href="#cb1-46" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3.2"</span></span>
-<span id="cb1-47"><a href="#cb1-47" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm</span></span>
-<span id="cb1-48"><a href="#cb1-48" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.20</span></span>
-<span id="cb1-49"><a href="#cb1-49" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-50"><a href="#cb1-50" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-51"><a href="#cb1-51" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm Exam"</span></span>
-<span id="cb1-52"><a href="#cb1-52" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final</span></span>
-<span id="cb1-53"><a href="#cb1-53" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-54"><a href="#cb1-54" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
-<span id="cb1-55"><a href="#cb1-55" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-56"><a href="#cb1-56" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final Exam"</span></span>
-<span id="cb1-57"><a href="#cb1-57" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
-<span id="cb1-58"><a href="#cb1-58" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
-<span id="cb1-59"><a href="#cb1-59" tabindex="-1"></a><span class="at">    </span><span class="fu">weights</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb1-60"><a href="#cb1-60" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.20</span></span>
-<span id="cb1-61"><a href="#cb1-61" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-62"><a href="#cb1-62" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fl">0.40</span></span>
-<span id="cb1-63"><a href="#cb1-63" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
-<span id="cb1-64"><a href="#cb1-64" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Labs"</span></span>
-<span id="cb1-65"><a href="#cb1-65" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm"</span></span>
-<span id="cb1-66"><a href="#cb1-66" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final"</span></span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Overall Grade</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at">    </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_mean</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at">    </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Labs</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">      </span><span class="fu">drop_n_lowest</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> equally_weighted</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 1</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">        </span><span class="fu">lateness</span><span class="kw">:</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">           </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">           </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">        </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at">        </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1.1"</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 1.2"</span></span>
+<span id="cb1-26"><a href="#cb1-26" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 2</span></span>
+<span id="cb1-27"><a href="#cb1-27" tabindex="-1"></a><span class="at">        </span><span class="fu">lateness</span><span class="kw">:</span></span>
+<span id="cb1-28"><a href="#cb1-28" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
+<span id="cb1-29"><a href="#cb1-29" tabindex="-1"></a><span class="at">           </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
+<span id="cb1-30"><a href="#cb1-30" tabindex="-1"></a><span class="at">           </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
+<span id="cb1-31"><a href="#cb1-31" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
+<span id="cb1-32"><a href="#cb1-32" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
+<span id="cb1-33"><a href="#cb1-33" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
+<span id="cb1-34"><a href="#cb1-34" tabindex="-1"></a><span class="at">        </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
+<span id="cb1-35"><a href="#cb1-35" tabindex="-1"></a><span class="at">        </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-36"><a href="#cb1-36" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2.1"</span></span>
+<span id="cb1-37"><a href="#cb1-37" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 2.2"</span></span>
+<span id="cb1-38"><a href="#cb1-38" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Lab 3</span></span>
+<span id="cb1-39"><a href="#cb1-39" tabindex="-1"></a><span class="at">        </span><span class="fu">lateness</span><span class="kw">:</span></span>
+<span id="cb1-40"><a href="#cb1-40" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">between</span><span class="kw">:</span></span>
+<span id="cb1-41"><a href="#cb1-41" tabindex="-1"></a><span class="at">           </span><span class="fu">from</span><span class="kw">:</span><span class="at"> </span><span class="st">'00:00:01'</span></span>
+<span id="cb1-42"><a href="#cb1-42" tabindex="-1"></a><span class="at">           </span><span class="fu">to</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:00'</span></span>
+<span id="cb1-43"><a href="#cb1-43" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.9</span></span>
+<span id="cb1-44"><a href="#cb1-44" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">after</span><span class="kw">:</span><span class="at"> </span><span class="st">'24:00:01'</span></span>
+<span id="cb1-45"><a href="#cb1-45" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="fu">scale_by</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.7</span></span>
+<span id="cb1-46"><a href="#cb1-46" tabindex="-1"></a><span class="at">        </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> weighted_by_points</span></span>
+<span id="cb1-47"><a href="#cb1-47" tabindex="-1"></a><span class="at">        </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-48"><a href="#cb1-48" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3.1"</span></span>
+<span id="cb1-49"><a href="#cb1-49" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> </span><span class="st">"Lab 3.2"</span></span>
+<span id="cb1-50"><a href="#cb1-50" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Midterm</span></span>
+<span id="cb1-51"><a href="#cb1-51" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.20</span></span>
+<span id="cb1-52"><a href="#cb1-52" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-53"><a href="#cb1-53" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-54"><a href="#cb1-54" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Midterm Exam"</span></span>
+<span id="cb1-55"><a href="#cb1-55" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">category</span><span class="kw">:</span><span class="at"> Final</span></span>
+<span id="cb1-56"><a href="#cb1-56" tabindex="-1"></a><span class="at">      </span><span class="fu">weight</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.40</span></span>
+<span id="cb1-57"><a href="#cb1-57" tabindex="-1"></a><span class="at">      </span><span class="fu">aggregation</span><span class="kw">:</span><span class="at"> none</span></span>
+<span id="cb1-58"><a href="#cb1-58" tabindex="-1"></a><span class="at">      </span><span class="fu">assignments</span><span class="kw">:</span></span>
+<span id="cb1-59"><a href="#cb1-59" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="st">"Final Exam"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="gradescope-assigments-file">Gradescope Assigments File<a class="anchor" aria-label="anchor" href="#gradescope-assigments-file"></a>
@@ -670,7 +663,7 @@ file.</p>
 <td align="right">0.10</td>
 <td align="right">100</td>
 <td align="right">0</td>
-<td align="right">0.4976667</td>
+<td align="right">0.4273333</td>
 <td align="right">205</td>
 <td align="right">2875.8833</td>
 </tr>
@@ -729,7 +722,7 @@ file.</p>
 <td align="right">0.78</td>
 <td align="right">100</td>
 <td align="right">0</td>
-<td align="right">0.4193333</td>
+<td align="right">0.5266667</td>
 <td align="right">205</td>
 <td align="right">0.0000</td>
 </tr>
@@ -788,7 +781,7 @@ file.</p>
 <td align="right">0.24</td>
 <td align="right">100</td>
 <td align="right">0</td>
-<td align="right">0.3973333</td>
+<td align="right">0.4946667</td>
 <td align="right">205</td>
 <td align="right">0.0000</td>
 </tr>
@@ -847,7 +840,7 @@ file.</p>
 <td align="right">0.89</td>
 <td align="right">100</td>
 <td align="right">0</td>
-<td align="right">0.6021333</td>
+<td align="right">0.6682667</td>
 <td align="right">190</td>
 <td align="right">537.5333</td>
 </tr>
@@ -906,7 +899,7 @@ file.</p>
 <td align="right">0.97</td>
 <td align="right">100</td>
 <td align="right">0</td>
-<td align="right">0.5480000</td>
+<td align="right">0.6120000</td>
 <td align="right">205</td>
 <td align="right">899.9167</td>
 </tr>
