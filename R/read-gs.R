@@ -43,7 +43,7 @@ read_gs <- function(path, verbose = FALSE){
 #'@importFrom purrr discard
 #'@importFrom stringr str_extract str_remove str_match
 #'@importFrom hms hms
-#'@importFrom lubridate as_datetime
+#'
 #'@importFrom tidyr pivot_wider
 read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   
@@ -89,7 +89,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   #convert due dates from char to datetime
   #submitted date is already date time
   
-  lateness_data$`Due Date` <- lubridate::as_datetime(lateness_data$`Due Date`, 
+  lateness_data$`Due Date` <- as.POSIXct(lateness_data$`Due Date`, 
                                                      format = "%b %d, %Y")
   
   #find lateness in hms format to be consistent
@@ -111,7 +111,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
                            values_from = c(`Lateness (H:M:S)`, `Submission Time`),
                            names_glue = "{`Assignment Name`} - {.value}",
                            values_fill = list(`Lateness (H:M:S)` = hms::hms(hours = 0),
-                                              `Submission Time` = lubridate::as_datetime(0))
+                                              `Submission Time` = as.POSIXct(0))
                            
                                            )
   
@@ -125,7 +125,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   unseen_submission <- paste0(unseen_late_assignments , 
                               " - Submission Time")
   #add placeholder value of 1970 since real value is unknown
-  lateness_data[unseen_submission] <- lubridate::as_datetime(0)
+  lateness_data[unseen_submission] <- as.POSIXct(0)
   
   unseen_lateness <- paste0(unseen_late_assignments , 
                             " - Lateness (H:M:S)")
@@ -150,7 +150,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   #check for NAs and replace with suitable values
   
   
-  grades[sub_cols][is.na(grades[sub_cols])] <- lubridate::as_datetime(0)
+  grades[sub_cols][is.na(grades[sub_cols])] <- as.POSIXct(0)
   
   grades[late_cols][is.na(grades[late_cols])] <- hms::hms(hours = 0)
   
