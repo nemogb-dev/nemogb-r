@@ -93,7 +93,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
                                                      format = "%b %d, %Y")
   
   #find lateness in hms format to be consistent
-  lateness_data$`Lateness (H:M:S)` <- lubridate::hms(hours = as.double(
+  lateness_data$`Lateness (H:M:S)` <- hms::hms(hours = as.double(
     difftime(lateness_data$`Submitted Date` ,
              lateness_data$`Due Date`)
   ))
@@ -110,7 +110,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
         tidyr::pivot_wider(names_from = `Assignment Name`,
                            values_from = c(`Lateness (H:M:S)`, `Submission Time`),
                            names_glue = "{`Assignment Name`} - {.value}",
-                           values_fill = list(`Lateness (H:M:S)` = lubridate::hms(hours = 0),
+                           values_fill = list(`Lateness (H:M:S)` = hms::hms(hours = 0),
                                               `Submission Time` = lubridate::as_datetime(0))
                            
                                            )
@@ -130,7 +130,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   unseen_lateness <- paste0(unseen_late_assignments , 
                             " - Lateness (H:M:S)")
   #not late at all
-  lateness_data[unseen_lateness] <- lubridate::hms(hours = 0)
+  lateness_data[unseen_lateness] <- hms::hms(hours = 0)
   
   
   #now merge tables
@@ -152,7 +152,7 @@ read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
   
   grades[sub_cols][is.na(grades[sub_cols])] <- lubridate::as_datetime(0)
   
-  grades[late_cols][is.na(grades[late_cols])] <- lubridate::hms(hours = 0)
+  grades[late_cols][is.na(grades[late_cols])] <- hms::hms(hours = 0)
   
   #now we have handled lateness 
   #time to turn to dealing with other things
