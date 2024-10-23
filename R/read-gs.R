@@ -17,6 +17,129 @@ read_gs <- function(path, verbose = FALSE){
     check_data_format()
 }
 
+
+
+
+
+
+
+
+
+read_canvas <- function(path_to_grades, path_to_lateness, verbose = FALSE){
+  
+  #read in grade data
+  
+  grades <- read_csv(path_to_grades, 
+                     trim_ws = FALSE)
+  
+  #read in lateness data
+  
+  lateness_data <- read_csv(path_to_lateness, 
+                            trim_ws = FALSE) 
+  
+  
+  
+  #first exrtract assignment names from grades csv
+  
+  #assignments are columns that end in (xxxx) with xxx being some number
+  
+  assignments <- stringr::str_extract(names(grades),
+                                          ".+\\s*\\(\\d+\\)")
+  
+  #remove assignment identifiers
+  assignments_short <- stringr::str_extract(assignments, "[^\\s*(\\d+)]+")
+  
+  if (duplicated(assignments_short)){
+    stop("Duplicated Assignment Names")
+  }
+  
+  #rename to shorter name for clarity and consistency with gradescope
+  grades <- grades |>
+    dplyr::rename_with(function(x) {
+      stringr::str_extract(x, "[^\\s*(\\d+)]+")
+    },  
+      assignments)
+  
+  #then convert lateness into proper form
+  
+  #convert due dates from char to datetime
+  #submitted date is already date time
+  
+  lateness_data$`Due Date` <- lubridate::as_datetime(lateness_data$`Due Date`, 
+                                                     format = "%b %d, %Y")
+  
+  #find lateness in hms format to be consistent
+  lateness_data$`Lateness (H:M:S)` <- hms::hms(hours = as.double(
+    difftime(lateness_data$`Submitted Date` ,
+             lateness_data$`Due Date`)
+  ))
+  
+  #add suffix to assignment names in lateness table 
+  
+  
+  
+  
+  lateness_data <- lateness_data |>
+        dplyr::select(c(`Student ID`, `Assignment Name`,
+                        `Submitted Date`, `Lateness (H:M:S)`)) |>
+        dplyr::rename(`Submission Time` = `Submitted Date`) |>
+        tidyr::pivot_wider(names_from = `Assignment Name`,
+                           values_from = c(`Lateness (H:M:S)`, `Submission Time`),
+                           names_sep = " - ",
+                           values_fill = hms::hms(hours = 0)
+                           
+                                           )
+  
+  seen_late_assignments <- stringr::str_match(names(lateness_data), 
+                                                 "(.+)\\s-\\sSubmission\\sTime")
+  
+  #find which assignments have no late submissions
+  unseen_late_assignments <- assignments_short[!(assignments_short %in% seen_late_assignments)] 
+  
+  #add columns for them
+  unseen_submission <- paste0(unseen_late_assignments , 
+                              " - Submission Time")
+  #add placeholder value of 1970 since real value is unknown
+  lateness_data[unseen_submission] <- lubridate::as_datetime(0)
+  
+  unseen_lateness <- paste0(unseen_late_assignments , 
+                            " - Lateness (H:M:S)")
+  #not late at all
+  lateness_data[unseen_lateness] <- hms::hms(hours = 0)
+  
+  
+  #now merge tables
+  
+  grades <- grades |>
+    dplyr::left_join(lateness_data, 
+                     by = dplyr::join_by(ID == `Student ID`),
+                     unmatched = "error",
+                     relationship = "one-to-one")
+  
+  #now take care of whether any students have no late assignments
+  
+  sub_cols <- paste0(assignments_short, " - Submission Time")
+  
+  late_cols <- paste0(assignments_short, " - Lateness (H:M:S)")
+  
+  #check for NAs and replace with suitable values
+  
+  
+  grades[sub_cols][is.na(grades[sub_cols])] <- lubridate::as_datetime(0)
+  
+  grades[late_cols][is.na(grades[late_cols])] <- hms::hms(hours = 0)
+  
+  #now we have handled lateness 
+  #time to turn to dealing with other things
+  
+  
+  
+  
+  
+  
+}
+
+
 #' Check Formatting of Gradescope Data
 #'
 #' This functions checks the column names throughout the Gradescope data.
