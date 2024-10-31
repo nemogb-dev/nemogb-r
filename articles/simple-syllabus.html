@@ -64,7 +64,7 @@
       <h1>Case Study: Simple Syllabus</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/v0421/vignettes/simple-syllabus.Rmd" class="external-link"><code>vignettes/simple-syllabus.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/simple-syllabus.Rmd" class="external-link"><code>vignettes/simple-syllabus.Rmd</code></a></small>
       <div class="d-none name"><code>simple-syllabus.Rmd</code></div>
     </div>
 
@@ -314,10 +314,12 @@ assignments: <em>“Homework 1”</em> and <em>“Homework 2”</em> in the
 <span><span class="va">policy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_policy.html">read_policy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"simple_syllabus.yaml"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">grades</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_grades.html">get_grades</a></span><span class="op">(</span>gs <span class="op">=</span> <span class="va">simple_syllabus_data</span>, policy <span class="op">=</span> <span class="va">policy</span><span class="op">)</span></span></code></pre></div>
-<p>First, read in your YAML policy file. <code>validate_policy()</code>
-checks the formatting of the policy file. Finally,
-<code><a href="../reference/get_grades.html">get_grades()</a></code> grades your assignments based on your policy
-file.</p>
+<p>First, read in your YAML policy file. <code><a href="../reference/process_policy.html">process_policy()</a></code>
+checks the formatting of the policy file.
+Then,<code><a href="../reference/reconcile_policy_with_gs.html">reconcile_policy_with_gs()</a></code> checks for compatibility
+between the Gradescope file (<code>simple_syllabus_data</code>) and the
+policy file (<code>policy</code>). Finally, <code><a href="../reference/get_grades.html">get_grades()</a></code>
+grades your assignments based on your policy file.</p>
 <p>The output of the grades looks like:</p>
 <div style="height: 300px; overflow: auto;">
 <table style="width:100%;" class="table">
@@ -568,7 +570,7 @@ file.</p>
 <h3 id="disclaimers">Disclaimers:<a class="anchor" aria-label="anchor" href="#disclaimers"></a>
 </h3>
 <ul>
-<li><p>The <code>weights</code> of a category with aggregation
+<li><p>The <code>weight</code> of a category with aggregation
 <code>weighted_mean</code> should be corresponding order with the
 <code>assignments.</code></p></li>
 <li><p>Categories cannot have the same name as any other assignment
