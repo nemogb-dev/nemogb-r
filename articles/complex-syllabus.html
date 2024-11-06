@@ -175,16 +175,9 @@ hours of the deadline deadline</li>
 <h2 id="gradescope-assigments-file">Gradescope Assigments File<a class="anchor" aria-label="anchor" href="#gradescope-assigments-file"></a>
 </h2>
 <p>Here is what the gradescope assignments file looks like:</p>
-<div style="height: 300px; overflow: auto;">
-<pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">5</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">36</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>  (11): Names, Email, Sections, Lab 1.1 - Submission Time, Lab 1.2 ...</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>  (17): SID, Lab 1.1, Lab 1.1 - Max Points, Lab 1.2, Lab 1.2 - Max ...</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">time</span>  (8): Lab 1.1 - Lateness (H:M:S), Lab 1.2 - Lateness (H:M:S), Lab...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre>
+<div style="height: 500px; overflow: auto;">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">complex_syllabus_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_gs.html">read_gs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"complex_syllabus_data.csv"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="1%">
@@ -963,12 +956,8 @@ grades your assignments based on your policy file.</p>
 <span>    `Labs` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="fu">one_drop</span><span class="op">(</span><span class="va">lab_grades_with_lateness</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># calculate final Overall Grade</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>`Overall Grade` <span class="op">=</span> <span class="fl">0.4</span><span class="op">*</span><span class="va">`Labs`</span> <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span><span class="va">`Midterm Exam`</span> <span class="op">+</span> <span class="fl">0.4</span><span class="op">*</span><span class="va">`Final Exam`</span><span class="op">)</span> </span></code></pre></div>
-<p>And, as you can see, the computations align.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">script_grades</span><span class="op">$</span><span class="va">`Overall Grade`</span>, <span class="va">grades</span><span class="op">$</span><span class="va">`Overall Grade`</span>, </span>
-<span>     xlab <span class="op">=</span> <span class="st">"Script Grades"</span>, ylab <span class="op">=</span> <span class="st">"Gradebook Grades"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">1</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="complex-syllabus_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p>And, as you can see, the computations align.
+<img src="complex-syllabus_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 <p>Disclaimers:</p>
 <ul>
 <li><p>The <code>weight</code> of a category with aggregation
@@ -987,7 +976,7 @@ name.</p></li>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray, Zachary Turner.</p>
+  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray.</p>
 </div>
 
 <div class="pkgdown-footer-right">

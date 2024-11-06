@@ -71,7 +71,7 @@
     
     
 <p>There are two ingredients that are needed to calculate course grades
-with <code>gradebook</code>: a data frame containing assignment scores
+with <code>gradebook</code>: a dataframe containing assignment scores
 and a file that encodes the grading policies often described in a
 syllabus. We call that file a <em>policy file</em>.</p>
 <p>Policy files are stored as <a href="https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started" class="external-link">.yaml</a>
@@ -116,79 +116,7 @@ names.</p>
 <p>Once you have written your policy file, you can read it into R as a
 list.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">yaml</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/yaml/man/read_yaml.html" class="external-link">read_yaml</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"policy_demo.yaml"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coursewide</span></span>
-<span><span class="co">#&gt; $coursewide$course_name</span></span>
-<span><span class="co">#&gt; [1] "Stat 101"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $coursewide$description</span></span>
-<span><span class="co">#&gt; [1] "Syllabus for gs_demo"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories</span></span>
-<span><span class="co">#&gt; $categories[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$category</span></span>
-<span><span class="co">#&gt; [1] "Overall Grade"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "weighted_mean"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments</span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$category</span></span>
-<span><span class="co">#&gt; [1] "Labs"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "weighted_by_points"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0.3</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[1]]$assignments</span></span>
-<span><span class="co">#&gt; [1] "Lab 1" "Lab 2" "Lab 3" "Lab 4" "Lab 5" "Lab 6"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$category</span></span>
-<span><span class="co">#&gt; [1] "Discussion"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "equally_weighted"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0.1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[2]]$assignments</span></span>
-<span><span class="co">#&gt; [1] "Discussion 1" "Discussion 2"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$category</span></span>
-<span><span class="co">#&gt; [1] "Midterm Exam"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "none"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0.3</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[3]]$assignments</span></span>
-<span><span class="co">#&gt; [1] "Midterm"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]</span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$category</span></span>
-<span><span class="co">#&gt; [1] "Final Exam"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$aggregation</span></span>
-<span><span class="co">#&gt; [1] "none"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$weight</span></span>
-<span><span class="co">#&gt; [1] 0.3</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $categories[[1]]$assignments[[4]]$assignments</span></span>
-<span><span class="co">#&gt; [1] "Final"</span></span>
-<span><span class="co"># to be replaced with gradebook::read_policy()</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">policy</span> <span class="op">&lt;-</span> <span class="fu">gradebook</span><span class="fu">::</span><span class="fu"><a href="../reference/read_policy.html">read_policy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"policy_demo.yaml"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="recognized-keys">Recognized Keys<a class="anchor" aria-label="anchor" href="#recognized-keys"></a>
 </h2>
@@ -200,7 +128,7 @@ value determines the specifics of this calculation.</p>
 </h3>
 <p>Every single category must have the <code>category</code> key. This
 is the name of the subcategory and must be unique from all other
-category names and all assignment names as well.</p>
+category names and all assignment names.</p>
 </div>
 <div class="section level3">
 <h3 id="assignments">Assignments<a class="anchor" aria-label="anchor" href="#assignments"></a>
@@ -208,9 +136,12 @@ category names and all assignment names as well.</p>
 <p>The <code>assignments</code> key determines which assignments or
 subcategories are used to determine the category score. The values for
 this key must match assignments in the Gradescope data or subcategories
-determined in the same policy file. This can be left blank, but this
-means that this category score will not be factored into any of the
-grade calculations and will be ignored.</p>
+determined in the same policy file. If left blank, the category score
+will not be factored into any of the grade calculations and will be
+ignored (this is usually relevant when computing grades in the middle of
+the semester when not all assignments have been assigned and/or graded).
+Using <code><a href="../reference/get_assignments.html">get_assignments()</a></code> will give you a list of all the
+assignments’ names within your Gradescope file.</p>
 </div>
 <div class="section level3">
 <h3 id="score">Score<a class="anchor" aria-label="anchor" href="#score"></a>
@@ -221,11 +152,11 @@ value for this key:</p>
 <ul>
 <li>
 <p><code>raw_over_max</code>: the percentage of an assignment score
-is the point-value of the assignment divided by the maximum points of
-the assignment.</p>
+is the score of the assignment divided by the maximum points of the
+assignment.</p>
 <ul>
-<li>Note: if <code>score</code> is not explicitly determined, this is
-the <em>default</em>.</li>
+<li>Note: if <code>score</code> is not explicitly defined, this is the
+<em>default</em>.</li>
 </ul>
 </li>
 </ul>
@@ -242,8 +173,8 @@ category score. These are the corresponding values for this key:</p>
 of the assignment scores with no regard to the relative point-values of
 the assignments.</p>
 <ul>
-<li>Note: if <code>aggregation</code> is not explicitly determined, this
-is the <em>default</em>.</li>
+<li>Note: if <code>aggregation</code> is not explicitly defined, this is
+the <em>default</em>.</li>
 </ul>
 </li>
 <li><p><code>weighted_by_points</code>: the category score is the
@@ -263,9 +194,16 @@ categories.</p>
 calculation.</li>
 </ul>
 </li>
-<li><p><code>none</code>: this is reserved for when a category is
+<li>
+<p><code>none</code>: this is reserved for when a category is
 comprised of only one assignment; hence no aggregation is necessary
-because the category score is simply the assignment score.</p></li>
+because the category score is simply the assignment score.</p>
+<ul>
+<li>Note: if an category has <code>none</code> for its aggregation and
+multiple assignments, the function defaults to
+<code>equally_weighted</code>.</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section level3">
@@ -279,10 +217,10 @@ penalty is applied. Here are the possible threshold functions:</p>
 <ul>
 <li><p><code>until</code>: this marks the lateness-period up until and
 including the specified value.</p></li>
-<li><p><code>after</code>: this marks the lateness-period after and
-including the specified value.</p></li>
 <li><p><code>between</code>: this marks the lateness-period between and
 including the two specified values.</p></li>
+<li><p><code>after</code>: this marks the lateness-period after and
+including the specified value.</p></li>
 </ul>
 <p>Here are the possible penalty functions:</p>
 <ul>
@@ -313,24 +251,451 @@ assignment is turned in too late.</li>
 </ul>
 </li>
 </ul>
-<p>See <code>Case Study: Moderate Syllabus</code> to view an example of
-a lateness policy</p>
+<p>See <code>Case Study: Moderate Syllabus</code> vignette to view an
+example of a lateness policy</p>
 </div>
 <div class="section level3">
 <h3 id="drop-n-lowest">Drop N Lowest<a class="anchor" aria-label="anchor" href="#drop-n-lowest"></a>
 </h3>
 <p>The <code>drop_n_lowest</code> key is used to drop <em>n</em> of the
 lowest assignments scores. This <em>n</em>-value can take any integer
-that is less than the total number of assignments in the category.</p>
+that is less than the total number of assignments in the category. If
+<em>n</em> is bigger than the number of assignments within a category,
+then the highest assignment score is returned.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="nesting-and-inheritance">Nesting and Inheritance<a class="anchor" aria-label="anchor" href="#nesting-and-inheritance"></a>
+<h2 id="nesting">Nesting<a class="anchor" aria-label="anchor" href="#nesting"></a>
 </h2>
+<p>The highest level category is <code>Overall Grade</code> with all
+other categories and/or assignments nested within. The nested structure
+of categories allows for the structured breakdown of each category of a
+syllabus. Using the example above, <code>Overall Grade</code> is the
+highest level of nesting with subcategories of <code>Labs</code>,
+<code>Discussion</code>, <code>Midterm Exam</code> and
+<code>Final Exam</code>. Each of these subcategories have their own
+respective assignments nested within them. Computations begin with the
+most nested category level going up the levels toward
+<code>Overall Grade</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="importance-of-order">Importance of Order<a class="anchor" aria-label="anchor" href="#importance-of-order"></a>
 </h2>
+<p>Order of operation is crucial in the accurate computation of the
+final grades. When computing grades, generally the high level ordering
+is the following:</p>
+<ul>
+<li><p><code>lateness</code> penalties,</p></li>
+<li><p>apply category drops <code>drop_n_lowest</code>, and</p></li>
+<li><p><code>aggregation</code></p></li>
+</ul>
+<p>This is generally true for all syllabi. First, apply penalty for
+lateness, then drop lowest scoring assignments, and finally apply
+aggregations of assignments.</p>
+<p>For example, take two separate orders of the computations of the
+<code>Labs</code> category, each with six assignments
+(e.g. <code>Lab 1</code>, <code>Lab 2</code>, etc.). Both drop the 2
+lowest scores. Both apply the same lateness penality: 10% reduction if
+the assignment is at most a day late and setting the score to zero if
+any more late. Here’s the dataframe that will be used (the
+<code>gs_demo</code> from the package):</p>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="2%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+<col width="1%">
+<col width="4%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="right">SID</th>
+<th align="right">Lab 1</th>
+<th align="right">Lab 1 - Max Points</th>
+<th align="left">Lab 1 - Submission Time</th>
+<th align="left">Lab 1 - Lateness (H:M:S)</th>
+<th align="right">Lab 2</th>
+<th align="right">Lab 2 - Max Points</th>
+<th align="left">Lab 2 - Submission Time</th>
+<th align="left">Lab 2 - Lateness (H:M:S)</th>
+<th align="right">Lab 3</th>
+<th align="right">Lab 3 - Max Points</th>
+<th align="left">Lab 3 - Submission Time</th>
+<th align="left">Lab 3 - Lateness (H:M:S)</th>
+<th align="right">Lab 4</th>
+<th align="right">Lab 4 - Max Points</th>
+<th align="left">Lab 4 - Submission Time</th>
+<th align="left">Lab 4 - Lateness (H:M:S)</th>
+<th align="right">Lab 5</th>
+<th align="right">Lab 5 - Max Points</th>
+<th align="left">Lab 5 - Submission Time</th>
+<th align="left">Lab 5 - Lateness (H:M:S)</th>
+<th align="right">Lab 6</th>
+<th align="right">Lab 6 - Max Points</th>
+<th align="left">Lab 6 - Submission Time</th>
+<th align="left">Lab 6 - Lateness (H:M:S)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">3032412514</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="left">1/19/23 22:20</td>
+<td align="left">00:00:00</td>
+<td align="right">5</td>
+<td align="right">20</td>
+<td align="left">9/21/22 23:54</td>
+<td align="left">47:55:53</td>
+<td align="right">7</td>
+<td align="right">15</td>
+<td align="left">1/24/23 20:38</td>
+<td align="left">00:00:00</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="left">1/26/23 19:51</td>
+<td align="left">00:00:00</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="left">1/31/23 18:59</td>
+<td align="left">00:00:00</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="left">2/2/23 12:16</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="right">3032412515</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="left">1/19/23 12:16</td>
+<td align="left">00:00:00</td>
+<td align="right">20</td>
+<td align="right">20</td>
+<td align="left">9/19/22 23:32</td>
+<td align="left">00:00:00</td>
+<td align="right">1</td>
+<td align="right">15</td>
+<td align="left">1/24/23 16:18</td>
+<td align="left">00:00:00</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="left">1/26/23 8:54</td>
+<td align="left">00:00:00</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="left">1/31/23 13:04</td>
+<td align="left">00:00:00</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="left">2/2/23 12:12</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412516</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">1/19/23 10:26</td>
+<td align="left">00:00:00</td>
+<td align="right">12</td>
+<td align="right">20</td>
+<td align="left">9/19/22 23:44</td>
+<td align="left">00:00:00</td>
+<td align="right">15</td>
+<td align="right">15</td>
+<td align="left">1/24/23 16:10</td>
+<td align="left">00:00:00</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="left">1/26/23 10:12</td>
+<td align="left">00:00:00</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="left">1/31/23 16:01</td>
+<td align="left">00:00:00</td>
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="left">2/2/23 10:13</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="right">3032412517</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">1/20/23 8:12</td>
+<td align="left">00:00:00</td>
+<td align="right">1</td>
+<td align="right">20</td>
+<td align="left">9/13/22 20:29</td>
+<td align="left">00:00:00</td>
+<td align="right">8</td>
+<td align="right">15</td>
+<td align="left">1/25/23 8:56</td>
+<td align="left">08:57:32</td>
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="left">1/26/23 17:27</td>
+<td align="left">00:00:00</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="left">1/31/23 14:57</td>
+<td align="left">00:00:00</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">2/2/23 16:43</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412518</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="left">1/19/23 12:06</td>
+<td align="left">00:00:00</td>
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="left">9/19/22 0:15</td>
+<td align="left">00:00:00</td>
+<td align="right">9</td>
+<td align="right">15</td>
+<td align="left">1/25/23 14:58</td>
+<td align="left">14:59:55</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="left">1/27/23 14:09</td>
+<td align="left">14:10:40</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="left">1/31/23 15:44</td>
+<td align="left">00:00:00</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="left">2/2/23 22:27</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="right">3032412519</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="left">1/19/23 17:17</td>
+<td align="left">00:00:00</td>
+<td align="right">2</td>
+<td align="right">20</td>
+<td align="left">9/19/22 22:37</td>
+<td align="left">00:00:00</td>
+<td align="right">9</td>
+<td align="right">15</td>
+<td align="left">1/24/23 18:08</td>
+<td align="left">00:00:00</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">1/26/23 21:51</td>
+<td align="left">00:00:00</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="left">1/31/23 23:03</td>
+<td align="left">00:00:00</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="left">2/2/23 19:18</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412520</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="left">1/20/23 11:24</td>
+<td align="left">11:25:51</td>
+<td align="right">11</td>
+<td align="right">20</td>
+<td align="left">9/19/22 23:59</td>
+<td align="left">00:00:17</td>
+<td align="right">7</td>
+<td align="right">15</td>
+<td align="left">1/24/23 22:23</td>
+<td align="left">00:00:00</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">1/26/23 23:12</td>
+<td align="left">00:00:00</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="left">1/30/23 22:52</td>
+<td align="left">00:00:00</td>
+<td align="right">4</td>
+<td align="right">10</td>
+<td align="left">2/2/23 19:04</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="right">3032412521</td>
+<td align="right">2</td>
+<td align="right">10</td>
+<td align="left">1/19/23 11:46</td>
+<td align="left">00:00:00</td>
+<td align="right">20</td>
+<td align="right">20</td>
+<td align="left">9/14/22 15:39</td>
+<td align="left">00:00:00</td>
+<td align="right">9</td>
+<td align="right">15</td>
+<td align="left">1/24/23 16:44</td>
+<td align="left">00:00:00</td>
+<td align="right">3</td>
+<td align="right">10</td>
+<td align="left">1/26/23 2:24</td>
+<td align="left">00:00:00</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="left">1/31/23 18:47</td>
+<td align="left">00:00:00</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">2/2/23 1:53</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412522</td>
+<td align="right">8</td>
+<td align="right">10</td>
+<td align="left">1/18/23 23:48</td>
+<td align="left">00:00:00</td>
+<td align="right">3</td>
+<td align="right">20</td>
+<td align="left">9/19/22 23:51</td>
+<td align="left">00:00:00</td>
+<td align="right">14</td>
+<td align="right">15</td>
+<td align="left">1/24/23 18:23</td>
+<td align="left">00:00:00</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="left">1/26/23 19:30</td>
+<td align="left">00:00:00</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="left">1/31/23 23:10</td>
+<td align="left">00:00:00</td>
+<td align="right">3</td>
+<td align="right">10</td>
+<td align="left">2/3/23 12:23</td>
+<td align="left">12:24:26</td>
+</tr>
+<tr class="even">
+<td align="right">3032412523</td>
+<td align="right">5</td>
+<td align="right">10</td>
+<td align="left">1/20/23 0:33</td>
+<td align="left">00:34:45</td>
+<td align="right">19</td>
+<td align="right">20</td>
+<td align="left">9/19/22 16:10</td>
+<td align="left">00:00:00</td>
+<td align="right">15</td>
+<td align="right">15</td>
+<td align="left">1/25/23 13:11</td>
+<td align="left">13:12:53</td>
+<td align="right">2</td>
+<td align="right">10</td>
+<td align="left">1/26/23 14:37</td>
+<td align="left">00:00:00</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="left">2/1/23 9:30</td>
+<td align="left">09:31:21</td>
+<td align="right">10</td>
+<td align="right">10</td>
+<td align="left">2/2/23 21:08</td>
+<td align="left">00:00:00</td>
+</tr>
+</tbody>
+</table>
+<p>The first computation would apply the lateness penalty first to all
+six assignments and then drop the two lowest scores after. The second
+computation would drop the two lowest scores first and then apply the
+lateness penalty to the four remaining assignments. Here are the
+computed scores for <code>Labs</code> side-by-side:</p>
+<table class="table">
+<thead><tr class="header">
+<th align="right">SID</th>
+<th align="right">Labs - Drops First</th>
+<th align="right">Labs - Lateness First</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">3032412514</td>
+<td align="right">0.5333333</td>
+<td align="right">0.6666667</td>
+</tr>
+<tr class="even">
+<td align="right">3032412515</td>
+<td align="right">0.5500000</td>
+<td align="right">0.5500000</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412516</td>
+<td align="right">0.8500000</td>
+<td align="right">0.8500000</td>
+</tr>
+<tr class="even">
+<td align="right">3032412517</td>
+<td align="right">0.7700000</td>
+<td align="right">0.7700000</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412518</td>
+<td align="right">0.6600000</td>
+<td align="right">0.6600000</td>
+</tr>
+<tr class="even">
+<td align="right">3032412519</td>
+<td align="right">0.8750000</td>
+<td align="right">0.8750000</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412520</td>
+<td align="right">0.7537500</td>
+<td align="right">0.7537500</td>
+</tr>
+<tr class="even">
+<td align="right">3032412521</td>
+<td align="right">0.9000000</td>
+<td align="right">0.9000000</td>
+</tr>
+<tr class="odd">
+<td align="right">3032412522</td>
+<td align="right">0.9083333</td>
+<td align="right">0.9083333</td>
+</tr>
+<tr class="even">
+<td align="right">3032412523</td>
+<td align="right">0.8925000</td>
+<td align="right">0.8925000</td>
+</tr>
+</tbody>
+</table>
+<p>While this distinction doesn’t affect all students, the first student
+does get a distinctly different score, highlighing the importance of
+order in creating these policy files. It’s evident that seemingly small
+distinctions can create a significant effect, especially on larger
+student bodies.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -341,7 +706,7 @@ that is less than the total number of assignments in the category.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray, Zachary Turner.</p>
+  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray.</p>
 </div>
 
 <div class="pkgdown-footer-right">

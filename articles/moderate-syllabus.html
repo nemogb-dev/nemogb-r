@@ -71,8 +71,8 @@
     
     
 <p>Now, we will walk through a moderately complex syllabus and its
-Gradebook implementation with 5 students in the class. Start with what
-this syllabus would look like on a class website.</p>
+Gradebook implementation with 5 students in the class. Let’s start with
+what this syllabus would look like on a class website.</p>
 <div class="section level2">
 <h2 id="syllabus">Syllabus<a class="anchor" aria-label="anchor" href="#syllabus"></a>
 </h2>
@@ -143,17 +143,10 @@ hours of the deadline</li>
 <div class="section level2">
 <h2 id="gradescope-assigments-file">Gradescope Assigments File<a class="anchor" aria-label="anchor" href="#gradescope-assigments-file"></a>
 </h2>
-<p>Here is what the gradescope assignments file looks like:</p>
-<div style="height: 300px; overflow: auto;">
-<pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">5</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">32</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span>  (10): Names, Email, Sections, Homework 1 - Submission Time, Homew...</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span>  (15): SID, Homework 1, Homework 1 - Max Points, Homework 2, Homew...</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB;">time</span>  (7): Homework 1 - Lateness (H:M:S), Homework 2 - Lateness (H:M:S...</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre>
+<p>Here is what the Gradescope assignments file looks like:</p>
+<div style="height: 500px; overflow: auto;">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">moderate_syllabus_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_gs.html">read_gs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"moderate_syllabus_data.csv"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
@@ -805,12 +798,8 @@ file.</p>
 <span>    `Homework` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowMeans</a></span><span class="op">(</span><span class="fu">two_drops</span><span class="op">(</span><span class="va">data_with_lateness</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># calculate final Overall Grade</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>`Overall Grade` <span class="op">=</span> <span class="fl">0.4</span><span class="op">*</span><span class="va">`Homework`</span> <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span><span class="va">`Midterm Exam`</span> <span class="op">+</span> <span class="fl">0.4</span><span class="op">*</span><span class="va">`Final Exam`</span><span class="op">)</span> </span></code></pre></div>
-<p>And, as you can see, the computations align.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">script_grades</span><span class="op">$</span><span class="va">`Overall Grade`</span>, <span class="va">grades</span><span class="op">$</span><span class="va">`Overall Grade`</span>, </span>
-<span>     xlab <span class="op">=</span> <span class="st">"Script Grades"</span>, ylab <span class="op">=</span> <span class="st">"Gradebook Grades"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">1</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="moderate-syllabus_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<p>And, as you can see, the computations align.
+<img src="moderate-syllabus_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 <div class="section level3">
 <h3 id="disclaimers">Disclaimers:<a class="anchor" aria-label="anchor" href="#disclaimers"></a>
 </h3>
@@ -832,7 +821,7 @@ name.</p></li>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray, Zachary Turner.</p>
+  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray.</p>
 </div>
 
 <div class="pkgdown-footer-right">
