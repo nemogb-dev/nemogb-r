@@ -49,6 +49,8 @@ get_grades <- function(gs, policy, verbose = FALSE){
 #'
 #' @return A dataframe of the original Gradescope data with computed categories' scores appended as additional columns
 #'
+#' @importFrom dplyr mutate select relocate
+#'
 #' @export
 calculate_grades <- function(gs, policy){
   # convert gs into a matrix with only assignment info
@@ -82,7 +84,8 @@ calculate_grades <- function(gs, policy){
   grades$SID <- rownames(grades_mat) 
   
   idcols <- gs |>
-    select(get_id_cols(gs))
+    dplyr::select(get_id_cols(gs)) |>
+    dplyr::mutate(SID = as.character(SID))
   
   grades <- grades |>
     left_join(idcols, by = "SID") |>
