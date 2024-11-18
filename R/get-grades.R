@@ -78,7 +78,8 @@ calculate_grades <- function(gs, policy){
   
   grades <- grades_mat |>
     as.data.frame()
-  grades$SID <- as.numeric(rownames(grades_mat)) #add back SID
+  # add back SID
+  grades$SID <- rownames(grades_mat) 
   
   idcols <- gs |>
     select(get_id_cols(gs))
