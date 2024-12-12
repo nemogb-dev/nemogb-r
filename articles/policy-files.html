@@ -10,8 +10,8 @@
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
 <link href="../deps/Source_Code_Pro-0.4.9/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Building a Policy File">
 <script defer data-domain="gradebook,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">gradebook</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,10 @@
     <li><a class="dropdown-item" href="../articles/simple-syllabus.html">Case Study: Simple Syllabus</a></li>
     <li><a class="dropdown-item" href="../articles/moderate-syllabus.html">Case Study: Moderate Syllabus</a></li>
     <li><a class="dropdown-item" href="../articles/complex-syllabus.html">Case Study: Complex Syllabus</a></li>
+    <li><a class="dropdown-item" href="../articles/excusing-assignments.html">Excusing Assignments</a></li>
+    <li><a class="dropdown-item" href="../articles/working-with-canvas-data.html">Working With Canvas Data</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
       </ul>
@@ -64,7 +68,7 @@
       <h1>Building a Policy File</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/v1.0.0/vignettes/policy-files.Rmd" class="external-link"><code>vignettes/policy-files.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/policy-files.Rmd" class="external-link"><code>vignettes/policy-files.Rmd</code></a></small>
       <div class="d-none name"><code>policy-files.Rmd</code></div>
     </div>
 
@@ -634,58 +638,58 @@ lateness penalty to the four remaining assignments. Here are the
 computed scores for <code>Labs</code> side-by-side:</p>
 <table class="table">
 <thead><tr class="header">
-<th align="right">SID</th>
+<th align="left">SID</th>
 <th align="right">Labs - Drops First</th>
 <th align="right">Labs - Lateness First</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="right">3032412514</td>
+<td align="left">3032412514</td>
 <td align="right">0.5333333</td>
 <td align="right">0.6666667</td>
 </tr>
 <tr class="even">
-<td align="right">3032412515</td>
+<td align="left">3032412515</td>
 <td align="right">0.5500000</td>
 <td align="right">0.5500000</td>
 </tr>
 <tr class="odd">
-<td align="right">3032412516</td>
+<td align="left">3032412516</td>
 <td align="right">0.8500000</td>
 <td align="right">0.8500000</td>
 </tr>
 <tr class="even">
-<td align="right">3032412517</td>
+<td align="left">3032412517</td>
 <td align="right">0.7700000</td>
 <td align="right">0.7700000</td>
 </tr>
 <tr class="odd">
-<td align="right">3032412518</td>
+<td align="left">3032412518</td>
 <td align="right">0.6600000</td>
 <td align="right">0.6600000</td>
 </tr>
 <tr class="even">
-<td align="right">3032412519</td>
+<td align="left">3032412519</td>
 <td align="right">0.8750000</td>
 <td align="right">0.8750000</td>
 </tr>
 <tr class="odd">
-<td align="right">3032412520</td>
+<td align="left">3032412520</td>
 <td align="right">0.7537500</td>
 <td align="right">0.7537500</td>
 </tr>
 <tr class="even">
-<td align="right">3032412521</td>
+<td align="left">3032412521</td>
 <td align="right">0.9000000</td>
 <td align="right">0.9000000</td>
 </tr>
 <tr class="odd">
-<td align="right">3032412522</td>
+<td align="left">3032412522</td>
 <td align="right">0.9083333</td>
 <td align="right">0.9083333</td>
 </tr>
 <tr class="even">
-<td align="right">3032412523</td>
+<td align="left">3032412523</td>
 <td align="right">0.8925000</td>
 <td align="right">0.8925000</td>
 </tr>
@@ -706,7 +710,7 @@ student bodies.</p>
    </div>
   <footer><div class="container">
   <div class="pkgdown-footer-left">
-  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray.</p>
+  <p>Developed by Nikita Jayaprakash, Monika Voutov, Andrew Bray, Zachary Turner.</p>
 </div>
 
 <div class="pkgdown-footer-right">
