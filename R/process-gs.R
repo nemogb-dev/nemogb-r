@@ -32,7 +32,7 @@ process_gs <- function(gs, drop_ungraded = TRUE, verbose = FALSE){
 
 #' @importFrom dplyr filter select
 #' @importFrom purrr keep
-#' @importFrom tidyr contains
+#' @importFrom tidyr all_of
 #' @importFrom cli cli_alert_info cli_div cli_text cli_end
 drop_ungraded_assignments <- function(gs, verbose = FALSE) {
   # This functions drops any assignments that have no grades for any students and replaced -Inf values
@@ -54,5 +54,10 @@ drop_ungraded_assignments <- function(gs, verbose = FALSE) {
   if (verbose){
     alert()
   }
-  gs |> select(-contains(dropped))
+  
+  if (length(dropped) != 0) {
+    dropped <- paste0(rep(dropped, each = 4), c("", " - Max Points",  " - Submission Time", " - Lateness (H:M:S)"))
+    gs <- gs |> select(-all_of(dropped))
+  }
+  return (gs)
 }
