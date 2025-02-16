@@ -51,9 +51,9 @@ Grading Workflow WITH Nemo Gradebook             |  Grading Workflow WITHOUT Nem
 :-------------------------:|:-------------------------:
 ![](with_nemogb_workflow.png){height="150pt"}  |  ![](without_nemogb_workflow.png){height="150pt"}
 
+# Story of the Project
 
-
-
+As students, we understand the importance of having an informed instructor who understands how we stand in their course. This began as an independent study centered around using R Shiny in order to create a web-based grading tool that allowed for the computation of course grades for diverse syllabi. We wanted to develop a tool that allowed for flexibility in their syllabus and precision in their computations. This led to the development of this package, which operates as the backend of the NemoGB app but can also be used independently to compute course grades. 
 
 
 # Underlying Principle
