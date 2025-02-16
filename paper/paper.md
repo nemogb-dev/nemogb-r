@@ -29,6 +29,7 @@ year: 2024
 bibliography: paper.bib
 output: 
   rticles::joss_article:
+    journal: JOSE
     keep_tex: true
 journal: JOSS
 ---
