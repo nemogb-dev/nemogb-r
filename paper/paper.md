@@ -14,9 +14,9 @@ authors:
   equal-contrib: true
   affiliation: "1, 2"
 - name: Zach Turner
-  orcid: 
-  equal-contrib: 
-  affiliation:
+  orcid: "0009-0005-1829-2325"
+  equal-contrib: false
+  affiliation: 1
 - name: Andrew Bray
   orcid: "0000-0002-4037-7414"
   equal-contrib: true
