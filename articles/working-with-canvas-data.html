@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Working With Canvas Data • gradebook</title>
+<title>Working With Canvas Data • nemogb</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Working With Canvas Data">
-<script defer data-domain="gradebook,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="nemogb,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-none" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">gradebook</a>
+    <a class="navbar-brand me-2" href="../index.html">nemogb</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
@@ -51,7 +51,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/gradebook-dev/gradebook/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="https://github.com/nemogb-dev/nemogb-r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -68,62 +68,64 @@
       <h1>Working With Canvas Data</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/working-with-canvas-data.Rmd" class="external-link"><code>vignettes/working-with-canvas-data.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nemogb-dev/nemogb-r/blob/main/vignettes/working-with-canvas-data.Rmd"><code>vignettes/working-with-canvas-data.Rmd</code></a></small>
       <div class="d-none name"><code>working-with-canvas-data.Rmd</code></div>
     </div>
 
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gradebook-dev/gradebook" class="external-link">gradebook</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nemogb-dev/nemogb-r">nemogb</a></span><span class="op">)</span></span></code></pre></div>
 <p>Canvas is a popular classroom management tool that is commonly used
 to grade assignments and collect student grades throughout colleges and
-universities. This article describes how to use <code>Gradebook</code>
-with Canvas data.</p>
+universities. This article describes how to use <code>NemoGB</code> with
+Canvas data.</p>
 <p>Advanced users wishing to gain a deep understanding of how Canvas
-data is structured can also read the <a href="https://gradebook-dev.github.io/gradebook/articles/detailed-canvas-export-info.html">Detailed
+data is structured can also read the <a href="https://nemogb-dev.github.io/nemogb-r/articles/detailed-canvas-export-info.html" class="external-link">Detailed
 Canvas Export Info</a> vignette.</p>
 <div class="section level2">
 <h2 id="getting-the-data">Getting the Data<a class="anchor" aria-label="anchor" href="#getting-the-data"></a>
 </h2>
-<p>This article details Gradebook workflows for users who use Canvas to
-collect student assignment grades. To use Gradebook, users must first
-source the necessary csv files containing student assignment data from
-Canvas.</p>
+<p>This article details <code>NemoGB</code> workflows for users who use
+Canvas to collect student assignment grades. To use <code>NemoGB</code>,
+users must first source the necessary csv files containing student
+assignment data from Canvas.</p>
 <p>The primary csv file needed from Canvas is the grades file, which
 contains the assignment grades for each student. To source this file,
 navigate to the “Grades” tab on Canvas. On the grades page, click
 “Export” and then “Export Entire Gradebook”.</p>
 <p>See the below image for visual guidance.</p>
-<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fgradebook%2Fextdata%2FcanvasGradeIm.png" width="100%"></p>
+<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasGradeIm.png" width="100%"></p>
 <p>The grades csv is the only file that is needed to generate final
-grades with Gradebook. Read below for more information on other data
-that can be exported from Canvas.</p>
+grades with <code>NemoGB</code>. Read below for more information on
+other data that can be exported from Canvas.</p>
 </div>
 <div class="section level2">
 <h2 id="data-format">Data Format<a class="anchor" aria-label="anchor" href="#data-format"></a>
 </h2>
-<p>The internal standard for Gradebook data is for assignment data to be
-formatted like Gradescope data, which is another platform for collecting
-student grades. Gradebook functionality converts the Canvas assignment
-data into our internal standards for seamless use of Canvas data.</p>
+<p>The internal standard for <code>NemoGB</code> data is for assignment
+data to be formatted like Gradescope data, which is another platform for
+collecting student grades. <code>NemoGB</code> functionality converts
+the Canvas assignment data into our internal standards for seamless use
+of Canvas data.</p>
 <p>To use grade data from Canvas, simply use <code><a href="../reference/read_files.html">read_files()</a></code>;
-this process is not unique to Canvas data. Gradebook assesses the source
-of the file (e.g. Gradescope, Canvas, or other) and load in file in
-appropriately. To force the file to be read in as a Canvas sourced file,
-users can pass the argument <code>source = "Canvas"</code> into the
-read_files() function. Gradebook will track where the data originated
-and prevent potentially dangerous operations during grading.</p>
+this process is not unique to Canvas data. <code>NemoGB</code> assesses
+the source of the file (e.g. Gradescope, Canvas, or other) and load in
+file in appropriately. To force the file to be read in as a Canvas
+sourced file, users can pass the argument <code>source = "Canvas"</code>
+into the read_files() function. <code>NemoGB</code> will track where the
+data originated and prevent potentially dangerous operations during
+grading.</p>
 <p>After reading in the data, the data can be used to calculate grades
 as in the case study vignettes.</p>
-<p>Here is an example of the transformation Gradebook applies to Canvas
-grade data.</p>
+<p>Here is an example of the transformation <code>NemoGB</code> applies
+to Canvas grade data.</p>
 <p>Below is assignment grade data as exported from Canvas.</p>
 <pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">11</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">38</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">───────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (27): Student, SIS Login ID, Section, Assignments Current Score, A...</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (11): ID, SIS User ID, HW 1 (8595677), HW 2 (8595678), HW 3 (85956...</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (27): Student, SIS Login ID, Section, Assignments Current Score...</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (11): ID, SIS User ID, HW 1 (8595677), HW 2 (8595678), HW 3 (85...</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre>
@@ -651,12 +653,13 @@ grade data.</p>
 </tr>
 </tbody>
 </table>
-<p>Below is the dataframe after being transformed by Gradebook.</p>
+<p>Below is the dataframe after being transformed by
+<code>NemoGB</code>.</p>
 <pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">11</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">38</span></span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">──────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">───────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
-<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (27): Student, SIS Login ID, Section, Assignments Current Score, A...</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (11): ID, SIS User ID, HW 1 (8595677), HW 2 (8595678), HW 3 (85956...</span></span>
+<span><span class="co">#&gt; <span style="color: #BB0000;">chr</span> (27): Student, SIS Login ID, Section, Assignments Current Score...</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">dbl</span> (11): ID, SIS User ID, HW 1 (8595677), HW 2 (8595678), HW 3 (85...</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre>
@@ -1132,9 +1135,9 @@ grade data.</p>
 </h2>
 <p>With our current implemention, there are limitations to using
 assignment data sourced from Canvas, resulting in a reduction of
-potential grading functionality in Gradebook. The primary limitation
-surrounds the application of lateness policies when using data sourced
-from Canvas.</p>
+potential grading functionality in <code>NemoGB</code>. The primary
+limitation surrounds the application of lateness policies when using
+data sourced from Canvas.</p>
 <p>The grades csv exported from Canvas does not include information on
 assignment lateness. As mentioned below, Canvas also can export files
 detailing late assignments. However, this lateness file omits the time
@@ -1154,7 +1157,8 @@ file and a roster csv file. Integrating the information from these two
 files are currently not supported.</p>
 <p>The lateness file details which assignments where submitted late by
 which students. Due to the drawbacks mentioned above, we are currently
-not using this file to implement lateness penalties in Gradebook.</p>
+not using this file to implement lateness penalties in
+<code>NemoGB</code>.</p>
 <p>The roster csv file gives all student names and their contact
 information, which can be relevant if instructors desire to have student
 contact information available in the exported grades file.</p>
@@ -1162,14 +1166,14 @@ contact information available in the exported grades file.</p>
 available on the right side of the course homepage. To download these
 files, click Analytics on the home page, navigate to the Reports tab and
 download the desired report. Reference the photos below.</p>
-<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fgradebook%2Fextdata%2FcanvasAnalytics.png" width="100%"></p>
-<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fgradebook%2Fextdata%2FcanvasAnalyticsOptions.png" width="100%"></p>
+<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasAnalytics.png" width="100%"></p>
+<p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasAnalyticsOptions.png" width="100%"></p>
 <p>Currently, providing files other than the grades file is not
-supported by Gradebook. However, we have built the infrastructure to
-read in these files for future integration of other data sources
-(e.g. the lateness or roster csv files from Canvas).</p>
+supported by <code>NemoGB</code>. However, we have built the
+infrastructure to read in these files for future integration of other
+data sources (e.g. the lateness or roster csv files from Canvas).</p>
 <p>For full information on the formatting of Canvas exported data, see
-the <a href="https://gradebook-dev.github.io/gradebook/articles/detailed-canvas-export-info.html">Detailed
+the <a href="https://nemogb-dev.github.io/nemogb-r/articles/detailed-canvas-export-info.html" class="external-link">Detailed
 Canvas Export Info</a> vignette.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

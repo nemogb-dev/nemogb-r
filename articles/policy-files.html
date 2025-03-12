@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Building a Policy File • gradebook</title>
+<title>Building a Policy File • nemogb</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Building a Policy File">
-<script defer data-domain="gradebook,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="nemogb,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -21,7 +21,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-none" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">gradebook</a>
+    <a class="navbar-brand me-2" href="../index.html">nemogb</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
@@ -51,7 +51,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/gradebook-dev/gradebook/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="https://github.com/nemogb-dev/nemogb-r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -68,16 +68,16 @@
       <h1>Building a Policy File</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/gradebook-dev/gradebook/blob/main/vignettes/policy-files.Rmd" class="external-link"><code>vignettes/policy-files.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/nemogb-dev/nemogb-r/blob/main/vignettes/policy-files.Rmd"><code>vignettes/policy-files.Rmd</code></a></small>
       <div class="d-none name"><code>policy-files.Rmd</code></div>
     </div>
 
     
     
 <p>There are two ingredients that are needed to calculate course grades
-with <code>gradebook</code>: a dataframe containing assignment scores
-and a file that encodes the grading policies often described in a
-syllabus. We call that file a <em>policy file</em>.</p>
+with <code>NemoGB</code>: a dataframe containing assignment scores and a
+file that encodes the grading policies often described in a syllabus. We
+call that file a <em>policy file</em>.</p>
 <p>Policy files are stored as <a href="https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started" class="external-link">.yaml</a>
 files, a simple format for storing hierarchical data in a text file with
 minimal markup. Here is an example of a policy file for a course with a
@@ -120,7 +120,7 @@ names.</p>
 <p>Once you have written your policy file, you can read it into R as a
 list.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">policy</span> <span class="op">&lt;-</span> <span class="fu">gradebook</span><span class="fu">::</span><span class="fu"><a href="../reference/read_policy.html">read_policy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"policy_demo.yaml"</span>, package <span class="op">=</span> <span class="st">"gradebook"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">policy</span> <span class="op">&lt;-</span> <span class="fu">nemogb</span><span class="fu">::</span><span class="fu"><a href="../reference/read_policy.html">read_policy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"policy_demo.yaml"</span>, package <span class="op">=</span> <span class="st">"nemogb"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="recognized-keys">Recognized Keys<a class="anchor" aria-label="anchor" href="#recognized-keys"></a>
 </h2>

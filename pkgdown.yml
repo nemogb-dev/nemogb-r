@@ -10,7 +10,7 @@ articles:
   simple-syllabus: simple-syllabus.html
   slip-days: slip-days.html
   working-with-canvas-data: working-with-canvas-data.html
-last_built: 2025-02-10T17:50Z
+last_built: 2025-03-12T17:18Z
 urls:
-  reference: https://gradebook-dev.github.io/gradebook/reference
-  article: https://gradebook-dev.github.io/gradebook/articles
+  reference: https://github.com/nemogb-dev/nemogb-r/reference
+  article: https://github.com/nemogb-dev/nemogb-r/articles

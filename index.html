@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Calculate course grades based on assignment scores from Gradescope or Canvas and a description of the course grading policy • gradebook</title>
+<title>Calculate course grades based on assignment scores from Gradescope or Canvas and a description of the course grading policy • nemogb</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.9/font.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Calculate course grades based on assignment scores from Gradescope or Canvas and a description of the course grading policy">
 <meta name="description" content="A system to make course grade calculations easy, fast, and most importantly, correct. Course grades are produced from a data frame of assignment grades along with a grading policy file that specifies how they should be weighted when combined into a final grade.">
 <meta property="og:description" content="A system to make course grade calculations easy, fast, and most importantly, correct. Course grades are produced from a data frame of assignment grades along with a grading policy file that specifies how they should be weighted when combined into a final grade.">
-<script defer data-domain="gradebook,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="nemogb,all.tidyverse.org" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -23,7 +23,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-none" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">gradebook</a>
+    <a class="navbar-brand me-2" href="index.html">nemogb</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
@@ -53,7 +53,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/gradebook-dev/gradebook/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="https://github.com/nemogb-dev/nemogb-r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -62,24 +62,24 @@
 </nav><div class="container template-home" id="container">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="gradebook">gradebook<a class="anchor" aria-label="anchor" href="#gradebook"></a>
+<div class="page-header"><h1 id="nemogb">NemoGB<a class="anchor" aria-label="anchor" href="#nemogb"></a>
 </h1></div>
 <p>An R package to make course grade calculations easy, fast, and most importantly, correct. Course grades are produced from a data frame of assignment grades along with a grading policy file that allows for accurate and systematic computations of the final course letter grades.</p>
 <div class="section level3">
 <h3 id="statement-of-need">Statement of Need<a class="anchor" aria-label="anchor" href="#statement-of-need"></a>
 </h3>
 <p>While the final grade at the end of a course is an elementary part of most college courses, the computations for these grades quickly become deceptively intricate, especially with larger STEM classes that use various complexities to accommodate a diverse student body. Even though most classes use slight variations of the same policies, many learning management systems (LMS) cannot sustain these complex computations. In response, courses will turn to hard-coded scripts. These scripts quickly accumulate hundreds of lines of code, and there is no method to assess accuracy of the final computation.</p>
-<p><code>Gradebook</code> is an R package that maintains the structure and complexity of a course grade while guaranteeing accuracy through comprehensive unit-testing. The challenges of consistency and precision in grading systems are addressed by applying the practices of data analysis and the principles of software development. The rigorous unit-testing in the package minimizes computational error and reduces the manual inputs, significantly lower the risks of typographic and logical errors in scripts. Because of this, course grades can be computed accurately and quickly: the accuracy allows course instructors to have reliable grade computations, and the speed allows them to compute grades throughout the semester in order to monitor student progress. The structure of the package – and the open-source nature of it – allows for courses to contribute functionality that is unique to their course. This R package also functions as the backend of the <a href="https://github.com/gradebook-dev/gradebook-app.git" class="external-link">NemoGB Shiny app</a>, which lets the user create their grading policy file in a straightforward way.</p>
+<p><code>NemoGB</code> is an R package that maintains the structure and complexity of a course grade while guaranteeing accuracy through comprehensive unit-testing. The challenges of consistency and precision in grading systems are addressed by applying the practices of data analysis and the principles of software development. The rigorous unit-testing in the package minimizes computational error and reduces the manual inputs, significantly lower the risks of typographic and logical errors in scripts. Because of this, course grades can be computed accurately and quickly: the accuracy allows course instructors to have reliable grade computations, and the speed allows them to compute grades throughout the semester in order to monitor student progress. The structure of the package – and the open-source nature of it – allows for courses to contribute functionality that is unique to their course. This R package also functions as the backend of the <a href="https://github.com/nemogb-dev/nemogb-r.git">NemoGB Shiny app</a>, which lets the user create their grading policy file in a straightforward way.</p>
 <hr>
 </div>
 <div class="section level3">
 <h3 id="installation-instructions">Installation Instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h3>
-<p>To install <code>gradebook</code>, make sure to install <code>devtools</code> first. The <code>pkgdown</code> website for this version is at <a href="https://gradebook-dev.github.io/gradebook/">gradebook-dev.github.io/gradebook/</a>.</p>
+<p>To install <code>NemoGB</code>, make sure to install <code>devtools</code> first. The <code>pkgdown</code> website for this version is at <a href="https://nemogb-dev.github.io/nemogb-r/" class="external-link">nemogb-dev.github.io/nemogb-r/</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gradebook-dev/gradebook"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gradebook-dev/gradebook" class="external-link">gradebook</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"nemogb-dev/nemogb-r"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nemogb-dev/nemogb-r">nemogb</a></span><span class="op">)</span></span></code></pre></div>
 <hr>
 </div>
 <div class="section level3">
@@ -87,9 +87,9 @@
 </h3>
 <p>Load in your Gradescope data using <code><a href="reference/read_gs.html">read_gs()</a></code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gradebook-dev/gradebook" class="external-link">gradebook</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nemogb-dev/nemogb-r">nemogb</a></span><span class="op">)</span></span>
 <span><span class="va">gs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_gs.html">read_gs</a></span><span class="op">(</span><span class="st">"gs_demo.csv"</span><span class="op">)</span></span></code></pre></div>
-<p>Start by building a policy file that reflects the assignments from your Gradescope file and the structure of the syllabus. More information and guidance on building your policy file in YAML format can be found in the <a href="https://gradebook-dev.github.io/gradebook/articles/policy-files.html">Building a Policy File vignette</a>.</p>
+<p>Start by building a policy file that reflects the assignments from your Gradescope file and the structure of the syllabus. More information and guidance on building your policy file in YAML format can be found in the <a href="https://nemogb-dev.github.io/nemogb-r/articles/policy-files.html" class="external-link">Building a Policy File vignette</a>.</p>
 <p>This YAML policy file should be loaded in with <code><a href="reference/read_policy.html">read_policy()</a></code>, and then course grades can be computed with <code><a href="reference/get_grades.html">get_grades()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">policy</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_policy.html">read_policy</a></span><span class="op">(</span><span class="st">"policy_demo.yaml"</span><span class="op">)</span></span>
@@ -100,15 +100,15 @@
 <div class="section level3">
 <h3 id="community-guidelines">Community Guidelines<a class="anchor" aria-label="anchor" href="#community-guidelines"></a>
 </h3>
-<p>We welcome the contribution and feedback of others in order to make grading an effective and informative task for any course. Please review our <a href="https://github.com/gradebook-dev/gradebook/blob/main/CONTRIBUTING.md" class="external-link">contributing</a> guidelines. By contributing to this project, you agree to abide by this guidelines.</p>
+<p>We welcome the contribution and feedback of others in order to make grading an effective and informative task for any course. Please review our <a href="https://github.com/nemogb-dev/nemogb-r/blob/main/CONTRIBUTING.md">contributing</a> guidelines. By contributing to this project, you agree to abide by this guidelines.</p>
 <hr>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/gradebook-dev/gradebook/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/gradebook-dev/gradebook/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/nemogb-dev/nemogb-r/">Browse source code</a></li>
+<li><a href="https://github.com/nemogb-dev/nemogb-r/issues">Report a bug</a></li>
 </ul>
 </div>
 
@@ -131,7 +131,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing gradebook</a></li>
+<li><a href="authors.html#citation">Citing nemogb</a></li>
 </ul>
 </div>
 
