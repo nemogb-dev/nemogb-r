@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Now, we will walk through a complex syllabus and its `NemoGB` implementation with 5 students in the class. Start with what this syllabus would look like on a class website.
+Now, we will walk through a complex syllabus and its `nemogb` implementation with 5 students in the class. Start with what this syllabus would look like on a class website.
 
 ## Syllabus
 

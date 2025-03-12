@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions to the `NemoGB` whether in the form of bug fixes, issue reports, new
+Contributions to `nemogb` whether in the form of bug fixes, issue reports, new
 code or documentation improvements are encouraged and welcome. We welcome novices
 who may have never contributed to a package before as well as friendly
 veterans looking to help us improve the package for users. We are eager to include
@@ -13,7 +13,7 @@ turned on and respond to questions, comments or needed changes promptly.
 
 ##  Tests
 
-`NemoGB` uses `testthat` for testing. Please try to provide 100% test coverage
+`nemogb` uses `testthat` for testing. Please try to provide 100% test coverage
 for any submitted code and always check that existing tests continue to pass.
 If you are a beginner and need help with writing a test, mention this
 in the issue and we will try to help.
@@ -31,5 +31,5 @@ Besides that, in general follow the
 
 ## Code of Conduct
 
-When contributing to the `NemoGB` package you must follow the code of 
+When contributing to the `nemogb` package you must follow the code of 
 conduct defined in [CONDUCT](.github/CODE_OF_CONDUCT.md).

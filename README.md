@@ -1,4 +1,4 @@
-# NemoGB
+# nemogb
 
 An R package to make course grade calculations easy, fast, and most importantly,
 correct. Course grades are produced from a data frame of assignment grades along
@@ -9,7 +9,7 @@ which lets the user create their grading policy file in a straightforward way.
 
 ### Installation Instructions
 
-To install `NemoGB`, make sure to install `devtools` first. The `pkgdown` website for this version is at [nemogb-dev.github.io/nemogb-r/](https://nemogb-dev.github.io/nemogb-r/).
+To install `nemogb`, make sure to install `devtools` first. The `pkgdown` website for this version is at [nemogb-dev.github.io/nemogb-r/](https://nemogb-dev.github.io/nemogb-r/).
 
 ``` r
 # install.packages("devtools")
