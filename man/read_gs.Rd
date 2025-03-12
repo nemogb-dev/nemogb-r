@@ -24,6 +24,6 @@ Now it is favored to use read_files.
 This function is left for backwards-compatibility.
 }
 \examples{
-path <- system.file("extdata", "gs_demo.csv", package = "gradebook")
+path <- system.file("extdata", "gs_demo.csv", package = "nemogb")
 read_gs(path = path)
 }

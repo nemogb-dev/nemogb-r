@@ -7,7 +7,7 @@
 #' @param verbose Whether or not to print messages and warnings
 #'
 #' @examples
-#' path <- system.file("extdata", "policy_demo.yaml", package = "gradebook")
+#' path <- system.file("extdata", "policy_demo.yaml", package = "nemogb")
 #' read_policy(path = path, verbose = TRUE)
 #' 
 #' @return R list of the policy file, if no errors

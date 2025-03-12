@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 Slip days are a unique grading policy, where there is an allotted budget of allowed lateness that can be applied to certain assignments. Here's an example of what that looks like in a policy file. Note that `slip_days` are their own separate section in the grading policy and do no fall under the other `categories` grading criteria. Often, slip days are computed prior to applying other grading policies because they adjust the lateness.
 ```yaml
-`r xfun::file_string(system.file("extdata", "slip-days-policy-demo.yaml", package = "gradebook"))`
+`r xfun::file_string(system.file("extdata", "slip-days-policy-demo.yaml", package = "nemogb"))`
 
 ```
 In this policy, there are 2 allotted slip days for the six Lab assignments. This means that students can turn in Lab assignments up to 2 days late with no additional lateness penalty applied. Usually, these slip days are allotted chronologically, so if a student turns in Lab 1 2 days late, they do not have any more slip days that can be used for later Lab assignments. Similarly, if a student turned in Lab 1 a day late, they can still turn in one of the other labs at most a day late with no penalty. Lateness is rounded up to the next day, so a student will use a slip day if their assignment is turned in 1 minute late or 23 hours late.
@@ -25,11 +25,11 @@ The `order` key here explicitly determines that the order in which slip days are
 
 The lateness policy for `Labs` in `categories` section shows that any late assignments receive a zero. This is applied after a student's slip days run out.
 
-The process for computing the grades using `Nemo Gradebook` is the same as any other policy file, as demonstrated below.
+The process for computing the grades using `NemoGB` is the same as any other policy file, as demonstrated below.
 ```{r setup}
-library(gradebook)
-gs <- gradebook::read_gs(system.file("extdata", "gs_demo.csv", package = "gradebook"))
-policy <- gradebook::read_policy(system.file("extdata", "slip-days-policy-demo.yaml", package = "gradebook"))
+library(nemogb)
+gs <- read_gs(system.file("extdata", "gs_demo.csv", package = "nemogb"))
+policy <- read_policy(system.file("extdata", "slip-days-policy-demo.yaml", package = "nemogb"))
 grades <- get_grades(gs, policy)
 ```
 
