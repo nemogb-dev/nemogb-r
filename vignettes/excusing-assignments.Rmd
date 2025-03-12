@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(nemogb)
 ```
 
-`NemoGB` supports instructors "excusing" certain students from certain assignments. 
+`nemogb` supports instructors "excusing" certain students from certain assignments. 
 
 ## What does it mean to "excuse" an assignment?
 
@@ -34,15 +34,15 @@ In our example, suppose that we excused another student Timmy from Homework 1. I
 
 ## How to Excuse Assignments
 
-Our notation for excusing assignments is molded around Canvas's notation for excusing assignments. Thus, Canvas users can simply excuse an assignment in Canvas and `NemoGB` will recognize the assignment as excused. 
+Our notation for excusing assignments is molded around Canvas's notation for excusing assignments. Thus, Canvas users can simply excuse an assignment in Canvas and `nemogb` will recognize the assignment as excused. 
 
-Users of other grade aggregators who wish to excuse assignments should set the assignment's score value to "EX" for it to be excused in `NemoGB`. 
+Users of other grade aggregators who wish to excuse assignments should set the assignment's score value to "EX" for it to be excused in `nemogb`. 
 
 ## Notes on the Interaction between Excused Assignments and Category Drops
 
-In addition to excusing assignments, `NemoGB` users may also specify a number of drops that will drop each student's lowest n assignment scores in the specified category. Full details on the working of drops are available [here](https://nemogv-dev.github.io/nemogb-r/articles/policy-files.html). 
+In addition to excusing assignments, `nemogb` users may also specify a number of drops that will drop each student's lowest n assignment scores in the specified category. Full details on the working of drops are available [here](https://nemogv-dev.github.io/nemogb-r/articles/policy-files.html). 
 
-When working with drops and excused assignments, `NemoGB` has the constraint that all students must have at least one un-dropped and un-excused assignments in each category. When necessary to retain 1 graded assignment, having excused assignments in the category can lead to fewer assignments being dropped in the category than the n specified in drop_n_lowest. Should this corner case arise, a warning will be raised informing instructors to review the student's grades, in case their intentions are different.
+When working with drops and excused assignments, `nemogb` has the constraint that all students must have at least one un-dropped and un-excused assignments in each category. When necessary to retain 1 graded assignment, having excused assignments in the category can lead to fewer assignments being dropped in the category than the n specified in drop_n_lowest. Should this corner case arise, a warning will be raised informing instructors to review the student's grades, in case their intentions are different.
 
 ### Example
 
@@ -50,4 +50,4 @@ Consider the following example again involving Timmy. Imagine that there are 4 a
 
 ## Other Constraints with Excused Assignments
 
-As mentioned above, every policy category must have at least one un-excused assignment for all students. If any student has all assignments excused for some category, `NemoGB` will raise a warning detailing the student and category. For any students in this situation, their grade should be manually set after running `NemoGB`.
+As mentioned above, every policy category must have at least one un-excused assignment for all students. If any student has all assignments excused for some category, `nemogb` will raise a warning detailing the student and category. For any students in this situation, their grade should be manually set after running `nemogb`.

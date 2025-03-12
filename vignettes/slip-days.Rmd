@@ -25,7 +25,7 @@ The `order` key here explicitly determines that the order in which slip days are
 
 The lateness policy for `Labs` in `categories` section shows that any late assignments receive a zero. This is applied after a student's slip days run out.
 
-The process for computing the grades using `NemoGB` is the same as any other policy file, as demonstrated below.
+The process for computing the grades using `nemogb` is the same as any other policy file, as demonstrated below.
 ```{r setup}
 library(nemogb)
 gs <- read_gs(system.file("extdata", "gs_demo.csv", package = "nemogb"))

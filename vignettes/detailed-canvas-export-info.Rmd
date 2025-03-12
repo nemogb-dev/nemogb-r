@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(nemogb)
 ```
 
-This vignette details the specific structure of exported Canvas files. For information on how to use Canvas grade data with `NemoGB`, view the [Working With Canvas Data](https://nemogb-dev.github.io/nemogb-r/articles/working-with-canvas-data.html) vignette instead. This vignette details in depth information about Canvas file exports for curious advanced users.
+This vignette details the specific structure of exported Canvas files. For information on how to use Canvas grade data with `nemogb`, view the [Working With Canvas Data](https://nemogb-dev.github.io/nemogb-r/articles/working-with-canvas-data.html) vignette instead. This vignette details in depth information about Canvas file exports for curious advanced users.
 
 There are many exports from Canvas: Canvas divides student information into multiple separate csv exports as compared to the singular Gradescope csv. Currently, there are three relevant csv exports: grades.csv, lateness.csv, and roster.csv.
 
@@ -32,7 +32,7 @@ Student - This gives the student name in format Last, First (different than Grad
 
 ID - This gives the student’s Canvas ID. It is the primary key is Canvas and thus the best choice when joining canvas dataframes
 
-SIS User ID - The SIS is the name of the system that Canvas interfaces with for each individual university that uses Canvas. For example, Berkeley’s SIS is CalCentral. This has been confirmed by Canvas Employees. Thus, SIS User ID is the student’s Cal ID for our university. Typically this will be the desired primary key for operations outside of `NemoGB`. Note that, like Gradescope, SIS User ID will contain some entries of the form “UID: #####”. The meaning of these entries is unclear. 
+SIS User ID - The SIS is the name of the system that Canvas interfaces with for each individual university that uses Canvas. For example, Berkeley’s SIS is CalCentral. This has been confirmed by Canvas Employees. Thus, SIS User ID is the student’s Cal ID for our university. Typically this will be the desired primary key for operations outside of `nemogb`. Note that, like Gradescope, SIS User ID will contain some entries of the form “UID: #####”. The meaning of these entries is unclear. 
 
 SIS Login ID - The meaning of this column is unclear. It does not appear relevant for our purposes. 
 
@@ -85,7 +85,7 @@ However, the lack of a due time information makes it impossible to calculate lat
 
 As a solution, we command that lateness not be available to users uploading information from Canvas since Canvas offers limited abilities to apply simple late policies internally. When applied, a student’s score in the grades csv would be after lateness was applied. 
 
-It appears that it may be possible to obtain a spreadsheet of assignment due times using Canvas API (however this may be complicated). This is worth looking into during the future so that `NemoGB` can accommodate applying lateness to Canvas exported data. 
+It appears that it may be possible to obtain a spreadsheet of assignment due times using Canvas API (however this may be complicated). This is worth looking into during the future so that `nemogb` can accommodate applying lateness to Canvas exported data. 
 
 ## Roster CSV:
 

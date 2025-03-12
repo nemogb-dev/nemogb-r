@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-There are two ingredients that are needed to calculate course grades with `NemoGB`: a dataframe containing assignment scores and a file that encodes the grading policies often described in a syllabus. We call that file a *policy file*.
+There are two ingredients that are needed to calculate course grades with `nemogb`: a dataframe containing assignment scores and a file that encodes the grading policies often described in a syllabus. We call that file a *policy file*.
 
 Policy files are stored as [.yaml](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started) files, a simple format for storing hierarchical data in a text file with minimal markup. Here is an example of a policy file for a course with a fairly simple grading scheme.
 

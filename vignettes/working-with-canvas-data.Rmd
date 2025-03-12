@@ -18,13 +18,13 @@ knitr::opts_chunk$set(
 library(nemogb)
 ```
 
-Canvas is a popular classroom management tool that is commonly used to grade assignments and collect student grades throughout colleges and universities. This article describes how to use `NemoGB` with Canvas data. 
+Canvas is a popular classroom management tool that is commonly used to grade assignments and collect student grades throughout colleges and universities. This article describes how to use `nemogb` with Canvas data. 
 
 Advanced users wishing to gain a deep understanding of how Canvas data is structured can also read the [Detailed Canvas Export Info](https://nemogb-dev.github.io/nemogb-r/articles/detailed-canvas-export-info.html) vignette. 
 
 ## Getting the Data
 
-This article details `NemoGB` workflows for users who use Canvas to collect student assignment grades. To use `NemoGB`, users must first source the necessary csv files containing student assignment data from Canvas. 
+This article details `nemogb` workflows for users who use Canvas to collect student assignment grades. To use `nemogb`, users must first source the necessary csv files containing student assignment data from Canvas. 
 
 The primary csv file needed from Canvas is the grades file, which contains the assignment grades for each student. To source this file, navigate to the "Grades" tab on Canvas. On the grades page, click "Export" and then "Export Entire Gradebook".
 
@@ -33,17 +33,17 @@ The primary csv file needed from Canvas is the grades file, which contains the a
   knitr::include_graphics(system.file("extdata", "canvasGradeIm.png", package = "nemogb"))
 ```
 
-The grades csv is the only file that is needed to generate final grades with `NemoGB`. Read below for more information on other data that can be exported from Canvas. 
+The grades csv is the only file that is needed to generate final grades with `nemogb`. Read below for more information on other data that can be exported from Canvas. 
 
 ## Data Format
 
-The internal standard for `NemoGB` data is for assignment data to be formatted like Gradescope data, which is another platform for collecting student grades. `NemoGB` functionality converts the Canvas assignment data into our internal standards for seamless use of Canvas data.
+The internal standard for `nemogb` data is for assignment data to be formatted like Gradescope data, which is another platform for collecting student grades. `nemogb` functionality converts the Canvas assignment data into our internal standards for seamless use of Canvas data.
 
-To use grade data from Canvas, simply use `read_files()`; this process is not unique to Canvas data. `NemoGB` assesses the source of the file (e.g. Gradescope, Canvas, or other) and load in file in appropriately. To force the file to be read in as a Canvas sourced file, users can pass the argument `source = "Canvas"` into the read_files() function. `NemoGB` will track where the data originated and prevent potentially dangerous operations during grading. 
+To use grade data from Canvas, simply use `read_files()`; this process is not unique to Canvas data. `nemogb` assesses the source of the file (e.g. Gradescope, Canvas, or other) and load in file in appropriately. To force the file to be read in as a Canvas sourced file, users can pass the argument `source = "Canvas"` into the read_files() function. `nemogb` will track where the data originated and prevent potentially dangerous operations during grading. 
 
 After reading in the data, the data can be used to calculate grades as in the case study vignettes. 
 
-Here is an example of the transformation `NemoGB` applies to Canvas grade data.
+Here is an example of the transformation `nemogb` applies to Canvas grade data.
 
 Below is assignment grade data as exported from Canvas. 
 
@@ -52,7 +52,7 @@ Below is assignment grade data as exported from Canvas.
   knitr::kable(canvas_demo_data)
 ```
 
-Below is the dataframe after being transformed by `NemoGB`. 
+Below is the dataframe after being transformed by `nemogb`. 
 
 ```{r echo = FALSE}
   proc_canvas_data <- read_files(system.file("extdata", "canvas_demo_data.csv", package = "nemogb"))
@@ -63,7 +63,7 @@ Below is the dataframe after being transformed by `NemoGB`.
 
 ## Limitations
 
-With our current implemention, there are limitations to using assignment data sourced from Canvas, resulting in a reduction of potential grading functionality in `NemoGB`. The primary limitation surrounds the application of lateness policies when using data sourced from Canvas. 
+With our current implemention, there are limitations to using assignment data sourced from Canvas, resulting in a reduction of potential grading functionality in `nemogb`. The primary limitation surrounds the application of lateness policies when using data sourced from Canvas. 
 
 The grades csv exported from Canvas does not include information on assignment lateness. As mentioned below, Canvas also can export files detailing late assignments. However, this lateness file omits the time that the assignment was due, making it not possible to accurately calculate how late any late assignment is. As a result, we do not allow lateness policies to be used when the data is sourced from Canvas. Attempts to do so will raise an error. 
 
@@ -73,7 +73,7 @@ Currently, our recommendation is for Canvas users to apply any late policies in 
 
 In addition to the grades file, Canvas also exports information that can be relevant to grade calculation. Examples include the lateness csv file and a roster csv file. Integrating the information from these two files are currently not supported.
 
-The lateness file details which assignments where submitted late by which students. Due to the drawbacks mentioned above, we are currently not using this file to implement lateness penalties in `NemoGB`. 
+The lateness file details which assignments where submitted late by which students. Due to the drawbacks mentioned above, we are currently not using this file to implement lateness penalties in `nemogb`. 
 
 The roster csv file gives all student names and their contact information, which can be relevant if instructors desire to have student contact information available in the exported grades file.
 
@@ -91,6 +91,6 @@ Both of these files are accessed through the "New Analytics" tab available on th
 ```
 
 
-Currently, providing files other than the grades file is not supported by `NemoGB`. However, we have built the infrastructure to read in these files for future integration of other data sources (e.g. the lateness or roster csv files from Canvas).
+Currently, providing files other than the grades file is not supported by `nemogb`. However, we have built the infrastructure to read in these files for future integration of other data sources (e.g. the lateness or roster csv files from Canvas).
 
 For full information on the formatting of Canvas exported data, see the [Detailed Canvas Export Info](https://nemogb-dev.github.io/nemogb-r/articles/detailed-canvas-export-info.html) vignette. 
