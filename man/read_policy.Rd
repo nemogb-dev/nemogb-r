@@ -18,7 +18,7 @@ R list of the policy file, if no errors
 This functions reads the grading policy YAML file and checks for correct format
 }
 \examples{
-path <- system.file("extdata", "policy_demo.yaml", package = "gradebook")
+path <- system.file("extdata", "policy_demo.yaml", package = "nemogb")
 read_policy(path = path, verbose = TRUE)
 
 }

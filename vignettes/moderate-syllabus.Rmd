@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-Now, we will walk through a moderately complex syllabus and its Gradebook implementation with 5 students in the class. Let's start with what this syllabus would look like on a class website.
+Now, we will walk through a moderately complex syllabus and its `NemoGB` implementation with 5 students in the class. Let's start with what this syllabus would look like on a class website.
 
 ## Syllabus
 
@@ -34,13 +34,13 @@ The final student's grade is computed from *1) homework assignments, 2) midterm 
 ## Policy File 
 Here is what the policy file looks like:
 ```yaml
-`r xfun::file_string(system.file("extdata", "moderate_syllabus.yaml", package = "gradebook"))`
+`r xfun::file_string(system.file("extdata", "moderate_syllabus.yaml", package = "nemogb"))`
 
 ```
 
 ```{r, include = FALSE}
-library(gradebook)
-read_policy(system.file("extdata", "moderate_syllabus.yaml", package = "gradebook"))
+library(nemogb)
+read_policy(system.file("extdata", "moderate_syllabus.yaml", package = "nemogb"))
 ```
 
 ## Gradescope Assigments File
@@ -48,7 +48,7 @@ Here is what the Gradescope assignments file looks like:
 
 ::: {style="height: 500px; overflow: auto;"}
 ```{r, message=FALSE}
-moderate_syllabus_data <- read_gs(system.file("extdata", "moderate_syllabus_data.csv", package = "gradebook"))
+moderate_syllabus_data <- read_gs(system.file("extdata", "moderate_syllabus_data.csv", package = "nemogb"))
 ```
 
 ```{r, echo=FALSE}
@@ -67,9 +67,9 @@ The **Homework** category is compiled of five assignments: *"Homework 1"*, *"Hom
 ### Grade Calculations
 
 ```{r, message = FALSE}
-moderate_syllabus_data <- read_gs(system.file("extdata", "moderate_syllabus_data.csv", package = "gradebook"))
+moderate_syllabus_data <- read_gs(system.file("extdata", "moderate_syllabus_data.csv", package = "nemogb"))
 
-policy <- read_policy(system.file("extdata", "moderate_syllabus.yaml", package = "gradebook"))
+policy <- read_policy(system.file("extdata", "moderate_syllabus.yaml", package = "nemogb"))
 
 grades <- get_grades(policy = policy, gs = moderate_syllabus_data)
 ```
@@ -141,13 +141,13 @@ script_grades <- data_with_lateness |>
 And, as you can see, the computations align.
 ```{r, echo= FALSE, fig.width=7, fig.height=6}
 plot(x = script_grades$`Overall Grade`, grades$`Overall Grade`, 
-     xlab = "Script Grades", ylab = "Gradebook Grades", cex = 2, pch = 20,
-     main = "Alignment of Script and Nemo Gradebook Grades"
+     xlab = "Script Grades", ylab = "NemoGB Grades", cex = 2, pch = 20,
+     main = "Alignment of Script and NemoGB Grades"
   )
 abline(a = 0, b = 1, col = "red")
 
 if (!all(script_grades$`Overall Grade` == grades$`Overall Grade`))
-  stop("Script grades and Gradebook grades do not align for moderate syllabus vignette.")
+  stop("Script grades and NemoGB grades do not align for moderate syllabus vignette.")
 ```
 
 

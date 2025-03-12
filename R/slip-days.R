@@ -6,7 +6,7 @@
 #' @param policy A grading policy file as an R list
 #'
 #' @examples
-#' path <- system.file("extdata", "slip-days-policy-demo.yaml", package = "gradebook")
+#' path <- system.file("extdata", "slip-days-policy-demo.yaml", package = "nemogb")
 #' slip_days_policy_demo <- read_policy(path = path)
 #' apply_slip_days(gs = gs_demo, policy = slip_days_policy_demo)
 #' 

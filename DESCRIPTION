@@ -1,4 +1,4 @@
-Package: gradebook
+Package: nemogb
 Title: Calculate course grades based on assignment scores from Gradescope or Canvas and a description of the course grading policy
 Version: 1.1.0
 Authors@R: c(person(
@@ -45,7 +45,7 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://github.com/gradebook-dev/gradebook
+URL: https://github.com/nemogb-dev/nemogb-r
 Suggests: 
     knitr,
     rmarkdown,
@@ -54,4 +54,4 @@ Suggests:
 Config/testthat/edition: 3
 Config/Needs/website: tidyverse/tidytemplate
 VignetteBuilder: knitr
-BugReports: https://github.com/gradebook-dev/gradebook/issues
+BugReports: https://github.com/nemogb-dev/nemogb-r/issues
