@@ -78,7 +78,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nemogb-dev/nemogb-r">nemogb</a></span><span class="op">)</span></span></code></pre></div>
 <p>Canvas is a popular classroom management tool that is commonly used
 to grade assignments and collect student grades throughout colleges and
-universities. This article describes how to use <code>NemoGB</code> with
+universities. This article describes how to use <code>nemogb</code> with
 Canvas data.</p>
 <p>Advanced users wishing to gain a deep understanding of how Canvas
 data is structured can also read the <a href="https://nemogb-dev.github.io/nemogb-r/articles/detailed-canvas-export-info.html" class="external-link">Detailed
@@ -86,8 +86,8 @@ Canvas Export Info</a> vignette.</p>
 <div class="section level2">
 <h2 id="getting-the-data">Getting the Data<a class="anchor" aria-label="anchor" href="#getting-the-data"></a>
 </h2>
-<p>This article details <code>NemoGB</code> workflows for users who use
-Canvas to collect student assignment grades. To use <code>NemoGB</code>,
+<p>This article details <code>nemogb</code> workflows for users who use
+Canvas to collect student assignment grades. To use <code>nemogb</code>,
 users must first source the necessary csv files containing student
 assignment data from Canvas.</p>
 <p>The primary csv file needed from Canvas is the grades file, which
@@ -96,28 +96,28 @@ navigate to the “Grades” tab on Canvas. On the grades page, click
 “Export” and then “Export Entire Gradebook”.</p>
 <p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasGradeIm.png" width="100%"></p>
 <p>The grades csv is the only file that is needed to generate final
-grades with <code>NemoGB</code>. Read below for more information on
+grades with <code>nemogb</code>. Read below for more information on
 other data that can be exported from Canvas.</p>
 </div>
 <div class="section level2">
 <h2 id="data-format">Data Format<a class="anchor" aria-label="anchor" href="#data-format"></a>
 </h2>
-<p>The internal standard for <code>NemoGB</code> data is for assignment
+<p>The internal standard for <code>nemogb</code> data is for assignment
 data to be formatted like Gradescope data, which is another platform for
-collecting student grades. <code>NemoGB</code> functionality converts
+collecting student grades. <code>nemogb</code> functionality converts
 the Canvas assignment data into our internal standards for seamless use
 of Canvas data.</p>
 <p>To use grade data from Canvas, simply use <code><a href="../reference/read_files.html">read_files()</a></code>;
-this process is not unique to Canvas data. <code>NemoGB</code> assesses
+this process is not unique to Canvas data. <code>nemogb</code> assesses
 the source of the file (e.g. Gradescope, Canvas, or other) and load in
 file in appropriately. To force the file to be read in as a Canvas
 sourced file, users can pass the argument <code>source = "Canvas"</code>
-into the read_files() function. <code>NemoGB</code> will track where the
+into the read_files() function. <code>nemogb</code> will track where the
 data originated and prevent potentially dangerous operations during
 grading.</p>
 <p>After reading in the data, the data can be used to calculate grades
 as in the case study vignettes.</p>
-<p>Here is an example of the transformation <code>NemoGB</code> applies
+<p>Here is an example of the transformation <code>nemogb</code> applies
 to Canvas grade data.</p>
 <p>Below is assignment grade data as exported from Canvas.</p>
 <pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">11</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">38</span></span></span>
@@ -653,7 +653,7 @@ to Canvas grade data.</p>
 </tbody>
 </table>
 <p>Below is the dataframe after being transformed by
-<code>NemoGB</code>.</p>
+<code>nemogb</code>.</p>
 <pre><code><span><span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">11</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">38</span></span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">───────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span></span>
@@ -1134,7 +1134,7 @@ to Canvas grade data.</p>
 </h2>
 <p>With our current implemention, there are limitations to using
 assignment data sourced from Canvas, resulting in a reduction of
-potential grading functionality in <code>NemoGB</code>. The primary
+potential grading functionality in <code>nemogb</code>. The primary
 limitation surrounds the application of lateness policies when using
 data sourced from Canvas.</p>
 <p>The grades csv exported from Canvas does not include information on
@@ -1157,7 +1157,7 @@ files are currently not supported.</p>
 <p>The lateness file details which assignments where submitted late by
 which students. Due to the drawbacks mentioned above, we are currently
 not using this file to implement lateness penalties in
-<code>NemoGB</code>.</p>
+<code>nemogb</code>.</p>
 <p>The roster csv file gives all student names and their contact
 information, which can be relevant if instructors desire to have student
 contact information available in the exported grades file.</p>
@@ -1168,7 +1168,7 @@ download the desired report.</p>
 <p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasAnalytics.png" width="100%"></p>
 <p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fnemogb%2Fextdata%2FcanvasAnalyticsOptions.png" width="100%"></p>
 <p>Currently, providing files other than the grades file is not
-supported by <code>NemoGB</code>. However, we have built the
+supported by <code>nemogb</code>. However, we have built the
 infrastructure to read in these files for future integration of other
 data sources (e.g. the lateness or roster csv files from Canvas).</p>
 <p>For full information on the formatting of Canvas exported data, see

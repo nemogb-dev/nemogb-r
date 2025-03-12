@@ -78,7 +78,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/nemogb-dev/nemogb-r">nemogb</a></span><span class="op">)</span></span></code></pre></div>
 <p>This vignette details the specific structure of exported Canvas
 files. For information on how to use Canvas grade data with
-<code>NemoGB</code>, view the <a href="https://nemogb-dev.github.io/nemogb-r/articles/working-with-canvas-data.html" class="external-link">Working
+<code>nemogb</code>, view the <a href="https://nemogb-dev.github.io/nemogb-r/articles/working-with-canvas-data.html" class="external-link">Working
 With Canvas Data</a> vignette instead. This vignette details in depth
 information about Canvas file exports for curious advanced users.</p>
 <p>There are many exports from Canvas: Canvas divides student
@@ -101,7 +101,7 @@ interfaces with for each individual university that uses Canvas. For
 example, Berkeley’s SIS is CalCentral. This has been confirmed by Canvas
 Employees. Thus, SIS User ID is the student’s Cal ID for our university.
 Typically this will be the desired primary key for operations outside of
-<code>NemoGB</code>. Note that, like Gradescope, SIS User ID will
+<code>nemogb</code>. Note that, like Gradescope, SIS User ID will
 contain some entries of the form “UID: #####”. The meaning of these
 entries is unclear.</p>
 <p>SIS Login ID - The meaning of this column is unclear. It does not
@@ -213,7 +213,7 @@ to apply simple late policies internally. When applied, a student’s
 score in the grades csv would be after lateness was applied.</p>
 <p>It appears that it may be possible to obtain a spreadsheet of
 assignment due times using Canvas API (however this may be complicated).
-This is worth looking into during the future so that <code>NemoGB</code>
+This is worth looking into during the future so that <code>nemogb</code>
 can accommodate applying lateness to Canvas exported data.</p>
 </div>
 </div>
