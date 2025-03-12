@@ -35,7 +35,6 @@ output:
   rticles::joss_article:
     journal: JOSE
     keep_tex: true
-journal: JOSE
 ---
 
 # Summary
