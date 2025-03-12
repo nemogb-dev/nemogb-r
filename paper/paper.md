@@ -73,6 +73,8 @@ While `get_grades()` encapsulates the primary functionality of the R package, it
 
 # Classroom Usage
 
+This R package has been used for several semesters at UC Berkeley to calculate course grades in large statistics and data science classes. It has come to replace the error-prone workflow where each instructor writes their own custom, but untested, script or spreadsheet.
+
 
 # Comparison to Other Packages
 
