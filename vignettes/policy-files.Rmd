@@ -14,21 +14,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-There are two ingredients that are needed to calculate course grades with `gradebook`: a dataframe containing assignment scores and a file that encodes the grading policies often described in a syllabus. We call that file a *policy file*.
+There are two ingredients that are needed to calculate course grades with `NemoGB`: a dataframe containing assignment scores and a file that encodes the grading policies often described in a syllabus. We call that file a *policy file*.
 
 Policy files are stored as [.yaml](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started) files, a simple format for storing hierarchical data in a text file with minimal markup. Here is an example of a policy file for a course with a fairly simple grading scheme.
 
 Note that category names cannot be the same as any assignment names.
 
 ```yaml
-`r xfun::file_string(system.file("extdata", "policy_demo.yaml", package = "gradebook"))`
+`r xfun::file_string(system.file("extdata", "policy_demo.yaml", package = "nemogb"))`
 
 ```
 
 Once you have written your policy file, you can read it into R as a list.
 
 ```{r}
-policy <- gradebook::read_policy(system.file("extdata", "policy_demo.yaml", package = "gradebook"))
+policy <- nemogb::read_policy(system.file("extdata", "policy_demo.yaml", package = "nemogb"))
 ```
 
 ## Recognized Keys
@@ -124,7 +124,7 @@ This is generally true for all syllabi. First, apply penalty for lateness, then 
 
 For example, take two separate orders of the computations of the `Labs` category, each with six assignments (e.g. `Lab 1`, `Lab 2`, etc.). Both drop the 2 lowest scores. Both apply the same lateness penality: 10% reduction if the assignment is at most a day late and setting the score to zero if any more late. Here's the dataframe that will be used (the `gs_demo` from the package):
 ```{r, echo = FALSE}
-library(gradebook)
+library(nemogb)
 gs_demo |>
   dplyr::select(c(SID, contains("Lab"))) |>
   knitr::kable()

@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(gradebook)
+library(nemogb)
 
-test_check("gradebook")
+test_check("nemogb")
