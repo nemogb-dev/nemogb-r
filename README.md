@@ -4,7 +4,7 @@ An R package to make course grade calculations easy, fast, and most importantly,
 correct. Course grades are produced from a data frame of assignment grades along
 with a grading policy file that allows for accurate and systematic computations
 of the final course letter grades. This R package also functions as the backend of the
-[NemoGB Shiny app](https://github.com/gradebook-dev/gradebook-app.git), which lets the
+[NemoGB Shiny app](https://github.com/nemogb-dev/nemogb-app.git), which lets the
 which lets the user create their grading policy file in a straightforward way.
 
 ### Installation Instructions
