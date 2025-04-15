@@ -68,6 +68,8 @@ reference:
     These functions are used to apply relevant exceptions.
   contents:
   - calculate_grades_with_exceptions
+  - separate_policies
+  - calculate_grades_with_exceptions
 
 - title: Demo Items
   desc: >
