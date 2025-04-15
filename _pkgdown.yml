@@ -63,6 +63,12 @@ reference:
   - max_lateness
   - apply_slip_days
 
+- title: Exceptions
+  desc: >
+    These functions are used to apply relevant exceptions.
+  contents:
+  - calculate_grades_with_exceptions
+
 - title: Demo Items
   desc: >
     These items are used to demonstrate the functionality of this package.
