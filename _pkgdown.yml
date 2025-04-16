@@ -67,7 +67,7 @@ reference:
   desc: >
     These functions are used to apply relevant exceptions.
   contents:
-  - calculate_grades_with_exceptions
+  - get_grades_with_exceptions
   - separate_policies
   - calculate_grades_with_exceptions
 

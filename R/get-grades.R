@@ -31,7 +31,7 @@ get_grades <- function(gs, policy, verbose = FALSE){
   
   gs |>
     apply_slip_days(policy = policy) |>
-    calculate_grades_with_exceptions(policy = policy)  |>
+    calculate_grades(policy = policy)  |>
     tibble::as_tibble()
   
 }

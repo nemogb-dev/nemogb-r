@@ -16,7 +16,7 @@ test_that("one exception - extra quiz drop", {
           list(
             category = "Lab 2",
             aggregation = "weighted_by_points",
-            assignments = c("Lab 2.1", "Lab 2.2", "Lab 2.3")
+            assignments = c("Lab 2.1", "Lab 2.2")
           )
         )
       ),
@@ -40,6 +40,44 @@ test_that("one exception - extra quiz drop", {
     )
   )
   policy <- list(categories = list(categories), exceptions = exceptions)
+  
+  gs <- tibble::tibble(SID = c(111,222,333,444,555),
+                       `Lab 1.1` = c(0.2, 0.4, 0.6, 0.8, 0.9),
+                       `Lab 1.1 - Max Points` = rep(5, 5),
+                       `Lab 1.1 - Submission Time` = rep(NA, 5),
+                       `Lab 1.1 - Lateness (H:M:S)` = rep(NA, 5),
+                       
+                       `Lab 1.2` = c(0.9, 0.4, 0.6, 0.7, 0.9),
+                       `Lab 1.2 - Max Points` = rep(10, 5),
+                       `Lab 1.2 - Submission Time` = rep(NA, 5),
+                       `Lab 1.2 - Lateness (H:M:S)` = rep(NA, 5),
+                       
+                       `Lab 2.1` = c(0.2, 0.5, 0.9, 0.95, 0.9),
+                       `Lab 2.1 - Max Points` = rep(15, 5),
+                       `Lab 2.1 - Submission Time` = rep(NA, 5),
+                       `Lab 2.1 - Lateness (H:M:S)` = rep(NA, 5),
+                       
+                       `Lab 2.2` = c(0.2, 0.4, 1, 0.7, 0.9),
+                       `Lab 2.2 - Max Points` = rep(20, 5),
+                       `Lab 2.2 - Submission Time` = rep(NA, 5),
+                       `Lab 2.2 - Lateness (H:M:S)` = rep(NA, 5),
+                       
+                       `Quiz 1` = c(0.2, 0.4, 1, 0.7, 0.9),
+                       `Quiz 1 - Max Points` = rep(20, 5),
+                       `Quiz 1 - Submission Time` = rep(NA, 5),
+                       `Quiz 1 - Lateness (H:M:S)` = rep(NA, 5),
+                       
+                       `Quiz 2` = c(0.9, 0.4, 0.6, 0.7, 0.9),
+                       `Quiz 2 - Max Points` = rep(20, 5),
+                       `Quiz 2 - Submission Time` = rep(NA, 5),
+                       `Quiz 2 - Lateness (H:M:S)` = rep(NA, 5),
+                       `Quiz 3` = c(0.2, 0.5, 0.9, 0.95, 0.9),
+                       `Quiz 3 - Max Points` = rep(20, 5),
+                       `Quiz 3 - Submission Time` = rep(NA, 5),
+                       `Quiz 3 - Lateness (H:M:S)` = rep(NA, 5),
+  )
+  attr(gs, "source") <- "Gradescope"
+  
 })
 
 test_that("one exception - adding new category to overall grade", {
