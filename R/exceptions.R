@@ -1,3 +1,14 @@
+#' Get Grades With Exceptions
+#' 
+#' Get grades with exceptions applied to relevant students.
+#'
+#' @param gs A Gradescope dataframe
+#' @param policy A grading policy file as an R list
+#' 
+#' @return A dataframe of the original Gradescope data with computed categories' scores appended as additional columns 
+#'
+#' 
+#' @export
 get_grades_with_exceptions <- function(gs = gs, policy = policy){
   # if no exceptions
   if (is.null(policy$exceptions) | length(policy$exceptions) == 0){
@@ -9,6 +20,17 @@ get_grades_with_exceptions <- function(gs = gs, policy = policy){
   }
 }
 
+#' Separate policies
+#' 
+#' Create separate policies for each unique exception and truncate gs based on 
+#' which students these exceptions apply to
+#'
+#' @param gs A Gradescope dataframe
+#' @param policy A grading policy file as an R list
+#' 
+#' @return A list with various policies and truncated gs
+#'
+#' @export
 separate_policies <- function(policy, gs){
   policies <- list(policy = list(policy), gs = list(gs))
   for (exception in policy$exceptions){
@@ -34,6 +56,16 @@ separate_policies <- function(policy, gs){
   return (policies)
 }
 
+#' Calculate Grades with Exceptions
+#' 
+#' Apply each policy to respective students and combine all grades
+#'
+#' @param policies A list with separate policies and relevant gs
+#' 
+#' @return A list with various policies and truncated gs
+#' @importFrom purrr walk2
+#' @importFrom dplyr bind_rows
+#' @export
 calculate_grades_with_exceptions <- function(policies){
   grades <- data.frame()
   purrr::walk2(policies$gs, policies$policy, function(gs, policy){
@@ -44,6 +76,7 @@ calculate_grades_with_exceptions <- function(policies){
       tibble::as_tibble() |>
       dplyr::bind_rows(grades)
   })
+  grades
 }
 
 find_indices <- function(lst, target, current_index = c()) {
