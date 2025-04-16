@@ -77,7 +77,7 @@ test_that("one exception - extra quiz drop", {
                        `Quiz 3 - Lateness (H:M:S)` = rep(NA, 5),
   )
   attr(gs, "source") <- "Gradescope"
-  
+  grades <- get_grades_with_exceptions(gs, policy)
 })
 
 test_that("one exception - adding new category to overall grade", {

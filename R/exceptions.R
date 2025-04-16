@@ -63,20 +63,18 @@ separate_policies <- function(policy, gs){
 #' @param policies A list with separate policies and relevant gs
 #' 
 #' @return A list with various policies and truncated gs
-#' @importFrom purrr walk2
+#' @importFrom purrr map
 #' @importFrom dplyr bind_rows
 #' @export
 calculate_grades_with_exceptions <- function(policies){
-  grades <- data.frame()
-  purrr::walk2(policies$gs, policies$policy, function(gs, policy){
-    policy <- process_policy(policy)
-    grades <- gs |>
-      apply_slip_days(policy = policy) |>
-      calculate_grades(policy = policy)  |>
-      tibble::as_tibble() |>
-      dplyr::bind_rows(grades)
+  grades_list <- purrr::map2(policies$gs, policies$policy, function(gs, policy){
+    processed_policy <- process_policy(policy)
+    gs |>
+      apply_slip_days(policy = processed_policy) |>
+      calculate_grades(policy = processed_policy)  |>
+      tibble::as_tibble()
   })
-  grades
+  bind_rows(grades_list)
 }
 
 find_indices <- function(lst, target, current_index = c()) {
