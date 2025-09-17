@@ -28,11 +28,6 @@ This article details `nemogb` workflows for users who use Canvas to collect stud
 
 The primary csv file needed from Canvas is the grades file, which contains the assignment grades for each student. To source this file, navigate to the "Grades" tab on Canvas. On the grades page, click "Export" and then "Export Entire Gradebook".
 
-
-```{r echo=FALSE, out.width='100%'}
-  knitr::include_graphics(system.file("extdata", "canvasGradeIm.png", package = "nemogb"))
-```
-
 The grades csv is the only file that is needed to generate final grades with `nemogb`. Read below for more information on other data that can be exported from Canvas. 
 
 ## Data Format
