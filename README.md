@@ -13,7 +13,7 @@ To install `nemogb`, make sure to install `devtools` first. The `pkgdown` websit
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("nemogb-dev/nemogb-r")
+devtools::install_github("nemogb-dev/nemogb-r@main")
 library(nemogb)
 ```
 
