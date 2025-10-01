@@ -24,7 +24,7 @@ library(nemogb)
 Load in your Gradescope data using `read_gs()`.
 ```r
 library(nemogb)
-gs_data <- read_gs("gs_demo.csv")
+gs_data <- read_gs(read.csv(fs::path_package("nemogb", "extdata", "gs_demo.csv")))
 ```
 
 Start by building a policy file that reflects the assignments from your Gradescope file and the structure of the syllabus. 
@@ -32,7 +32,7 @@ More information and guidance on building your policy file in YAML format can be
 
 This YAML policy file should be loaded in with `read_policy()`, and then course grades can be computed with `get_grades()`.
 ```r
-policy <- read_policy("policy_demo.yaml")
+policy <- read_policy(read.csv(fs::path_package("nemogb", "extdata", "policy_demo.yaml")))
 
 grades <- get_grades(policy = policy, gs = gs_data)
 ```
