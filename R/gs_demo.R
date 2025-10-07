@@ -1,12 +1,12 @@
 #' Gradescope Demo Data
 #'
-#' An example dataset that mimics Gradescope format with students as rows 
+#' An example dataset that mimics Gradescope format with students as rows
 #' and assignment information across the columns.
 #' All assignments follow the same four-column format of Lab 1, as noted below.
 #' Assignments in `gs_demo` are Lab 1, Lab 2, Lab 3, Lab 4, Lab 5, Lab 6, Discussion 1,
 #' Discussion 2, Midterm and Final.
 #' Any other columns that do not follow this format are designated as ID columns.
-#' 
+#'
 #'
 #' @format ## `gs_demo`
 #' A data frame with 10 rows and 44 columns:
@@ -23,5 +23,5 @@
 #' }
 #' @examples
 #' gs_demo
-#' 
+#'
 "gs_demo"

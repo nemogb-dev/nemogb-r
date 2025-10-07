@@ -86,28 +86,30 @@ Here is the coded version of the same syllabus.
 script_grades <- simple_syllabus_data |>
   # calculate percentages
   dplyr::mutate(
-    `Homework 1` = `Homework 1`/`Homework 1 - Max Points`,
-    `Homework 2` = `Homework 2`/`Homework 2 - Max Points`,
-    `Midterm Exam` = `Midterm Exam`/`Midterm Exam - Max Points`,
-    `Final Exam` = `Final Exam`/`Final Exam - Max Points`
+    `Homework 1` = `Homework 1` / `Homework 1 - Max Points`,
+    `Homework 2` = `Homework 2` / `Homework 2 - Max Points`,
+    `Midterm Exam` = `Midterm Exam` / `Midterm Exam - Max Points`,
+    `Final Exam` = `Final Exam` / `Final Exam - Max Points`
   ) |>
-  # calculate category grade for "Homework" 
-  dplyr::mutate( `Homework` = (`Homework 1` + `Homework 2`)/2 ) |>
+  # calculate category grade for "Homework"
+  dplyr::mutate(`Homework` = (`Homework 1` + `Homework 2`) / 2) |>
   # calculate final Overall Grade
-  dplyr::mutate(`Overall Grade` = 0.2*`Homework` + 0.4*`Midterm Exam` + 0.4*`Final Exam`) 
+  dplyr::mutate(`Overall Grade` = 0.2 * `Homework` + 0.4 * `Midterm Exam` + 0.4 * `Final Exam`)
 ```
 
 And, as you can see, the computations align.
 
 ```{r, echo= FALSE, fig.width=7, fig.height=6}
-plot(x = script_grades$`Overall Grade`, grades$`Overall Grade`, 
-     xlab = "Script Grades", ylab = "NemoGB Grades", cex = 2, pch = 20,
-     main = "Alignment of Script and NemoGB Grades"
-  )
+plot(
+  x = script_grades$`Overall Grade`, grades$`Overall Grade`,
+  xlab = "Script Grades", ylab = "NemoGB Grades", cex = 2, pch = 20,
+  main = "Alignment of Script and NemoGB Grades"
+)
 abline(a = 0, b = 1, col = "red")
 
-if (!all(script_grades$`Overall Grade` == grades$`Overall Grade`))
+if (!all(script_grades$`Overall Grade` == grades$`Overall Grade`)) {
   stop("Script grades and NemoGB grades do not align for simple syllabus vignette.")
+}
 ```
 
 

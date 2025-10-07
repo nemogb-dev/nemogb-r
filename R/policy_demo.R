@@ -2,7 +2,7 @@
 #'
 #' An example policy file that mimics a hypothetical class syllabus. Note that this is a very minimal policy file,
 #' and information about more specific grading criteria can be found via the vignettes.
-#' 
+#'
 #'
 #' @format A list of two nested lists
 #' \describe{
@@ -17,5 +17,5 @@
 #' }
 #' @examples
 #' policy_demo
-#' 
+#'
 "policy_demo"

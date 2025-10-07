@@ -10,7 +10,7 @@ test_that("order assignments - correct order", {
     assignments = c("Lab 1", "Lab 2")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,c("Lab 1", "Lab 2"))
+  expect_equal(actual, c("Lab 1", "Lab 2"))
 })
 
 test_that("order assignments - reverse order", {
@@ -25,7 +25,7 @@ test_that("order assignments - reverse order", {
     assignments = c("Lab 2", "Lab 1")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,c("Lab 1", "Lab 2"))
+  expect_equal(actual, c("Lab 1", "Lab 2"))
 })
 
 test_that("order assignments - same time submission, keep gs order", {
@@ -39,7 +39,7 @@ test_that("order assignments - same time submission, keep gs order", {
     assignments = c("Lab 2", "Lab 1")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,c("Lab 1", "Lab 2"))
+  expect_equal(actual, c("Lab 1", "Lab 2"))
 })
 
 test_that("order assignments - one student NA", {
@@ -54,7 +54,7 @@ test_that("order assignments - one student NA", {
     assignments = c("Lab 2", "Lab 1")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,c("Lab 1", "Lab 2"))
+  expect_equal(actual, c("Lab 1", "Lab 2"))
 })
 
 test_that("order assignments - one missing submission time, keep policy file order", {
@@ -70,7 +70,7 @@ test_that("order assignments - one missing submission time, keep policy file ord
     assignments = c("Lab 1", "Lab 2", "Lab 3")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,policy_item$assignments)
+  expect_equal(actual, policy_item$assignments)
 })
 
 test_that("order assignments - two missing submission time, keep policy file order", {
@@ -86,7 +86,7 @@ test_that("order assignments - two missing submission time, keep policy file ord
     assignments = c("Lab 1", "Lab 2", "Lab 3", "Lab 4")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,policy_item$assignments)
+  expect_equal(actual, policy_item$assignments)
 })
 
 
@@ -103,7 +103,7 @@ test_that("order assignments - all missing submission time, keep policy file ord
     assignments = c("Lab 2", "Lab 1", "Lab 3")
   )
   actual <- order_assignments(gs, policy_item)
-  expect_equal(actual,policy_item$assignments)
+  expect_equal(actual, policy_item$assignments)
 })
 
 test_that("calculate slip days - all lateness removed", {
@@ -120,7 +120,7 @@ test_that("calculate slip days - all lateness removed", {
   expected <- tibble::tibble(
     `Lab 1 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Lab 2 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
-    `Remaining: Slip Days 1` = c(4,2, 0)
+    `Remaining: Slip Days 1` = c(4, 2, 0)
   )
   expect_equal(calculate_slip_days(gs, policy_item), expected)
 })
@@ -139,7 +139,7 @@ test_that("calculate slip days - slip days run out for one student", {
   expected <- tibble::tibble(
     `Lab 1 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Lab 2 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "28:00:00"),
-    `Remaining: Slip Days 1` = c(2,1, 0)
+    `Remaining: Slip Days 1` = c(2, 1, 0)
   )
   expect_equal(calculate_slip_days(gs, policy_item), expected)
 })
@@ -161,7 +161,7 @@ test_that("calculate slip days - slip days run out for two student", {
     `Lab 1 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Lab 2 - Lateness (H:M:S)` = c("00:00:00", "01:00:00", "28:00:00"),
     `Lab 3 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "23:00:17"),
-    `Remaining: Slip Days 1` = c(2,0, 0)
+    `Remaining: Slip Days 1` = c(2, 0, 0)
   )
   expect_equal(calculate_slip_days(gs, policy_item), expected)
 })
@@ -206,7 +206,7 @@ test_that("apply slip days - two slip day policies", {
     `Homework 2 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Homework 2 - Submission Time` = c("4/15/2024 11:11:11", "4/15/2024 05:11:11", "4/13/2024 11:59:59"),
     `Remaining: Slip Days 1` = c(2, 0, 0),
-    `Remaining: Slip Days 2` = c(1,0,0)
+    `Remaining: Slip Days 2` = c(1, 0, 0)
   )
   expect_equal(apply_slip_days(gs, policy), expected)
 })
@@ -233,7 +233,7 @@ test_that("apply slip days - default to chronological", {
     `Lab 2 - Submission Time` = c("2/15/2024 11:11:11", "2/15/2024 05:11:11", "2/15/2024 11:59:59"),
     `Lab 3 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Lab 3 - Submission Time` = c("1/15/2024 11:11:11", "1/15/2024 05:11:11", "1/15/2024 11:59:59"),
-    `Remaining: Slip Days 1` = c(1,0,0)
+    `Remaining: Slip Days 1` = c(1, 0, 0)
   )
   expect_equal(apply_slip_days(gs, policy), expected)
 })
@@ -261,7 +261,7 @@ test_that("apply slip days - explicitly use chronological order", {
     `Lab 2 - Submission Time` = c("2/15/2024 11:11:11", "2/15/2024 05:11:11", "2/15/2024 11:59:59"),
     `Lab 3 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "00:00:00"),
     `Lab 3 - Submission Time` = c("1/15/2024 11:11:11", "1/15/2024 05:11:11", "1/15/2024 11:59:59"),
-    `Remaining: Slip Days 1` = c(1,0,0)
+    `Remaining: Slip Days 1` = c(1, 0, 0)
   )
   expect_equal(apply_slip_days(gs, policy), expected)
 })
@@ -290,7 +290,7 @@ test_that("apply slip days - keep given order of policy", {
     `Lab 2 - Submission Time` = c("2/15/2024 11:11:11", "2/15/2024 05:11:11", "2/15/2024 11:59:59"),
     `Lab 3 - Lateness (H:M:S)` = c("00:00:00", "00:00:00", "23:00:17"),
     `Lab 3 - Submission Time` = c("1/15/2024 11:11:11", "1/15/2024 05:11:11", "1/15/2024 11:59:59"),
-    `Remaining: Slip Days 1` = c(1,0,0)
+    `Remaining: Slip Days 1` = c(1, 0, 0)
   )
   expect_equal(apply_slip_days(gs, policy), expected)
 })
