@@ -43,15 +43,15 @@ Here is an example of the transformation `nemogb` applies to Canvas grade data.
 Below is assignment grade data as exported from Canvas. 
 
 ```{r, echo = FALSE}
-  canvas_demo_data <- readr::read_csv(system.file("extdata", "canvas_demo_data.csv", package = "nemogb"), trim_ws = FALSE)
-  knitr::kable(canvas_demo_data)
+canvas_demo_data <- readr::read_csv(system.file("extdata", "canvas_demo_data.csv", package = "nemogb"), trim_ws = FALSE)
+knitr::kable(canvas_demo_data)
 ```
 
 Below is the dataframe after being transformed by `nemogb`. 
 
 ```{r echo = FALSE}
-  proc_canvas_data <- read_files(system.file("extdata", "canvas_demo_data.csv", package = "nemogb"))
-  knitr::kable(proc_canvas_data)
+proc_canvas_data <- read_files(system.file("extdata", "canvas_demo_data.csv", package = "nemogb"))
+knitr::kable(proc_canvas_data)
 ```
 
 
@@ -75,14 +75,11 @@ The roster csv file gives all student names and their contact information, which
 Both of these files are accessed through the "New Analytics" tab available on the right side of the course homepage. To download these files, click Analytics on the home page, navigate to the Reports tab and download the desired report. 
 
 ```{r echo=FALSE, out.width='100%'}
-  knitr::include_graphics(system.file("extdata", "canvasAnalytics.png", package = "nemogb"))
-
+knitr::include_graphics(system.file("extdata", "canvasAnalytics.png", package = "nemogb"))
 ```
 
 ```{r echo=FALSE, out.width='100%'}
-
-  knitr::include_graphics(system.file("extdata", "canvasAnalyticsOptions.png", package = "nemogb"))
-
+knitr::include_graphics(system.file("extdata", "canvasAnalyticsOptions.png", package = "nemogb"))
 ```
 
 

@@ -138,12 +138,12 @@ categories <- list(
     lateness = list(
       list(
         between = list(
-          to = '00:00:01',
-          from = '24:00:00'
+          to = "00:00:01",
+          from = "24:00:00"
         )
       ),
       list(scale_by = 0.9),
-      list(after = '24:00:01'),
+      list(after = "24:00:01"),
       list(set_to = 0)
     ),
     drop_n_lowest = 2,
@@ -161,12 +161,12 @@ categories <- list(
     lateness = list(
       list(
         between = list(
-          to = '00:00:01',
-          from = '24:00:00'
+          to = "00:00:01",
+          from = "24:00:00"
         )
       ),
       list(scale_by = 0.9),
-      list(after = '24:00:01'),
+      list(after = "24:00:01"),
       list(set_to = 0)
     ),
     aggregation = "equally_weighted",
