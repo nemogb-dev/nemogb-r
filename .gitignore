@@ -10,6 +10,8 @@ inst/doc
 *.bcf
 *.out
 *.log
+.DS_Store
+**/.DS_Store
 paper/paper.html
 paper/paper.run.xml
 paper/paper.tex
