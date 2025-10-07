@@ -21,5 +21,4 @@ the nested structure of the file.
 \examples{
 process_policy(policy_demo, verbose = TRUE)
 
-
 }

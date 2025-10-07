@@ -25,5 +25,4 @@ specified in the policy file but required for grading.
 \examples{
 reconcile_policy_with_gs(policy = policy_demo, gs = gs_demo, verbose = TRUE)
 
-
 }

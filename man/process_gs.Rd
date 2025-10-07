@@ -24,5 +24,4 @@ Eventually, this will also merge duplicated students and deal with students with
 \examples{
 process_gs(gs = gs_demo, drop_ungraded = TRUE, verbose = TRUE)
 
-
 }
