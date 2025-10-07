@@ -1,6 +1,6 @@
 Package: nemogb
 Title: Calculate course grades based on assignment scores from Gradescope or Canvas and a description of the course grading policy
-Version: 1.1.0
+Version: 1.2.0
 Authors@R: c(person(
                     given = "Nikita", 
                     family = "Jayaprakash", 
@@ -41,7 +41,7 @@ Imports:
     stats,
     yaml
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: 
     R (>= 2.10)
 LazyData: true

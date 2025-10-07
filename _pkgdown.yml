@@ -1,6 +1,5 @@
 url: https://github.com/nemogb-dev/nemogb-r/
 template:
-  package: tidytemplate
   bootstrap: 5
   includes:
     in_header: |
