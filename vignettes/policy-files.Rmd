@@ -112,7 +112,7 @@ The highest level category is `Overall Grade` with all other categories and/or a
 
 ## Importance of Order
 
-Order of operation is crucial in the accurate computation of the final grades. When computing grades, generally the high level ordering is the following: 
+Order of operation is crucial in the accurate computation of the final grades. In a policy file, this order is determined by the order of the keys in the YAML file. When computing grades, generally the high level ordering is the following: 
 
 -   `lateness` penalties,
 
@@ -180,4 +180,4 @@ list(categories = categories) |>
   knitr::kable()
 ```
 
-While this distinction doesn't affect all students, the first student does get a distinctly different score, highlighing the importance of order in creating these policy files. It's evident that seemingly small distinctions can create a significant effect, especially on larger student bodies.
+While this distinction doesn't affect all students, the first student does get a distinctly different score, highlighting the importance of order in creating these policy files. It's evident that seemingly small distinctions can create a significant effect, especially on larger student bodies.
