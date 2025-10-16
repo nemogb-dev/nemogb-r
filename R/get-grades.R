@@ -10,6 +10,7 @@
 #' @param gs A Gradescope dataframe
 #' @param policy A grading policy file as an R list
 #' @param verbose if FALSE, throws error if no assignments found in gs
+#' @param append if TRUE, returns dataframe with only newly computed categories' scores
 #'
 #' @examples
 #' get_grades(gs = gs_demo, policy = policy_demo, verbose = TRUE)
@@ -20,7 +21,8 @@
 #' @importFrom tibble as_tibble
 #'
 #' @export
-get_grades <- function(gs, policy, verbose = FALSE) {
+get_grades <- function(gs, policy, verbose = FALSE,
+                       append = FALSE) {
   gs <- gs |>
     process_gs()
 
@@ -28,10 +30,18 @@ get_grades <- function(gs, policy, verbose = FALSE) {
     process_policy(verbose = verbose) |>
     reconcile_policy_with_gs(gs = gs, verbose = verbose)
 
-  gs |>
+  grades <- gs |>
     apply_slip_days(policy = policy) |>
     calculate_grades(policy = policy) |>
     tibble::as_tibble()
+  
+  if (append){
+    # id_cols calls all ID columns and all newly generated columns
+    # when it's called on a post-grading dataframe
+    grades <- grades[, get_id_cols(grades)]
+  }
+  
+  return (grades)
 }
 
 #' Calculate Grades

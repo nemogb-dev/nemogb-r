@@ -4,7 +4,7 @@
 \alias{get_grades}
 \title{Get Grades}
 \usage{
-get_grades(gs, policy, verbose = FALSE)
+get_grades(gs, policy, verbose = FALSE, append = FALSE)
 }
 \arguments{
 \item{gs}{A Gradescope dataframe}
@@ -12,6 +12,8 @@ get_grades(gs, policy, verbose = FALSE)
 \item{policy}{A grading policy file as an R list}
 
 \item{verbose}{if FALSE, throws error if no assignments found in gs}
+
+\item{append}{if TRUE, returns dataframe with only newly computed categories' scores}
 }
 \value{
 A dataframe of the original Gradescope data with computed categories' scores appended as additional columns
