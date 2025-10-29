@@ -83,6 +83,23 @@ knitr::kable(grades)
 ```
 :::
 
+Note that setting the `append = TRUE` in the `get_grades()` function will output a data frame of the ID columns and the newly calculated scores (excluding the original assignment columns from Gradescope).
+
+```{r}
+new_cat_grades <- get_grades(gs = moderate_syllabus_data, 
+                     policy = policy,
+                     append = FALSE)
+```
+
+
+The output of the grades will then look like this:
+
+::: {style="height: 300px; overflow: auto;"}
+```{r, echo=FALSE}
+knitr::kable(new_cat_grades)
+```
+:::
+
 ## Syllabus as a Grading Script
 Here is the coded version of the same syllabus.
 ```{r}
