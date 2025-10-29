@@ -284,8 +284,9 @@ most nested category level going up the levels toward
 <h2 id="importance-of-order">Importance of Order<a class="anchor" aria-label="anchor" href="#importance-of-order"></a>
 </h2>
 <p>Order of operation is crucial in the accurate computation of the
-final grades. When computing grades, generally the high level ordering
-is the following:</p>
+final grades. In a policy file, this order is determined by the order of
+the keys in the YAML file. When computing grades, generally the high
+level ordering is the following:</p>
 <ul>
 <li><p><code>lateness</code> penalties,</p></li>
 <li><p>apply category drops <code>drop_n_lowest</code>, and</p></li>
@@ -694,7 +695,7 @@ computed scores for <code>Labs</code> side-by-side:</p>
 </tbody>
 </table>
 <p>While this distinction doesn’t affect all students, the first student
-does get a distinctly different score, highlighing the importance of
+does get a distinctly different score, highlighting the importance of
 order in creating these policy files. It’s evident that seemingly small
 distinctions can create a significant effect, especially on larger
 student bodies.</p>
