@@ -64,7 +64,7 @@ data format.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_grades</span><span class="op">(</span><span class="va">gs</span>, <span class="va">policy</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_grades</span><span class="op">(</span><span class="va">gs</span>, <span class="va">policy</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -81,6 +81,10 @@ data format.</p>
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
 <dd><p>if FALSE, throws error if no assignments found in gs</p></dd>
+
+
+<dt id="arg-append">append<a class="anchor" aria-label="anchor" href="#arg-append"></a></dt>
+<dd><p>if FALSE, returns dataframe with only newly computed categories' scores</p></dd>
 
 </dl></div>
     <div class="section level2">

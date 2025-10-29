@@ -753,13 +753,154 @@ file.</p>
 </tbody>
 </table>
 </div>
+<p>Note that setting the <code>append = TRUE</code> in the
+<code><a href="../reference/get_grades.html">get_grades()</a></code> function will output a data frame of the ID
+columns and the newly calculated scores (excluding the original
+assignment columns from Gradescope).</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">new_cat_grades</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_grades.html">get_grades</a></span><span class="op">(</span>gs <span class="op">=</span> <span class="va">moderate_syllabus_data</span>, </span>
+<span>                     policy <span class="op">=</span> <span class="va">policy</span>,</span>
+<span>                     append <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The output of the grades will then look like this:</p>
+<div style="height: 300px; overflow: auto;">
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="4%">
+<col width="8%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="7%">
+<col width="9%">
+<col width="2%">
+<col width="7%">
+<col width="9%">
+<col width="2%">
+<col width="6%">
+<col width="8%">
+<col width="4%">
+<col width="9%">
+<col width="11%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Names</th>
+<th align="left">Email</th>
+<th align="left">SID</th>
+<th align="left">Sections</th>
+<th align="right">Homework</th>
+<th align="right">Homework - Max Points</th>
+<th align="left">Homework - Lateness (H:M:S)</th>
+<th align="right">Midterm</th>
+<th align="right">Midterm - Max Points</th>
+<th align="left">Midterm - Lateness (H:M:S)</th>
+<th align="right">Final</th>
+<th align="right">Final - Max Points</th>
+<th align="left">Final - Lateness (H:M:S)</th>
+<th align="right">Overall Grade</th>
+<th align="right">Overall Grade - Max Points</th>
+<th align="left">Overall Grade - Lateness (H:M:S)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alice Smith</td>
+<td align="left"><a href="mailto:alice.smith@email.com" class="email">alice.smith@email.com</a></td>
+<td align="left">3032412514</td>
+<td align="left">section-1</td>
+<td align="right">0.7555556</td>
+<td align="right">35</td>
+<td align="left">47:55:53</td>
+<td align="right">0.88</td>
+<td align="right">50</td>
+<td align="left">00:00:00</td>
+<td align="right">0.10</td>
+<td align="right">100</td>
+<td align="left">00:00:00</td>
+<td align="right">0.5182222</td>
+<td align="right">185</td>
+<td align="left">47:55:53</td>
+</tr>
+<tr class="even">
+<td align="left">Bob Johnson</td>
+<td align="left"><a href="mailto:bob.johnson@email.com" class="email">bob.johnson@email.com</a></td>
+<td align="left">3032412515</td>
+<td align="left">section-1</td>
+<td align="right">0.6666667</td>
+<td align="right">40</td>
+<td align="left">00:00:00</td>
+<td align="right">0.00</td>
+<td align="right">50</td>
+<td align="left">00:00:00</td>
+<td align="right">0.78</td>
+<td align="right">100</td>
+<td align="left">00:00:00</td>
+<td align="right">0.5786667</td>
+<td align="right">190</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="odd">
+<td align="left">Charlie Brown</td>
+<td align="left"><a href="mailto:charlie.brown@email.com" class="email">charlie.brown@email.com</a></td>
+<td align="left">3032412516</td>
+<td align="left">section-1</td>
+<td align="right">0.9333333</td>
+<td align="right">35</td>
+<td align="left">00:00:00</td>
+<td align="right">0.34</td>
+<td align="right">50</td>
+<td align="left">00:00:00</td>
+<td align="right">0.24</td>
+<td align="right">100</td>
+<td align="left">00:00:00</td>
+<td align="right">0.5373333</td>
+<td align="right">185</td>
+<td align="left">00:00:00</td>
+</tr>
+<tr class="even">
+<td align="left">David Wilson</td>
+<td align="left"><a href="mailto:david.wilson@email.com" class="email">david.wilson@email.com</a></td>
+<td align="left">3032412517</td>
+<td align="left">section-1</td>
+<td align="right">0.6933333</td>
+<td align="right">35</td>
+<td align="left">08:57:32</td>
+<td align="right">0.30</td>
+<td align="right">50</td>
+<td align="left">00:00:00</td>
+<td align="right">0.89</td>
+<td align="right">100</td>
+<td align="left">00:00:00</td>
+<td align="right">0.6933333</td>
+<td align="right">185</td>
+<td align="left">08:57:32</td>
+</tr>
+<tr class="odd">
+<td align="left">Eva White</td>
+<td align="left"><a href="mailto:eva.white@email.com" class="email">eva.white@email.com</a></td>
+<td align="left">3032412518</td>
+<td align="left">section-1</td>
+<td align="right">0.7133333</td>
+<td align="right">30</td>
+<td align="left">14:59:55</td>
+<td align="right">0.16</td>
+<td align="right">50</td>
+<td align="left">00:52:01</td>
+<td align="right">0.97</td>
+<td align="right">100</td>
+<td align="left">00:00:00</td>
+<td align="right">0.7053333</td>
+<td align="right">180</td>
+<td align="left">14:59:55</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="syllabus-as-a-grading-script">Syllabus as a Grading Script<a class="anchor" aria-label="anchor" href="#syllabus-as-a-grading-script"></a>
 </h2>
 <p>Here is the coded version of the same syllabus.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># function to convert HH:MM:SS into minutes</span></span>
 <span><span class="va">convert_to_min</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">hms</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_vec</a></span><span class="op">(</span><span class="va">hms</span>, <span class="kw">function</span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">{</span></span>
@@ -812,7 +953,7 @@ file.</p>
 <span>  <span class="co"># calculate final Overall Grade</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>`Overall Grade` <span class="op">=</span> <span class="fl">0.4</span> <span class="op">*</span> <span class="va">`Homework`</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="va">`Midterm Exam`</span> <span class="op">+</span> <span class="fl">0.4</span> <span class="op">*</span> <span class="va">`Final Exam`</span><span class="op">)</span></span></code></pre></div>
 <p>And, as you can see, the computations align.
-<img src="moderate-syllabus_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
+<img src="moderate-syllabus_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
 <div class="section level3">
 <h3 id="disclaimers">Disclaimers:<a class="anchor" aria-label="anchor" href="#disclaimers"></a>
 </h3>
