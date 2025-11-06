@@ -1,5 +1,7 @@
 # nemogb
 
+[![DOI](https://zenodo.org/badge/687739822.svg)](https://doi.org/10.5281/zenodo.17546945)
+
 An R package to make course grade calculations easy, fast, and most importantly,
 correct. Course grades are produced from a data frame of assignment grades along
 with a grading policy file that allows for accurate and systematic computations
