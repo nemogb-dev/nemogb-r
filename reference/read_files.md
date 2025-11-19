@@ -1,0 +1,32 @@
+# Read in File(s) from Grading Platform(s)
+
+This function will read in all input data to NemoGB
+
+## Usage
+
+``` r
+read_files(grades_path, other_file_paths = list(), source = "auto")
+```
+
+## Arguments
+
+- grades_path:
+
+  Is the path to the csv containing graded assignments.
+
+- other_file_paths:
+
+  Is a list containing any other filepaths desired to be read in. Each
+  name should be a designated type of file. For example, "lateness" and
+  "roster" and the value should be the filepath.
+
+- source:
+
+  Determines how to read the grade file. By default, it is auto so that
+  NemoGB can determine what format the file is in. Alternatively, users
+  can specify "Gradescope" or "Canvas" to force certain interpretations.
+
+## Value
+
+A dataframe of grades. Later support for other files will be returned as
+a list as well.
