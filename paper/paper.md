@@ -64,11 +64,11 @@ As students, we understand the importance of having an informed instructor who u
 
 `NemoGB` breaks down the calculation of a course grade into a series of nested aggregations. It accommodates the generic policies included in most syllabi: applying lateness penalties, dropping the *n* lowest scores in a category, and using averages or weighted averages to aggregate assignment scores into overarching category scores. As previously mentioned, the structure of this package also allows for outside contribution of unique policies in order for any course structure to be computed with this package.
 
-The details of the course grading structure -- usually detailed in the syllabus or on the class website -- can be articulated in YAML format using a series of accepted keys (e.g. `score`, `aggregation`, `lateness`, `drop_n_lowest`, etc.). More direction about creating a policy file is provided in the `Building a Policy File` vignette. The nested structure of this policy file reflects the nested structure of the course grade. The assignment scores come directly from Gradescope or other LMS in a .csv file. These two files (the YAML policy file and the LMS grade data) function as the two inputs for `NemoGB`'s primary and overarching function: `get_grades()`. After reading in the assignment data from the LMS using `read_gs()`and reading in the YAML policy file (that reflects grading policies from the syllabus) using `read_policy()`, this singular function computes the entirety of the final course grade computation.
+The details of the course grading structure -- usually detailed in the syllabus or on the class website -- can be articulated in YAML format using a series of accepted keys (e.g. `score`, `aggregation`, `lateness`, `drop_n_lowest`, etc.). More direction about creating a policy file is provided in the `Building a Policy File` vignette. The nested structure of this policy file reflects the nested structure of the course grade. The assignment scores come directly from Gradescope or Canvas in a .csv file. These two files (the YAML policy file and the LMS grade data) function as the two inputs for `NemoGB`'s primary and overarching function: `get_grades()`. After reading in the assignment data from Gradescope or Canvas using `read_gs()`and reading in the YAML policy file (that reflects grading policies from the syllabus) using `read_policy()`, this singular function computes the entirety of the final course grade computation.
 
 While `get_grades()` encapsulates the entire computational functionality of the R package, it is comprised of four sequential functions:
 
--   `process_gs()` ensures the correct format of the .csv file from Gradescope or another LMS.
+-   `process_gs()` ensures the correct format of the .csv file from Gradescope or Canvas.
 
 -   `process_policy()` similarly ensures the correct format of the policy file.
 
@@ -91,7 +91,7 @@ the flexible YAML structure allows for the former and the open-source nature of 
 
 # Acknowledgements
 
-The authors would like to thank lain Carmichael and Calvin Carter for helpful ideas and discussions throughout the development of this project.
+The authors would like to thank Iain Carmichael and Calvin Carter for helpful ideas and discussions throughout the development of this project.
 
 As of summer 2024, this project was funded by the an Instructional Technology and Innovation Micro Grant Program through the University of California, Berkeley. 
 
