@@ -93,7 +93,7 @@ the flexible YAML structure allows for the former and the open-source nature of 
 
 The authors would like to thank Iain Carmichael and Calvin Carter for helpful ideas and discussions throughout the development of this project.
 
-As of summer 2024, this project was funded by the an Instructional Technology and Innovation Micro Grant Program through the University of California, Berkeley. 
+As of summer 2024, this project was funded by an Instructional Technology and Innovation Micro Grant Program through the University of California, Berkeley. 
 
 
 # References
